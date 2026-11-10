@@ -4,13 +4,30 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": { "types": "./dist/engine/index.d.ts", "default": "./dist/engine/index.js" },
-    "./engine": { "types": "./dist/engine/index.d.ts", "default": "./dist/engine/index.js" },
-    "./serve": { "types": "./dist/engine/serve.d.ts", "default": "./dist/engine/serve.js" },
-    "./contracts": { "types": "./dist/contracts.d.ts", "default": "./dist/contracts.js" },
-    "./service-kit": { "types": "./dist/service-kit.d.ts", "default": "./dist/service-kit.js" }
+    ".": {
+      "types": "./dist/engine/index.d.ts",
+      "default": "./dist/engine/index.js"
+    },
+    "./engine": {
+      "types": "./dist/engine/index.d.ts",
+      "default": "./dist/engine/index.js"
+    },
+    "./serve": {
+      "types": "./dist/engine/serve.d.ts",
+      "default": "./dist/engine/serve.js"
+    },
+    "./contracts": {
+      "types": "./dist/contracts.d.ts",
+      "default": "./dist/contracts.js"
+    },
+    "./service-kit": {
+      "types": "./dist/service-kit.d.ts",
+      "default": "./dist/service-kit.js"
+    }
   },
-  "engines": { "node": ">=24 <25" },
+  "engines": {
+    "node": ">=24 <25"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.ts",
@@ -19,7 +36,17 @@
     "serve": "node src/engine/serve.ts",
     "pilot": "node scripts/pilot.ts"
   },
-  "dependencies": { "pg": "8.23.1" },
-  "devDependencies": { "@types/node": "26.6.5", "@types/pg": "8.15.5", "typescript": "7.0.2" },
-  "files": ["dist", "README.md", "docs"]
+  "dependencies": {
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/pg": "8.15.5",
+    "typescript": "7.0.2"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "docs"
+  ]
 }
