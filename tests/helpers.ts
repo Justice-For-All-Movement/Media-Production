@@ -1,4 +1,6 @@
 // Shared test support: real PostgreSQL (disposable database), real object store on disk, fictional pilot content.
+import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -48,3 +50,11 @@ export async function eventsOfType(engine: ProductionEngine, c: kit.ServiceConte
   return [];
 }
 export const LICENSE = { kind: 'license', license: 'CC0-1.0', attribution: 'Pilot fixture, invented for testing' } as const;
+
+/** A fictional ledger page drawn with ImageMagick: stands in for a scanned evidence page. */
+export function ledgerPage(dir: string): Uint8Array {
+  const p = join(dir, 'ledger.png');
+  execFileSync('convert', ['-size', '1000x1400', 'xc:#fbf8ef', '-font', 'DejaVu-Sans', '-fill', '#222222', '-pointsize', '38', '-annotate', '+70+120', 'LARKMOOR COUNCIL LEDGER', '-pointsize', '30',
+    '-annotate', '+70+300', 'Pumps and hoses           12,400', '-annotate', '+70+380', 'Shelter hall               8,150', '-annotate', '+70+460', 'Unexplained transfer   31,000', '-annotate', '+70+540', 'Account 4471-889-ZQ', '-annotate', '+70+900', 'Signed: T. Brandt, treasurer', p]);
+  return new Uint8Array(readFileSync(p));
+}

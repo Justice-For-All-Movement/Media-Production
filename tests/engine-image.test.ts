@@ -3,16 +3,9 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { LICENSE, ctx, finish, needsPg, withEngine } from './helpers.ts';
+import { LICENSE, ctx, finish, ledgerPage, needsPg, withEngine } from './helpers.ts';
 
 const tool = (cmd: string, args: string[]): string => execFileSync(cmd, args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-/** A fictional ledger page drawn with ImageMagick: stands in for a scanned evidence page. */
-export function ledgerPage(dir: string): Uint8Array {
-  const p = join(dir, 'ledger.png');
-  tool('convert', ['-size', '1000x1400', 'xc:#fbf8ef', '-font', 'DejaVu-Sans', '-fill', '#222222', '-pointsize', '38', '-annotate', '+70+120', 'LARKMOOR COUNCIL LEDGER', '-pointsize', '30',
-    '-annotate', '+70+300', 'Pumps and hoses           12,400', '-annotate', '+70+380', 'Shelter hall               8,150', '-annotate', '+70+460', 'Unexplained transfer   31,000', '-annotate', '+70+540', 'Account 4471-889-ZQ', '-annotate', '+70+900', 'Signed: T. Brandt, treasurer', p]);
-  return new Uint8Array(readFileSync(p));
-}
 const pixel = (file: string, x: number, y: number): string => tool('convert', [file, '-crop', `1x1+${x}+${y}`, '-depth', '8', 'txt:-']).split('\n')[1]!.match(/#([0-9A-F]{6})/)![1]!;
 
 test('still image: compose from an evidence excerpt, edit layers, export PNG/JPEG/WebP/SVG, version', needsPg, async () => {
