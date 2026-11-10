@@ -1,0 +1,999 @@
+{
+ "article": {
+  "manifest": {
+   "exportId": "a5f9be92-a0e4-4744-a51d-3ede029ddba7",
+   "engine": "E09",
+   "engineVersion": "1.0.0",
+   "document": "E09:document:9d82199f-13b1-468b-909d-8bcad7aad1a1@1",
+   "revision": 1,
+   "contentDigest": "421ac21800cbd05aefcf45e098f116d25bcbf1610f7a425f621ad09bd4e4b790",
+   "reviewState": "draft",
+   "approval": null,
+   "formats": [
+    "json",
+    "markdown"
+   ],
+   "renderingDigests": {
+    "markdown": "11b274eb8435c72219806aeaca3496e899af558ffa71a06ae41ccbe0f30feb49"
+   },
+   "sourceRefs": [
+    "E05:evidence_version:ev-minutes@1",
+    "E06:segment:seg-novak-3@1",
+    "E07:claim:c-ledger@2"
+   ],
+   "assetRefs": [],
+   "viewpointRefs": [],
+   "packageRefs": [],
+   "translationOf": null,
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "a2",
+     "basis": "reconstruction",
+     "disclosure": "This scene is reconstructed from committee minutes; gestures and wording are approximate."
+    }
+   ],
+   "openFlags": [],
+   "useDecisions": [
+    {
+     "decision": "allow",
+     "reasons": [],
+     "permissionRefs": [
+      "E11:permission:perm-1@1"
+     ],
+     "restrictions": [],
+     "decidedAt": "2026-11-10T11:32:55.733Z",
+     "subjects": [
+      "E06:segment:seg-novak-3@1"
+     ],
+     "action": "adapt"
+    }
+   ],
+   "intendedUse": "adapt",
+   "exportedAt": "2026-11-10T11:32:55.725Z",
+   "exportedBy": "author-1",
+   "objectKey": "t1/p1/exports/9d82199f-13b1-468b-909d-8bcad7aad1a1/a5f9be92-a0e4-4744-a51d-3ede029ddba7.json"
+  },
+  "document": {
+   "document": {
+    "ref": "E09:document:9d82199f-13b1-468b-909d-8bcad7aad1a1@1",
+    "id": "9d82199f-13b1-468b-909d-8bcad7aad1a1",
+    "revision": 1,
+    "title": "The Larkmoor Flood Relief Fund",
+    "docType": "article",
+    "language": "en",
+    "reviewState": "draft",
+    "translationOf": null
+   },
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "blocks": [
+    {
+     "id": "a1",
+     "data": {
+      "heading": "The water rises"
+     },
+     "text": "After the river Ost flooded the invented town of Larkmoor, the relief fund collected sixty thousand.",
+     "type": "passage",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.712Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "a2",
+     "data": {},
+     "text": "Tomas Brandt stood at the pump house door and counted the sandbags twice.",
+     "type": "passage",
+     "basis": "reconstruction",
+     "sources": [
+      "E05:evidence_version:ev-minutes@1"
+     ],
+     "disclosure": "This scene is reconstructed from committee minutes; gestures and wording are approximate."
+    },
+    {
+     "id": "a3",
+     "data": {},
+     "text": "We were told the fund was full.",
+     "type": "passage",
+     "basis": "attributed_testimony",
+     "sources": [
+      "E06:segment:seg-novak-3@1"
+     ],
+     "attribution": "Mirela Novak, shopkeeper",
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.712Z",
+      "useDecision": {
+       "action": "adapt",
+       "reasons": [],
+       "decision": "allow",
+       "subjects": [
+        "E06:segment:seg-novak-3@1"
+       ],
+       "decidedAt": "2026-11-10T11:32:55.718Z",
+       "restrictions": [],
+       "permissionRefs": [
+        "E11:permission:perm-1@1"
+       ]
+      }
+     }
+    },
+    {
+     "id": "a4",
+     "data": {
+      "heading": "The ledger"
+     },
+     "text": "One transfer of 31,000 has no receipt in the ledger.",
+     "type": "passage",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.712Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "a5",
+     "data": {},
+     "text": "It is not known who authorised the transfer.",
+     "type": "passage",
+     "basis": "unknown_acknowledged",
+     "sources": []
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "a2",
+     "basis": "reconstruction",
+     "disclosure": "This scene is reconstructed from committee minutes; gestures and wording are approximate."
+    }
+   ],
+   "sources": [
+    "E07:claim:c-ledger@2",
+    "E05:evidence_version:ev-minutes@1",
+    "E06:segment:seg-novak-3@1"
+   ]
+  },
+  "renderings": {
+   "markdown": "# The Larkmoor Flood Relief Fund\n\n*documentary · factual · published as Example Desk · E09:document:9d82199f-13b1-468b-909d-8bcad7aad1a1@1 · draft*\n\n## The water rises\n\nAfter the river Ost flooded the invented town of Larkmoor, the relief fund collected sixty thousand. [verified_fact] [^1]\n\nTomas Brandt stood at the pump house door and counted the sandbags twice. [reconstruction] [^2]\n\n> Disclosure (reconstruction): This scene is reconstructed from committee minutes; gestures and wording are approximate.\n\nWe were told the fund was full. [attributed_testimony — Mirela Novak, shopkeeper] [^3]\n\n## The ledger\n\nOne transfer of 31,000 has no receipt in the ledger. [verified_fact] [^1]\n\nIt is not known who authorised the transfer. [unknown_acknowledged]\n\n## Sources\n\n[^1]: E07:claim:c-ledger@2\n[^2]: E05:evidence_version:ev-minutes@1\n[^3]: E06:segment:seg-novak-3@1\n\n## Credits\n\n- Written by Ines Varga (writer)\n"
+  }
+ },
+ "lyrics": {
+  "manifest": {
+   "exportId": "17bbfd9f-6303-4506-ae91-8a449add613f",
+   "engine": "E09",
+   "engineVersion": "1.0.0",
+   "document": "E09:document:e780de76-8389-4f29-af88-4bf9fd6355d2@1",
+   "revision": 1,
+   "contentDigest": "26ed347797846d8f5ea2d37e36554d6516b47bb07463c98165758a866087d62a",
+   "reviewState": "draft",
+   "approval": null,
+   "formats": [
+    "json",
+    "markdown",
+    "lyric_sheet"
+   ],
+   "renderingDigests": {
+    "markdown": "74f205a0b88bf0f2b62d02952be3eda1c2899c7839229b77e6f419a395f24556",
+    "lyricSheet": "9f197a2078578847895080af196850eed8df3c3fa902a2aa8fe93b8827916c06"
+   },
+   "sourceRefs": [
+    "E05:evidence_version:ev-minutes@1"
+   ],
+   "assetRefs": [],
+   "viewpointRefs": [],
+   "packageRefs": [],
+   "translationOf": null,
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "v1",
+     "basis": "reconstruction",
+     "disclosure": "The verse retells events from committee minutes; details are approximated."
+    },
+    {
+     "blockId": "c1",
+     "basis": "invention",
+     "disclosure": "The chorus is the songwriters’ own words, not a quotation."
+    }
+   ],
+   "openFlags": [],
+   "useDecisions": [],
+   "intendedUse": "adapt",
+   "exportedAt": "2026-11-10T11:32:55.752Z",
+   "exportedBy": "author-1",
+   "objectKey": "t1/p1/exports/e780de76-8389-4f29-af88-4bf9fd6355d2/17bbfd9f-6303-4506-ae91-8a449add613f.json"
+  },
+  "document": {
+   "document": {
+    "ref": "E09:document:e780de76-8389-4f29-af88-4bf9fd6355d2@1",
+    "id": "e780de76-8389-4f29-af88-4bf9fd6355d2",
+    "revision": 1,
+    "title": "Where the Water Went",
+    "docType": "lyrics",
+    "language": "en",
+    "reviewState": "draft",
+    "translationOf": null
+   },
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "blocks": [
+    {
+     "id": "v1",
+     "data": {
+      "key": "D minor",
+      "part": "verse",
+      "label": "Verse 1",
+      "tempoBpm": 108,
+      "syllables": [
+       8,
+       8,
+       8,
+       8
+      ]
+     },
+     "text": "The river rose on Larkmoor lane\nWe counted sandbags in the rain\nThey told us help was on the way\nThe ledger tells another day",
+     "type": "lyric_section",
+     "basis": "reconstruction",
+     "sources": [
+      "E05:evidence_version:ev-minutes@1"
+     ],
+     "disclosure": "The verse retells events from committee minutes; details are approximated."
+    },
+    {
+     "id": "c1",
+     "data": {
+      "part": "chorus",
+      "label": "Chorus",
+      "syllables": [
+       6,
+       6,
+       9,
+       8
+      ]
+     },
+     "text": "Where did the water go\nWhere did the money flow\nShow us the paper, show us the sum\nWe will be here when morning comes",
+     "type": "lyric_section",
+     "basis": "invention",
+     "sources": [],
+     "disclosure": "The chorus is the songwriters’ own words, not a quotation."
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "v1",
+     "basis": "reconstruction",
+     "disclosure": "The verse retells events from committee minutes; details are approximated."
+    },
+    {
+     "blockId": "c1",
+     "basis": "invention",
+     "disclosure": "The chorus is the songwriters’ own words, not a quotation."
+    }
+   ],
+   "sources": [
+    "E05:evidence_version:ev-minutes@1"
+   ]
+  },
+  "renderings": {
+   "markdown": "# Where the Water Went\n\n*documentary · factual · published as Example Desk · E09:document:e780de76-8389-4f29-af88-4bf9fd6355d2@1 · draft*\n\n**Verse 1** [reconstruction] [^1]\n\nThe river rose on Larkmoor lane  \nWe counted sandbags in the rain  \nThey told us help was on the way  \nThe ledger tells another day  \n\n> Disclosure (reconstruction): The verse retells events from committee minutes; details are approximated.\n\n**Chorus** [invention]\n\nWhere did the water go  \nWhere did the money flow  \nShow us the paper, show us the sum  \nWe will be here when morning comes  \n\n> Disclosure (invention): The chorus is the songwriters’ own words, not a quotation.\n\n## Sources\n\n[^1]: E05:evidence_version:ev-minutes@1\n\n## Credits\n\n- Written by Ines Varga (writer)\n",
+   "lyricSheet": "WHERE THE WATER WENT\nfactual · Example Desk\n\n[Verse 1] (reconstruction) {108 bpm; key D minor}\nThe river rose on Larkmoor lane  (8)\nWe counted sandbags in the rain  (8)\nThey told us help was on the way  (8)\nThe ledger tells another day  (8)\n(Disclosure (reconstruction): The verse retells events from committee minutes; details are approximated.)\nSources: E05:evidence_version:ev-minutes@1\n\n[Chorus] (invention)\nWhere did the water go  (6)\nWhere did the money flow  (6)\nShow us the paper, show us the sum  (9)\nWe will be here when morning comes  (8)\n(Disclosure (invention): The chorus is the songwriters’ own words, not a quotation.)\n\nCredits: Written by Ines Varga (writer)\n"
+  }
+ },
+ "script": {
+  "manifest": {
+   "exportId": "dd6c9795-fcb0-4c61-978e-4db74daca83e",
+   "engine": "E09",
+   "engineVersion": "1.0.0",
+   "document": "E09:document:bb33fbe8-5c1e-4f59-a745-758ed8ee520a@1",
+   "revision": 1,
+   "contentDigest": "3f8b0b1566fe3a4a7b3ac27441bc93c9b8fe390483310b386130043f62be75eb",
+   "reviewState": "draft",
+   "approval": null,
+   "formats": [
+    "json",
+    "markdown",
+    "fountain"
+   ],
+   "renderingDigests": {
+    "markdown": "b55979ee745775924bae767cfc84ea4d4e7373a812d6db5d33c8ae560ebe3f94",
+    "fountain": "dc3c6c365921185e64763d30f2b0abf672f3a77c0dd959dc045e9f770300031f"
+   },
+   "sourceRefs": [
+    "E05:evidence_version:ev-minutes@1",
+    "E06:segment:seg-novak-3@1",
+    "E07:claim:c-ledger@2"
+   ],
+   "assetRefs": [
+    "E05:evidence_version:ev-ledger@1"
+   ],
+   "viewpointRefs": [],
+   "packageRefs": [],
+   "translationOf": null,
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "s2",
+     "basis": "reconstruction",
+     "disclosure": "Staged reconstruction of the night at the pump house."
+    }
+   ],
+   "openFlags": [],
+   "useDecisions": [
+    {
+     "decision": "allow",
+     "reasons": [],
+     "permissionRefs": [
+      "E11:permission:perm-1@1"
+     ],
+     "restrictions": [],
+     "decidedAt": "2026-11-10T11:32:55.786Z",
+     "subjects": [
+      "E06:segment:seg-novak-3@1"
+     ],
+     "action": "adapt"
+    }
+   ],
+   "intendedUse": "adapt",
+   "exportedAt": "2026-11-10T11:32:55.782Z",
+   "exportedBy": "author-1",
+   "objectKey": "t1/p1/exports/bb33fbe8-5c1e-4f59-a745-758ed8ee520a/dd6c9795-fcb0-4c61-978e-4db74daca83e.json"
+  },
+  "document": {
+   "document": {
+    "ref": "E09:document:bb33fbe8-5c1e-4f59-a745-758ed8ee520a@1",
+    "id": "bb33fbe8-5c1e-4f59-a745-758ed8ee520a",
+    "revision": 1,
+    "title": "The Larkmoor Fund (short film)",
+    "docType": "script",
+    "language": "en",
+    "reviewState": "draft",
+    "translationOf": null
+   },
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "blocks": [
+    {
+     "id": "s1",
+     "data": {
+      "time": "Day",
+      "panels": [
+       {
+        "id": "p1",
+        "framing": "close",
+        "assetRefs": [
+         "E05:evidence_version:ev-ledger@1"
+        ],
+        "description": "Slow move across ledger page 14",
+        "durationSeconds": 5
+       }
+      ],
+      "purpose": "Show the record",
+      "location": "Council archive",
+      "participants": []
+     },
+     "text": "The ledger lies open on the archive table.",
+     "type": "scene",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.770Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "n1",
+     "data": {
+      "element": "narration",
+      "sceneRef": "s1"
+     },
+     "text": "One transfer of thirty one thousand has no receipt.",
+     "type": "script_element",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.770Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "o1",
+     "data": {
+      "element": "on_screen_text",
+      "sceneRef": "s1"
+     },
+     "text": "31,000 unaccounted",
+     "type": "script_element",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.770Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "s2",
+     "data": {
+      "time": "Night",
+      "panels": [
+       {
+        "id": "p1",
+        "assetRefs": [],
+        "description": "Sandbags stacked against the door",
+        "durationSeconds": 4
+       }
+      ],
+      "purpose": "Show the night of the flood",
+      "location": "Pump house",
+      "participants": []
+     },
+     "text": "A man counts sandbags by lamplight.",
+     "type": "scene",
+     "basis": "reconstruction",
+     "sources": [
+      "E05:evidence_version:ev-minutes@1"
+     ],
+     "disclosure": "Staged reconstruction of the night at the pump house."
+    },
+    {
+     "id": "d1",
+     "data": {
+      "element": "dialogue",
+      "sceneRef": "s2",
+      "character": "Shopkeeper"
+     },
+     "text": "We were told the fund was full.",
+     "type": "script_element",
+     "basis": "attributed_testimony",
+     "sources": [
+      "E06:segment:seg-novak-3@1"
+     ],
+     "attribution": "Mirela Novak, shopkeeper",
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.770Z",
+      "useDecision": {
+       "action": "adapt",
+       "reasons": [],
+       "decision": "allow",
+       "subjects": [
+        "E06:segment:seg-novak-3@1"
+       ],
+       "decidedAt": "2026-11-10T11:32:55.775Z",
+       "restrictions": [],
+       "permissionRefs": [
+        "E11:permission:perm-1@1"
+       ]
+      }
+     }
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "s2",
+     "basis": "reconstruction",
+     "disclosure": "Staged reconstruction of the night at the pump house."
+    }
+   ],
+   "sources": [
+    "E07:claim:c-ledger@2",
+    "E05:evidence_version:ev-minutes@1",
+    "E06:segment:seg-novak-3@1"
+   ]
+  },
+  "renderings": {
+   "markdown": "# The Larkmoor Fund (short film)\n\n*documentary · factual · published as Example Desk · E09:document:bb33fbe8-5c1e-4f59-a745-758ed8ee520a@1 · draft*\n\n### Scene: Show the record [verified_fact] [^1]\n\nCouncil archive · Day\n\nThe ledger lies open on the archive table.\n\n1. Slow move across ledger page 14 — close — 5s — assets: E05:evidence_version:ev-ledger@1\n\n(narration) One transfer of thirty one thousand has no receipt. [verified_fact] [^1]\n\n(on_screen_text) 31,000 unaccounted [verified_fact] [^1]\n\n### Scene: Show the night of the flood [reconstruction] [^2]\n\nPump house · Night\n\nA man counts sandbags by lamplight.\n\n1. Sandbags stacked against the door — 4s\n\n> Disclosure (reconstruction): Staged reconstruction of the night at the pump house.\n\n**Shopkeeper** (dialogue) We were told the fund was full. [attributed_testimony — Mirela Novak, shopkeeper] [^3]\n\n## Sources\n\n[^1]: E07:claim:c-ledger@2\n[^2]: E05:evidence_version:ev-minutes@1\n[^3]: E06:segment:seg-novak-3@1\n\n## Credits\n\n- Written by Ines Varga (writer)\n",
+   "fountain": "Title: The Larkmoor Fund (short film)\nCredit: Written by Ines Varga\nSource: E09:document:bb33fbe8-5c1e-4f59-a745-758ed8ee520a@1\nNotes: factual work published as Example Desk\n\n.COUNCIL ARCHIVE — DAY\n\n!The ledger lies open on the archive table.\n\n!SHOT 1 — close — 5s: Slow move across ledger page 14\n[[assets: E05:evidence_version:ev-ledger@1]]\n\n[[verified_fact; sources: E07:claim:c-ledger@2]]\n\n@NARRATOR (V.O.)\nOne transfer of thirty one thousand has no receipt.\n\n[[verified_fact; sources: E07:claim:c-ledger@2]]\n\n!SUPER: 31,000 unaccounted\n\n[[verified_fact; sources: E07:claim:c-ledger@2]]\n\n.PUMP HOUSE — NIGHT\n\n!A man counts sandbags by lamplight.\n\n!SHOT 1 — 4s: Sandbags stacked against the door\n\n!Disclosure (reconstruction): Staged reconstruction of the night at the pump house.\n\n[[reconstruction; sources: E05:evidence_version:ev-minutes@1]]\n\n@SHOPKEEPER\nWe were told the fund was full.\n\n[[attributed_testimony; attributed: Mirela Novak, shopkeeper; sources: E06:segment:seg-novak-3@1]]\n"
+  }
+ },
+ "interactive": {
+  "manifest": {
+   "exportId": "2d9b6238-4eb1-4fa1-85c5-f065a0ebcab8",
+   "engine": "E09",
+   "engineVersion": "1.0.0",
+   "document": "E09:document:f7301417-baed-442a-a5a6-1b49a762fe38@1",
+   "revision": 1,
+   "contentDigest": "54d9f0386612168d28cf713248eb27251446b9b09a7d2e706051a3186bbb8b84",
+   "reviewState": "draft",
+   "approval": null,
+   "formats": [
+    "json",
+    "markdown",
+    "graph"
+   ],
+   "renderingDigests": {
+    "markdown": "2352abdf74659fffd11e84c7fb2e7aee7ee4d08f86b0af9642d2f4efdd958861",
+    "graph": "5b5b8de2e0f3a6af953b1fb7cdaec2312a838364c8d7a2167a69a04b68f1f06c"
+   },
+   "sourceRefs": [
+    "E05:evidence_version:ev-minutes@1",
+    "E07:claim:c-ledger@2"
+   ],
+   "assetRefs": [],
+   "viewpointRefs": [],
+   "packageRefs": [],
+   "translationOf": null,
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "i3",
+     "basis": "reconstruction",
+     "disclosure": "This meeting is reconstructed from committee minutes; the wording is approximate."
+    },
+    {
+     "blockId": "i5",
+     "basis": "invention",
+     "disclosure": "This ending is invented to close the path."
+    }
+   ],
+   "openFlags": [],
+   "useDecisions": [],
+   "intendedUse": "adapt",
+   "exportedAt": "2026-11-10T11:32:55.798Z",
+   "exportedBy": "author-1",
+   "objectKey": "t1/p1/exports/f7301417-baed-442a-a5a6-1b49a762fe38/2d9b6238-4eb1-4fa1-85c5-f065a0ebcab8.json"
+  },
+  "document": {
+   "document": {
+    "ref": "E09:document:f7301417-baed-442a-a5a6-1b49a762fe38@1",
+    "id": "f7301417-baed-442a-a5a6-1b49a762fe38",
+    "revision": 1,
+    "title": "Follow the Larkmoor Money",
+    "docType": "interactive_story",
+    "language": "en",
+    "reviewState": "draft",
+    "translationOf": null
+   },
+   "labels": {
+    "projectKind": "factual",
+    "format": "documentary",
+    "publishingIdentity": "Example Desk",
+    "projectTitle": "The Larkmoor Flood Relief Fund",
+    "notice": null
+   },
+   "credits": [
+    {
+     "name": "Ines Varga",
+     "role": "writer",
+     "creditLine": "Written by Ines Varga"
+    }
+   ],
+   "blocks": [
+    {
+     "id": "i1",
+     "data": {
+      "key": "start",
+      "start": true,
+      "choices": [
+       {
+        "to": "ledger",
+        "label": "Open the ledger",
+        "effects": {
+         "sawLedger": true
+        }
+       },
+       {
+        "to": "treasurer",
+        "label": "Ask the treasurer"
+       }
+      ]
+     },
+     "text": "The relief fund collected sixty thousand. You have one afternoon in the archive.",
+     "type": "story_node",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.792Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "i2",
+     "data": {
+      "key": "ledger",
+      "choices": [
+       {
+        "to": "treasurer",
+        "label": "Ask the treasurer about it"
+       }
+      ]
+     },
+     "text": "One transfer of 31,000 has no receipt.",
+     "type": "story_node",
+     "basis": "verified_fact",
+     "sources": [
+      "E07:claim:c-ledger@2"
+     ],
+     "verification": {
+      "checkedAt": "2026-11-10T11:32:55.792Z",
+      "knowledge": {
+       "mode": "port",
+       "claims": [
+        {
+         "ref": "E07:claim:c-ledger@2",
+         "status": {
+          "stale": false,
+          "blocked": false,
+          "factual": "supported",
+          "editorial": "approved"
+         }
+        }
+       ],
+       "status": "supported"
+      }
+     }
+    },
+    {
+     "id": "i3",
+     "data": {
+      "key": "treasurer",
+      "choices": [
+       {
+        "to": "answer",
+        "label": "Show him the ledger entry",
+        "condition": {
+         "op": "eq",
+         "var": "sawLedger",
+         "value": true
+        }
+       },
+       {
+        "to": "open",
+        "label": "Thank him and leave"
+       }
+      ]
+     },
+     "text": "Tomas Brandt counts the sandbags twice before he answers.",
+     "type": "story_node",
+     "basis": "reconstruction",
+     "sources": [
+      "E05:evidence_version:ev-minutes@1"
+     ],
+     "disclosure": "This meeting is reconstructed from committee minutes; the wording is approximate."
+    },
+    {
+     "id": "i4",
+     "data": {
+      "key": "answer",
+      "ending": "You have a claim to verify.",
+      "choices": []
+     },
+     "text": "He says the receipt was lost in the flood.",
+     "type": "story_node",
+     "basis": "allegation",
+     "sources": [],
+     "attribution": "Tomas Brandt, treasurer"
+    },
+    {
+     "id": "i5",
+     "data": {
+      "key": "open",
+      "ending": "The question stays open.",
+      "choices": []
+     },
+     "text": "Without the ledger you have nothing to ask.",
+     "type": "story_node",
+     "basis": "invention",
+     "sources": [],
+     "disclosure": "This ending is invented to close the path."
+    }
+   ],
+   "disclosures": [
+    {
+     "blockId": "i3",
+     "basis": "reconstruction",
+     "disclosure": "This meeting is reconstructed from committee minutes; the wording is approximate."
+    },
+    {
+     "blockId": "i5",
+     "basis": "invention",
+     "disclosure": "This ending is invented to close the path."
+    }
+   ],
+   "sources": [
+    "E07:claim:c-ledger@2",
+    "E05:evidence_version:ev-minutes@1"
+   ]
+  },
+  "renderings": {
+   "markdown": "# Follow the Larkmoor Money\n\n*documentary · factual · published as Example Desk · E09:document:f7301417-baed-442a-a5a6-1b49a762fe38@1 · draft*\n\n### Node start [verified_fact] [^1]\n\nThe relief fund collected sixty thousand. You have one afternoon in the archive.\n\n- Open the ledger → ledger\n- Ask the treasurer → treasurer\n\n### Node ledger [verified_fact] [^1]\n\nOne transfer of 31,000 has no receipt.\n\n- Ask the treasurer about it → treasurer\n\n### Node treasurer [reconstruction] [^2]\n\nTomas Brandt counts the sandbags twice before he answers.\n\n- Show him the ledger entry → answer\n- Thank him and leave → open\n\n> Disclosure (reconstruction): This meeting is reconstructed from committee minutes; the wording is approximate.\n\n### Node answer (ending) [allegation — Tomas Brandt, treasurer]\n\nHe says the receipt was lost in the flood.\n\n### Node open (ending) [invention]\n\nWithout the ledger you have nothing to ask.\n\n> Disclosure (invention): This ending is invented to close the path.\n\n## Sources\n\n[^1]: E07:claim:c-ledger@2\n[^2]: E05:evidence_version:ev-minutes@1\n\n## Credits\n\n- Written by Ines Varga (writer)\n",
+   "graph": {
+    "document": "E09:document:f7301417-baed-442a-a5a6-1b49a762fe38@1",
+    "labels": {
+     "projectKind": "factual",
+     "format": "documentary",
+     "publishingIdentity": "Example Desk",
+     "projectTitle": "The Larkmoor Flood Relief Fund",
+     "notice": null
+    },
+    "start": "start",
+    "endings": [
+     "answer",
+     "open"
+    ],
+    "variables": [
+     "sawLedger"
+    ],
+    "nodes": [
+     {
+      "key": "start",
+      "blockId": "i1",
+      "text": "The relief fund collected sixty thousand. You have one afternoon in the archive.",
+      "basis": "verified_fact",
+      "sources": [
+       "E07:claim:c-ledger@2"
+      ],
+      "attribution": null,
+      "disclosure": null,
+      "ending": null,
+      "choices": [
+       {
+        "to": "ledger",
+        "label": "Open the ledger",
+        "effects": {
+         "sawLedger": true
+        }
+       },
+       {
+        "to": "treasurer",
+        "label": "Ask the treasurer"
+       }
+      ]
+     },
+     {
+      "key": "ledger",
+      "blockId": "i2",
+      "text": "One transfer of 31,000 has no receipt.",
+      "basis": "verified_fact",
+      "sources": [
+       "E07:claim:c-ledger@2"
+      ],
+      "attribution": null,
+      "disclosure": null,
+      "ending": null,
+      "choices": [
+       {
+        "to": "treasurer",
+        "label": "Ask the treasurer about it"
+       }
+      ]
+     },
+     {
+      "key": "treasurer",
+      "blockId": "i3",
+      "text": "Tomas Brandt counts the sandbags twice before he answers.",
+      "basis": "reconstruction",
+      "sources": [
+       "E05:evidence_version:ev-minutes@1"
+      ],
+      "attribution": null,
+      "disclosure": "This meeting is reconstructed from committee minutes; the wording is approximate.",
+      "ending": null,
+      "choices": [
+       {
+        "to": "answer",
+        "label": "Show him the ledger entry",
+        "condition": {
+         "op": "eq",
+         "var": "sawLedger",
+         "value": true
+        }
+       },
+       {
+        "to": "open",
+        "label": "Thank him and leave"
+       }
+      ]
+     },
+     {
+      "key": "answer",
+      "blockId": "i4",
+      "text": "He says the receipt was lost in the flood.",
+      "basis": "allegation",
+      "sources": [],
+      "attribution": "Tomas Brandt, treasurer",
+      "disclosure": null,
+      "ending": "You have a claim to verify.",
+      "choices": []
+     },
+     {
+      "key": "open",
+      "blockId": "i5",
+      "text": "Without the ledger you have nothing to ask.",
+      "basis": "invention",
+      "sources": [],
+      "attribution": null,
+      "disclosure": "This ending is invented to close the path.",
+      "ending": "The question stays open.",
+      "choices": []
+     }
+    ]
+   }
+  }
+ }
+}
