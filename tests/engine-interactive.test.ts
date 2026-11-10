@@ -73,6 +73,7 @@ test('interactive work: validate graph, edit, preview, export an offline package
       await pageB.keyboard.press('Enter');
       assert.equal(await pageB.textContent('#node-title'), 'The ledger');
       assert.equal(await pageB.evaluate('document.activeElement.id'), 'node-title');           // focus moves to the new passage
+      await pageB.waitForFunction('document.querySelector("figure img") && document.querySelector("figure img").complete');
       assert.equal(await pageB.evaluate('document.querySelector("figure img").naturalWidth'), 1000); // bundled media loads offline
       assert.equal(await pageB.getAttribute('figure img', 'alt'), 'A ledger page listing three payments');
       assert.match(await pageB.textContent('#status'), /The ledger/);
@@ -100,7 +101,7 @@ test('interactive work: validate graph, edit, preview, export an offline package
       assert.equal(await p2.textContent('#node-title'), 'The pump house'); assert.deepEqual(e2, []);
       // the single-file export plays as well
       const single = join(root, 'single.html'); writeFileSync(single, (await engine.getRenderOutput(c, r.id, 'Follow-the-Larkmoor-Money.html')).bytes);
-      const p3 = await (await browser.newContext()).newPage(); await p3.goto(`file://${single}`); await p3.keyboard.press('1'); assert.equal(await p3.evaluate('document.querySelector("figure img").naturalWidth'), 1000);
+      const p3 = await (await browser.newContext()).newPage(); await p3.goto(`file://${single}`); await p3.keyboard.press('1'); await p3.waitForFunction('document.querySelector("figure img") && document.querySelector("figure img").complete'); assert.equal(await p3.evaluate('document.querySelector("figure img").naturalWidth'), 1000);
       assert.ok(existsSync(single));
     } finally { await browser.close(); }
   });
