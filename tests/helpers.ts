@@ -54,7 +54,9 @@ export const LICENSE = { kind: 'license', license: 'CC0-1.0', attribution: 'Pilo
 /** A fictional ledger page drawn with ImageMagick: stands in for a scanned evidence page. */
 export function ledgerPage(dir: string): Uint8Array {
   const p = join(dir, 'ledger.png');
+  // Deterministic bytes: ImageMagick otherwise embeds creation/modification times, so two calls a second apart differ
+  // (which made the idempotent-replay test depend on timing).
   execFileSync('convert', ['-size', '1000x1400', 'xc:#fbf8ef', '-font', 'DejaVu-Sans', '-fill', '#222222', '-pointsize', '38', '-annotate', '+70+120', 'LARKMOOR COUNCIL LEDGER', '-pointsize', '30',
-    '-annotate', '+70+300', 'Pumps and hoses           12,400', '-annotate', '+70+380', 'Shelter hall               8,150', '-annotate', '+70+460', 'Unexplained transfer   31,000', '-annotate', '+70+540', 'Account 4471-889-ZQ', '-annotate', '+70+900', 'Signed: T. Brandt, treasurer', p]);
+    '-annotate', '+70+300', 'Pumps and hoses           12,400', '-annotate', '+70+380', 'Shelter hall               8,150', '-annotate', '+70+460', 'Unexplained transfer   31,000', '-annotate', '+70+540', 'Account 4471-889-ZQ', '-annotate', '+70+900', 'Signed: T. Brandt, treasurer', '-strip', '-define', 'png:exclude-chunks=all', p]);
   return new Uint8Array(readFileSync(p));
 }
