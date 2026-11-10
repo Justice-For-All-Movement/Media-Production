@@ -248,7 +248,7 @@ recorded in manifests; a missing one yields `unavailable` naming it.
 
 ## 11. Status
 
-Implemented and locally tested on real PostgreSQL 16 and the real tools above (`tests/engine-*.test.ts`, 19 tests):
+Implemented and locally tested on real PostgreSQL 16 and the real tools above (`tests/engine-*.test.ts`, 16 tests):
 all five pipelines create → edit → render → verify (pdftotext/pdfinfo/pdffonts, identify + pixel checks + OCR, ffprobe,
 EBU R128 loudness, numpy pitch analysis of stems before/after transpose, OCR of burned-in captions and disclosure cards,
 Playwright keyboard play-through of the exported ZIP) → revise → re-render with old versions retained → reopen revisions;
