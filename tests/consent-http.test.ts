@@ -48,3 +48,14 @@ test('bounded UTF8 response and monotonic deadline, with closed signals and sani
     await assert.rejects(port.decide(ctx(), request()), e => unavailable(e) && !String(e).includes('SYNTHETIC_SECRET')); assert.equal((signal as AbortSignal | null)?.aborted, true);
   }
 });
+test('producer Buffer reuse cannot rewrite accepted bytes; uncooperative body cancellation cannot hold the port open', async () => {
+  const expected=decision();const bytes=Buffer.from(JSON.stringify(expected));let pulls=0;
+  const body=new ReadableStream<Uint8Array>({pull(controller){pulls++;if(pulls===1)controller.enqueue(bytes);else{bytes.fill(0);controller.close();}}},{highWaterMark:0});
+  const port=httpUseDecisionPort({baseUrl:'https://example.invalid',token:token(),fetch:async()=>new Response(body)});
+  assert.deepEqual(await port.decide(ctx(),request()),expected);assert.equal(pulls,2);
+  let cancelled=false;let signal:AbortSignal|null=null;
+  const blocked=new ReadableStream<Uint8Array>({cancel(){cancelled=true;return new Promise<void>(()=>{});}},{highWaterMark:0});
+  const rejecting=httpUseDecisionPort({baseUrl:'https://example.invalid',token:token(),timeoutMs:100,fetch:async(_url,init)=>{signal=init?.signal??null;return new Response(blocked,{headers:{'content-length':String(512*1024+1)}});}});
+  await Promise.race([assert.rejects(rejecting.decide(ctx(),request()),unavailable),new Promise<never>((_,reject)=>{const timer=setTimeout(()=>reject(new Error('port awaited an uncooperative cancel hook')),300);timer.unref();})]);
+  assert.equal(cancelled,true);assert.equal((signal as AbortSignal|null)?.aborted,true);
+});

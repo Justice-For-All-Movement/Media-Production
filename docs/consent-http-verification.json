@@ -1,0 +1,51 @@
+{
+  "status": "implemented candidate; final-head full CI required",
+  "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/1",
+  "base": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
+  "peerPin": "Justice-For-All-Movement/Consent-rights-and-use-decisions-engine@be8bf8cdaf333b5278027663eeffaf4a36b6f08a",
+  "implementationReference": "Editorial PR2 source285c69bb6f5ff34311012ae406731cd9482ab809; copied engine-owned transport/parser, existing Media export preserved",
+  "local": {
+    "focused": 8,
+    "packedPublicExport": 8,
+    "strictDeclarations": true,
+    "typecheck": true,
+    "build": true,
+    "registry": true,
+    "runtimeMatches": [
+      "serve",
+      "consent-http",
+      "scoped-http"
+    ],
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "peerCi": {
+    "source": "115e37afa729601beed7fb2383f865d2bece22dd",
+    "realConsentJob": 134764029731,
+    "tests": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "review": "clear for bounded exact request/credential capture, strict literal response, fail-closed scope and sanitized monotonic transport; no change to render/export/byte-read authority semantics",
+  "limits": [
+    "final-head full existing Media CI and real pinned E11 test",
+    "original-human/current Identity/all-source rights/credential refresh and retained-output permission qualification",
+    "sandbox/render/deployed/browser/AT quality remain owning API limitations",
+    "JWT payload selection is not authentication; actual E11 verifies signature",
+    "remote decision/audit may commit during uncertainty; no rollback, quiescence, retry or use permit implied",
+    "prepared dependencies copied from local Editorial (including @types/pg); no fresh/full-local-installed/PG/TLS/render/browserAT/live qualification",
+    "PAM foundation stopped; no sends/publication/payment/paid infrastructure"
+  ],
+  "sha256": {
+    "src/engine/serve.ts": "8b08e6404f00984d731860f2a3243ee316c55c3a99d77fe80938b501cb69447a",
+    "src/engine/consent-http.ts": "c207b4f7c1e5ad532a214c2e559a3c490da933f602aadee8f0428faa50740c79",
+    "src/engine/scoped-http.ts": "df0cf823428e1c52dffe00f1c6a505ba3f9d9f9671f276c121354387dded1d34",
+    "tests/consent-http.test.ts": "af82ebfce5d51c421eb90c928c2256776f8174eed1ae68b2aa75dcc9a109459c",
+    "tests/consent-scope.test.ts": "cbbdb7ce745f9d9d642f06996322a681c58bf0d84ac666afe4977c5fb1eb2a4c",
+    "integration/consent-http.test.ts": "d4f8d440edfd3aa6d80a65a0984167ff72c8a79c759d536f664570d9907f8d75",
+    "docs/CONSENT_HTTP.md": "443e4720783d67460fa97df7713e4e260840a373c471ecd6acd6b4f34dac28e8",
+    "scripts/validate-registry.mjs": "3be4ceafb7c5c6c537f15bc304369c44a423c063191569f0a82d28241c1d1474"
+  }
+}

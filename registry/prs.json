@@ -180,17 +180,27 @@
   "checkpoints": [
     {
       "id": "scoped-consent-http",
-      "status": "incomplete WIP; source and local qualification before final CI",
+      "status": "implemented candidate; final-head full CI required before merge",
       "baseCommit": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
       "documentation": "docs/CONSENT_HTTP.md",
       "reproduction": "Two native local HTTP regressions fail on base: foreign caller scope receives allow; missing restrictions/time fabricated as an allow response. No real provider input.",
       "remaining": [
-        "final-head full CI, packed qualification and actual pinned E11 test",
+        "final-head full existing Media CI and real pinned E11 test",
         "original-human/current Identity/all-source rights/credential refresh and retained-output permission qualification",
         "sandbox/render/deployed/browser/AT quality remain owning API limitations"
       ],
       "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/1",
-      "localEvidence": "7focused source groups/typecheck/build/registry pass; copied prepared dependencies (including local @types/pg from Editorial), not fresh install or full local Media/Postgres/tool suite"
+      "localEvidence": "8focused source+8packed public ./serve groups, strict public declarations/typecheck/build/registry/3runtime byte matches;0fail/cancel/skip;copied prepared deps, not fresh install or full local PostgreSQL/media-tool suite",
+      "peerCi": {
+        "source": "115e37afa729601beed7fb2383f865d2bece22dd",
+        "realConsentJob": 134764029731,
+        "tests": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear for bounded exact request/credential capture, strict literal response, fail-closed scope and sanitized monotonic transport; no change to render/export/byte-read authority semantics",
+      "verification": "docs/consent-http-verification.json"
     }
   ],
   "approvedDesignSha256": {
