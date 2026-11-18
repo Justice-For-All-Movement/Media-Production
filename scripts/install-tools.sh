@@ -3,8 +3,9 @@
 # Every tool is probed at runtime; a missing one yields an explicit `unavailable` error naming it.
 set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
-apt-get -o DPkg::Lock::Timeout=600 update
-apt-get -o DPkg::Lock::Timeout=600 install -y --no-install-recommends \
+# Bound inactive mirror connections and retries; keep every required package and fail on install errors.
+apt-get -o DPkg::Lock::Timeout=600 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 update
+apt-get -o DPkg::Lock::Timeout=600 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 install -y --no-install-recommends \
   ffmpeg \
   librsvg2-bin imagemagick libimage-exiftool-perl \
   pandoc libreoffice-writer poppler-utils \
