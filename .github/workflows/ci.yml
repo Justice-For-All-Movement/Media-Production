@@ -26,9 +26,10 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - name: Check Ubuntu archive source layouts
+        run: python3 scripts/test-ci-ubuntu-archive.py
       - name: Use canonical HTTPS Ubuntu archive for large tool downloads
-        run: |
-          sudo sed -i -E 's@http://[a-z0-9-]+\.ec2\.archive\.ubuntu\.com/ubuntu@https://archive.ubuntu.com/ubuntu@g' /etc/apt/sources.list.d/ubuntu.sources
+        run: sudo python3 scripts/ci-ubuntu-archive.py
       - name: Install media tools
         run: sudo ./scripts/install-tools.sh
       - run: npm ci

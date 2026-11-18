@@ -325,7 +325,15 @@
         "cause": "slow regional HTTP Ubuntu package downloads including130MB soundfont",
         "change": "CI-only canonical HTTPS Ubuntu archive URI, all packages and tests retained",
         "local": "exact mirror fixture and idempotent transformation pass; no local apt/network/full-suite claim",
-        "remaining": "fresh final-head all checks/review/rules/expected-head merge"
+        "remaining": "fresh final-head all checks/review/rules/expected-head merge",
+        "followUp": {
+          "qualifiedHead": "b1ff63056098200869c3e9de8b96dbb153cc499d",
+          "ordinaryJob": 135047377809,
+          "ordinaryTests": 33,
+          "cancelledBeforeTests": 135047335473,
+          "change": "scan legacy sources.list and active *.list/*.sources; fixture tests2 pass; no omitted packages/tests",
+          "qualification": "new exact-head CI/review/rules/expected merge pending"
+        }
       }
     }
   ],

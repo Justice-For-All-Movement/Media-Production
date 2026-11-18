@@ -1,5 +1,5 @@
 {
-  "status": "reviewed runtime qualified; CI-only HTTPS archive checkpoint/current-head qualification pending",
+  "status": "reviewed runtime qualified; all-format CI archive helper/current-head checks pending",
   "base": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
   "reproduction": {
     "source": "41f3f0f5fb6ee12e22ac166054691ff39e53c5c1",
@@ -19,9 +19,11 @@
     "src/engine/index.ts": "9e204c78482be7de10647320f40a630ba45d59dd3c9ffcf53f985662789525ac",
     "tests/asset-byte-permission.test.ts": "54f02a2dc93be82e2d8d13163ddd11f7bf9570b712c08554823da0bd7a9ec6d2",
     "integration/consent-http.test.ts": "ff64b492d777435cf299f821171b2e3cc681b569fb279d25c0b75607055f2414",
-    ".github/workflows/ci.yml": "dd029b397456abca1fb2a6b1c64feeeafcb83712c7ccbef14acad08ee8ade7af",
-    "docs/ASSET_BYTE_PERMISSIONS.md": "7775fde98387bcb79694f1fe2e5632e0630018e4ce394492693119e777138aed",
-    "docs/ENGINE_API.md": "740af347fb35c64dd0067f8628cfd190d1acef1463a458b4780c83deafca401c"
+    ".github/workflows/ci.yml": "cbecd806314dd4d669c90e8c38aad5b459236f25fdc36dad6f7311040f519884",
+    "docs/ASSET_BYTE_PERMISSIONS.md": "d6bbc83977ed4462b08be7f6d5d67aba00dc97fe93a2f3ab303677dcb7afde9c",
+    "docs/ENGINE_API.md": "740af347fb35c64dd0067f8628cfd190d1acef1463a458b4780c83deafca401c",
+    "scripts/ci-ubuntu-archive.py": "e27a13c54cfebd0f8735269cd924ab7bd85f3627b274aaa77ce5c8d8fee526aa",
+    "scripts/test-ci-ubuntu-archive.py": "0440a90871561468ba6114e39294057a652dd0191c89c75414bc75e04c7e5c78"
   },
   "qualifiedSource": {
     "source": "8c623437ef761091462495eba29a5dc785008433",
