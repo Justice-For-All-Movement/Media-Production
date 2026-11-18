@@ -180,7 +180,7 @@
   "checkpoints": [
     {
       "id": "scoped-consent-http",
-      "status": "implemented candidate; final-head full CI required before merge",
+      "status": "incomplete WIP; cancelled duplicate requires fresh all-green head before merge",
       "baseCommit": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
       "documentation": "docs/CONSENT_HTTP.md",
       "reproduction": "Two native local HTTP regressions fail on base: foreign caller scope receives allow; missing restrictions/time fabricated as an allow response. No real provider input.",
@@ -200,7 +200,18 @@
         "skips": 0
       },
       "sourceReview": "clear for bounded exact request/credential capture, strict literal response, fail-closed scope and sanitized monotonic transport; no change to render/export/byte-read authority semantics",
-      "verification": "docs/consent-http-verification.json"
+      "verification": "docs/consent-http-verification.json",
+      "lastCi": {
+        "source": "b45cb8117ddd9ae5a55ca8b15fc3b17a2855f972",
+        "ordinaryJob": 134765281892,
+        "ordinaryTests": 24,
+        "realConsentJob": 134765282492,
+        "realConsentTests": 1,
+        "failures": 0,
+        "skips": 0,
+        "duplicateJob": 134765250205,
+        "duplicateConclusion": "cancelled during media-tool installation; not test success"
+      }
     }
   ],
   "approvedDesignSha256": {

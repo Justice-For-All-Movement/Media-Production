@@ -1,5 +1,5 @@
 {
-  "status": "implemented candidate; final-head full CI required",
+  "status": "incomplete WIP; cancelled duplicate requires fresh all-green head before merge",
   "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/1",
   "base": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
   "peerPin": "Justice-For-All-Movement/Consent-rights-and-use-decisions-engine@be8bf8cdaf333b5278027663eeffaf4a36b6f08a",
@@ -47,5 +47,16 @@
     "integration/consent-http.test.ts": "d4f8d440edfd3aa6d80a65a0984167ff72c8a79c759d536f664570d9907f8d75",
     "docs/CONSENT_HTTP.md": "443e4720783d67460fa97df7713e4e260840a373c471ecd6acd6b4f34dac28e8",
     "scripts/validate-registry.mjs": "3be4ceafb7c5c6c537f15bc304369c44a423c063191569f0a82d28241c1d1474"
+  },
+  "lastCi": {
+    "source": "b45cb8117ddd9ae5a55ca8b15fc3b17a2855f972",
+    "ordinaryJob": 134765281892,
+    "ordinaryTests": 24,
+    "realConsentJob": 134765282492,
+    "realConsentTests": 1,
+    "failures": 0,
+    "skips": 0,
+    "duplicateJob": 134765250205,
+    "duplicateConclusion": "cancelled during media-tool installation; not test success"
   }
 }
