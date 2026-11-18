@@ -180,14 +180,13 @@
   "checkpoints": [
     {
       "id": "scoped-consent-http",
-      "status": "incomplete WIP; cancelled duplicate requires fresh all-green head before merge",
+      "status": "accepted PR1; prior WIP/cancelled-check notes historical",
       "baseCommit": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
       "documentation": "docs/CONSENT_HTTP.md",
       "reproduction": "Two native local HTTP regressions fail on base: foreign caller scope receives allow; missing restrictions/time fabricated as an allow response. No real provider input.",
       "remaining": [
-        "final-head full existing Media CI and real pinned E11 test",
-        "original-human/current Identity/all-source rights/credential refresh and retained-output permission qualification",
-        "sandbox/render/deployed/browser/AT quality remain owning API limitations"
+        "host original-human/current Identity, complete source/rights mapping and credential refresh",
+        "isolated sandbox/render/deployed/browser/AT acceptance remains separate"
       ],
       "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/1",
       "localEvidence": "8focused source+8packed public ./serve groups, strict public declarations/typecheck/build/registry/3runtime byte matches;0fail/cancel/skip;copied prepared deps, not fresh install or full local PostgreSQL/media-tool suite",
@@ -211,7 +210,62 @@
         "skips": 0,
         "duplicateJob": 134765250205,
         "duplicateConclusion": "cancelled during media-tool installation; not test success"
+      },
+      "sourceCommit": "94d85e19eb5f21b7ce0e172841f52ca58dfccacf",
+      "mergeCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
+      "finalCi": {
+        "ordinaryJobs": [
+          134814219217,
+          134814179597
+        ],
+        "ordinaryTestsEach": 24,
+        "realConsentJob": 134814218883,
+        "realConsentTests": 1,
+        "allHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
+    },
+    {
+      "id": "retained-output-permission-reads",
+      "status": "implemented candidate; actual baseline failures and source/installed E11 chain qualified; final-head checks and merge pending",
+      "baseCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
+      "documentation": "docs/RETAINED_OUTPUT_PERMISSIONS.md",
+      "remaining": [
+        "fresh all-current-head CI/raw ordinary and source/installed E11 results, branch rules and expected-head merge",
+        "host-human/complete source-rights mapping/clock/key lifecycle/driver/time-memory-concurrency limits",
+        "isolated sandbox/deployed/browser/AT acceptance; no distributed fence or full suite claim"
+      ],
+      "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/2",
+      "reproduction": {
+        "source": "14df9e85c1c938276e6f0ac110bea67e9581174f",
+        "job": 134851675106,
+        "tests": 26,
+        "passes": 24,
+        "failures": 2,
+        "skips": 0
+      },
+      "firstCorrection": {
+        "source": "02893d751da727409bce31922938d7aacd1919b0",
+        "job": 134853911965,
+        "tests": 26,
+        "passes": 26,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "peerQualification": {
+        "source": "5dbcff6f3b9ac5a9155be8663cfdbc9342e7066d",
+        "job": 134858231234,
+        "sourceTests": 1,
+        "freshInstalledPublicEngineTests": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear for copied context/bytes, exact stored basis/audience, strict pre/post permission and current optional Authorization; sequential snapshots, metadata APIs unchanged, no distributed fence",
+      "verification": "docs/retained-output-verification.json"
     }
   ],
   "approvedDesignSha256": {

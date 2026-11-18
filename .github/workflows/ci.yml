@@ -60,7 +60,25 @@ jobs:
           persist-credentials: false
       - run: npm ci
         working-directory: .engines/consent
+      - name: Install private image integration tools
+        run: |
+          sudo apt-get -o DPkg::Lock::Timeout=600 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 update
+          sudo apt-get -o DPkg::Lock::Timeout=600 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 install -y --no-install-recommends librsvg2-bin imagemagick libimage-exiftool-perl fonts-dejavu-core zip
       - run: npm run test:consent
         env:
           E11_DIR: ${{ github.workspace }}/.engines/consent
           TEST_DATABASE_URL: postgresql://postgres:fixture-only@127.0.0.1:5432/postgres
+      - name: Build and install private package for the same actual E11 chain
+        run: |
+          npm run build
+          artifact=$(npm pack --pack-destination "$RUNNER_TEMP" --json | node -e 'let s="";process.stdin.on("data",c=>s+=c);process.stdin.on("end",()=>process.stdout.write(JSON.parse(s)[0].filename));')
+          mkdir -p "$RUNNER_TEMP/media-read-consumer"
+          cd "$RUNNER_TEMP/media-read-consumer"
+          npm init -y
+          npm install "$RUNNER_TEMP/$artifact"
+      - name: Run actual E11 chain through installed public engine export
+        run: npm run test:consent
+        env:
+          E11_DIR: ${{ github.workspace }}/.engines/consent
+          TEST_DATABASE_URL: postgresql://postgres:fixture-only@127.0.0.1:5432/postgres
+          MEDIA_PACKAGE_ROOT: ${{ runner.temp }}/media-read-consumer
