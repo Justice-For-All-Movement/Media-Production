@@ -180,7 +180,7 @@
   "checkpoints": [
     {
       "id": "scoped-consent-http",
-      "status": "incomplete WIP; cancelled duplicate requires fresh all-green head before merge",
+      "status": "accepted PR1; prior WIP/cancelled-check notes historical",
       "baseCommit": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
       "documentation": "docs/CONSENT_HTTP.md",
       "reproduction": "Two native local HTTP regressions fail on base: foreign caller scope receives allow; missing restrictions/time fabricated as an allow response. No real provider input.",
@@ -211,7 +211,35 @@
         "skips": 0,
         "duplicateJob": 134765250205,
         "duplicateConclusion": "cancelled during media-tool installation; not test success"
+      },
+      "sourceCommit": "94d85e19eb5f21b7ce0e172841f52ca58dfccacf",
+      "mergeCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
+      "finalCi": {
+        "ordinaryJobs": [
+          134814219217,
+          134814179597
+        ],
+        "ordinaryTestsEach": 24,
+        "realConsentJob": 134814218883,
+        "realConsentTests": 1,
+        "allHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
+    },
+    {
+      "id": "retained-output-permission-reads",
+      "status": "incomplete regression checkpoint; runtime correction and qualification pending",
+      "baseCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
+      "documentation": "docs/RETAINED_OUTPUT_PERMISSIONS.md",
+      "remaining": [
+        "actual PostgreSQL/media-tool reproduction",
+        "current reproduction admission before and after object read",
+        "stored export audience/destination and exact current input basis",
+        "real E11 integration/source/package/final-head CI",
+        "host-human/clock/lifecycle/isolated sandbox/distributed fence acceptance"
+      ]
     }
   ],
   "approvedDesignSha256": {

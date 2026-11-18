@@ -353,3 +353,46 @@ test('HTTP end to end: projects, assets, operations, renders, manifest, preview,
     } finally { server.close(); }
   });
 });
+
+
+test('retained render, manifest and export byte reads require fresh permission before object I/O', needsPg, async () => {
+  await withEngine(async h => {
+    const c = ctx(); const asset = await page(h);
+    const p = await h.engine.createProject(c, { kind: 'image', title: 'Fictional private card', doc: card(asset.id) });
+    const render = await finish(h.engine, c, await h.engine.requestRender(c, { productionId: p.id }));
+    assert.equal(render.state, 'done', render.error ?? '');
+    await h.engine.setAssetApproval(c, { assetId: asset.id, approval: 'approved' });
+    const exported = await h.engine.createExport(c, { renderId: render.id, audience: 'private-review', destination: 'internal-workspace' });
+    let reads = 0;
+    const objects: kit.ObjectStore = { put: h.objects.put.bind(h.objects), head: h.objects.head.bind(h.objects), get: async key => { reads++; return h.objects.get(key); }, delete: h.objects.delete.bind(h.objects), list: h.objects.list.bind(h.objects) };
+    const { createEngine } = await import('../src/engine/index.ts');
+    const reader = createEngine({ sql: h.sql, objects, ports: { useDecisions: h.port } });
+    const operations = [() => reader.getRenderOutput(c, render.id, render.outputs[0]!.name), () => reader.getRenderOutput(c, render.id, 'manifest.json'), () => reader.getExportBytes(c, exported.id)];
+    h.port.deny.add(PERM);
+    for (const read of operations) await assert.rejects(read(), fails('consent_denied'));
+    assert.equal(reads, 0, 'no object credentials/I/O before current permission');
+    assert.equal((await h.engine.getRender(c, render.id)).blocked, false, 'denial did not depend on an upstream flag');
+    assert.equal((await h.engine.getExport(c, exported.id)).blocked, false);
+    h.port.deny.clear();
+    for (const read of operations) assert.ok((await read()).bytes.byteLength > 0);
+    assert.equal(reads, 3, 'each explicit admitted read fetches once');
+    assert.equal((await h.engine.listExports(c, { renderId: render.id })).length, 1, 'no export effects repeated');
+  });
+});
+
+test('permission withdrawal during retained object read withholds bytes and leaves history intact', needsPg, async () => {
+  await withEngine(async h => {
+    const c = ctx(); const asset = await page(h);
+    const p = await h.engine.createProject(c, { kind: 'image', title: 'Fictional private card', doc: card(asset.id) });
+    const render = await finish(h.engine, c, await h.engine.requestRender(c, { productionId: p.id }));
+    assert.equal(render.state, 'done', render.error ?? '');
+    let reads = 0;
+    const objects: kit.ObjectStore = { put: h.objects.put.bind(h.objects), head: h.objects.head.bind(h.objects), get: async key => { const bytes = await h.objects.get(key); reads++; h.port.deny.add(PERM); return bytes; }, delete: h.objects.delete.bind(h.objects), list: h.objects.list.bind(h.objects) };
+    const { createEngine } = await import('../src/engine/index.ts');
+    const reader = createEngine({ sql: h.sql, objects, ports: { useDecisions: h.port } });
+    await assert.rejects(reader.getRenderOutput(c, render.id, render.outputs[0]!.name), fails('consent_denied'));
+    assert.equal(reads, 1, 'no automatic retry');
+    assert.equal((await h.engine.getRender(c, render.id)).manifestDigest, render.manifestDigest);
+    assert.deepEqual((await h.engine.getRender(c, render.id)).outputs, render.outputs);
+  });
+});
