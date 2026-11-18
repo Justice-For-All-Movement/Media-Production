@@ -285,11 +285,10 @@
     },
     {
       "id": "asset-byte-current-permission",
-      "status": "reviewed runtime qualified; CI HTTPS mirror checkpoint/current-head checks pending",
+      "status": "accepted PR3; prior pending candidate notes historical",
       "baseCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
       "documentation": "docs/ASSET_BYTE_PERMISSIONS.md",
       "remaining": [
-        "current authorizer-removal regression source/installed/full final-head CI and review/rules/expected-head merge",
         "host actual human/complete rights/clock-heap/key lifecycle/TLS/driver/sandbox/browserAT acceptance"
       ],
       "reproduction": {
@@ -344,7 +343,64 @@
           "localTests": 3,
           "qualification": "current-head actual mirror switching/full checks pending; runtime unchanged"
         }
+      },
+      "sourceCommit": "713ee0a1b80eba547081e67861dc3b995a0cab69",
+      "mergeCommit": "351435b5f491034f363e8180f0fe328d3087b333",
+      "finalCi": {
+        "ordinaryJobs": [
+          135124784623,
+          135124744490
+        ],
+        "ordinaryTestsEach": 33,
+        "peerJobs": [
+          135124785068,
+          135124745184
+        ],
+        "sourceGroupsEach": 5,
+        "normalFreshInstalledGroupsEach": 5,
+        "actualE11SourceEach": 1,
+        "actualE11InstalledEach": 1,
+        "allHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
+    },
+    {
+      "id": "worker-asset-materialization-bytes",
+      "status": "runtime source/installed qualified; final documentation-head checks and merge pending",
+      "baseCommit": "351435b5f491034f363e8180f0fe328d3087b333",
+      "documentation": "docs/WORKER_ASSET_BYTES.md",
+      "local": "typecheck/build/original design registry pass; prepared dependencies, no local PostgreSQL/installed/full test claim",
+      "remaining": [
+        "final documentation-head CI/raw logs, rules/ready-clean/expected-head merge",
+        "worker current original-human/source rights, cache integrity, liveness, sandbox and host acceptance remain separate"
+      ],
+      "reproduction": {
+        "source": "4c555b0b8a2c59c1bdefea037c86ac487635721e",
+        "job": 135199239204,
+        "tests": 8,
+        "passes": 6,
+        "failures": 2,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-asset-byte-verification.json",
+      "qualifiedRuntimeCommit": "2560015ac1b79013cb930fbd31976b90b01311f8",
+      "qualifiedCi": {
+        "ordinaryJob": 135200392915,
+        "ordinaryTests": 36,
+        "focusedJob": 135200392436,
+        "sourceTests": 8,
+        "normalFreshInstalledPublicEngineTests": 8,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "allRuntimeHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: worker passes captured ObjectStore and exact selected count into existing independent copy helper, hashes owned bytes before native FS; no API/schema/cache/worker-authority change; bounds and host limits explicit"
     }
   ],
   "approvedDesignSha256": {

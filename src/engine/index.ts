@@ -399,11 +399,11 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     return { ...(policy.audience === undefined ? {} : { audience: policy.audience as string }),
       ...(policy.destination === undefined ? {} : { destination: policy.destination as string }) };
   }
-  async function ownedBytes(key: string, size?: number): Promise<Uint8Array> {
-    const bytes = await objects().get(key);
+  async function ownedBytes(key: string, size?: number, store: ObjectStore = objects()): Promise<Uint8Array> {
+    const bytes = await store.get(key);
     invariant(bytes instanceof Uint8Array && (size === undefined || (Number.isSafeInteger(size) && size >= 0 && bytes.byteLength === size)),
       'integrity_failed', 'Stored output byte count is invalid');
-    // Buffer.slice aliases storage; take independent ownership before any later policy callback.
+    // Buffer.slice aliases storage; own bytes before later callbacks or filesystem admission.
     return new Uint8Array(bytes);
   }
 
@@ -450,7 +450,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
             if (v === undefined) throw new DomainError('invalid_input', `Asset ${assetId} has no version ${String(version)}`);
             const hit = inputs.get(v.ref); if (hit !== undefined) return hit;
             const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2`, [a.id, v.version]))[0]?.object_key as string;
-            const bytes = await store.get(key);
+            const bytes = await ownedBytes(key, v.size, store);
             invariant(sha256(bytes) === v.sha256, 'integrity_failed', `Stored bytes of asset ${a.name} do not match their recorded digest`);
             const path = join(dir, `asset-${a.id.slice(0, 8)}-v${v.version}-${v.filename}`); await writeFile(path, bytes);
             const head = a.versions[a.versions.length - 1] as AssetVersion;
