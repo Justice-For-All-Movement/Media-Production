@@ -8,24 +8,13 @@
 // E10_SOUNDFONT (General MIDI SoundFont path).
 import { readFile } from 'node:fs/promises';
 import pg from 'pg';
-import { DomainError } from '../contracts.ts';
 import { createHttpHandler, createTokenVerifier, objectStoreFromEnv, pgSql, serve } from '../service-kit.ts';
-import type { UseDecision, UseDecisionPort } from '../service-kit.ts';
 import { createEngine, manifest, migrate, routes } from './index.ts';
 import type { ProviderEndpoint } from './providers.ts';
 
-/** UseDecisionPort over HTTP. The token is a service credential for one tenant/project scope; under PAM the host supplies the port directly. */
-export function httpUseDecisionPort(options: { baseUrl: string; token: string; timeoutMs?: number }): UseDecisionPort {
-  return { async decide(_ctx, request) {
-    let response: Response;
-    try { response = await fetch(new URL('/v1/use-decisions', options.baseUrl), { method: 'POST', redirect: 'error', signal: AbortSignal.timeout(options.timeoutMs ?? 15_000), headers: { authorization: `Bearer ${options.token}`, 'content-type': 'application/json' }, body: JSON.stringify(request) }); }
-    catch { throw new DomainError('unavailable', 'The consent engine could not be reached'); }
-    if (!response.ok) throw new DomainError('unavailable', `The consent engine answered ${response.status}`);
-    const d = await response.json() as UseDecision;
-    if (!['allow', 'deny', 'review'].includes(d.decision)) throw new DomainError('unavailable', 'The consent engine returned an invalid decision');
-    return { decision: d.decision, reasons: d.reasons ?? [], permissionRefs: d.permissionRefs ?? [], restrictions: d.restrictions ?? [], decidedAt: d.decidedAt ?? new Date().toISOString() };
-  } };
-}
+// Existing public export is retained; the engine-owned adapter captures and bounds each request.
+export { httpUseDecisionPort } from './consent-http.ts';
+import { httpUseDecisionPort } from './consent-http.ts';
 
 async function main(): Promise<void> {
   const env = process.env;

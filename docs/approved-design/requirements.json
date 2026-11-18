@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0",
+  "requirements": [
+    {
+      "id": "R01",
+      "title": "Country neutral reusable engines",
+      "requirement": "All jurisdiction names, institutions, source catalogues, legal policy and research live in deployment data. Generic packages, prompts, migrations and fixtures contain no country-specific research.",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E04"
+      ]
+    },
+    {
+      "id": "R02",
+      "title": "Private operation and owner release control",
+      "requirement": "Research, correspondence, submissions and creative outputs default to private. Outbound questions and public releases use separate purpose-scoped authorization.",
+      "engines": [
+        "E01",
+        "E03",
+        "E12"
+      ]
+    },
+    {
+      "id": "R03",
+      "title": "Accessible report intake",
+      "requirement": "People can submit accounts and evidence without payment, legal representation or polished paperwork; resumable multilingual forms, pseudonymous options and bounded status are supported.",
+      "engines": [
+        "E02",
+        "E06"
+      ]
+    },
+    {
+      "id": "R04",
+      "title": "Thorough factual investigation",
+      "requirement": "Every accepted case has questions, competing explanations, a research and outreach plan, reviewable findings, unresolved issues and a documented closure or reopening decision.",
+      "engines": [
+        "E07",
+        "E08"
+      ]
+    },
+    {
+      "id": "R05",
+      "title": "Knowledgeable contact discovery",
+      "requirement": "Identify appropriate people or record custodians from relevant professional sources, record why they may know, and verify the published contact route; channel verification alone does not prove authorship or truth.",
+      "engines": [
+        "E03",
+        "E04",
+        "E08"
+      ]
+    },
+    {
+      "id": "R06",
+      "title": "Concise honest autonomous outreach",
+      "requirement": "Send short, accurate, clearly identified automated research inquiries under owner-configured authorization; handle replies, refusals, corrections and bounded follow-up.",
+      "engines": [
+        "E00",
+        "E01",
+        "E03"
+      ]
+    },
+    {
+      "id": "R07",
+      "title": "Familiar inbox and human takeover",
+      "requirement": "Provide inbox, sent, drafts, archive, search, labels, attachments, threads, assignment and an atomic switch to human control, with any already-dispatched message visibly in flight.",
+      "engines": [
+        "E03",
+        "E14"
+      ]
+    },
+    {
+      "id": "R08",
+      "title": "Systematic collection",
+      "requirement": "Discover repositories and datasets, crawl permitted sources, capture originals and track retrieval failures, pagination, refreshes and coverage gaps.",
+      "engines": [
+        "E04",
+        "E05"
+      ]
+    },
+    {
+      "id": "R09",
+      "title": "Evidence preservation and provenance",
+      "requirement": "Retain original versions, acquisition records, cryptographic digests, handling events and derivation relationships without confusing integrity with authenticity or truth.",
+      "engines": [
+        "E02",
+        "E05",
+        "E07"
+      ]
+    },
+    {
+      "id": "R10",
+      "title": "Multimodal processing",
+      "requirement": "OCR, transcription, translation, diarization and metadata extraction preserve original text, geometry, timecodes and review history.",
+      "engines": [
+        "E06"
+      ]
+    },
+    {
+      "id": "R11",
+      "title": "Evidence linked knowledge",
+      "requirement": "Represent events, people, organizations, actions, source dependence and claims; require evidence for attributed involvement and retain uncertainty.",
+      "engines": [
+        "E07"
+      ]
+    },
+    {
+      "id": "R12",
+      "title": "Verification and challenge",
+      "requirement": "Test answers and claims against primary material, source independence, counterevidence and alternative explanations; preserve unresolved or adverse findings.",
+      "engines": [
+        "E07",
+        "E08"
+      ]
+    },
+    {
+      "id": "R13",
+      "title": "Parallel persistent agents",
+      "requirement": "Delegate bounded work to reusable agent roles with durable memory, least privilege, budgets, checkpoints, retries and inspectable results.",
+      "engines": [
+        "E00",
+        "E01"
+      ]
+    },
+    {
+      "id": "R14",
+      "title": "Visual audit everywhere",
+      "requirement": "Each module exposes understandable states, transitions, provenance, decisions and failures through accessible visual views plus tables and text.",
+      "engines": [
+        "E14"
+      ]
+    },
+    {
+      "id": "R15",
+      "title": "Victim centered storytelling",
+      "requirement": "Develop testimony-based points of view, scenes, scripts, story structure, cinematography and sound while labeling inference, reconstruction and invented material.",
+      "engines": [
+        "E09",
+        "E11"
+      ]
+    },
+    {
+      "id": "R16",
+      "title": "Actual production across media",
+      "requirement": "Produce and edit films, animation, images, music, audio, written work and interactive experiences through replaceable tool adapters and reproducible asset manifests.",
+      "engines": [
+        "E10"
+      ]
+    },
+    {
+      "id": "R17",
+      "title": "Long term creative catalogue",
+      "requirement": "Maintain series, collections, reusable approved assets, translations, collaborators and versioned production projects across years.",
+      "engines": [
+        "E09",
+        "E10",
+        "E13"
+      ]
+    },
+    {
+      "id": "R18",
+      "title": "Rights consent and dignity",
+      "requirement": "Record permissions by purpose, identity, asset, territory, audience and term; distinguish source citation from reproducing or adapting an asset.",
+      "engines": [
+        "E11"
+      ]
+    },
+    {
+      "id": "R19",
+      "title": "Controlled publication and distribution",
+      "requirement": "Prepare private review packages, accessible releases, source companions, licensed distributions and optional public pages with explicit version-bound release authorization.",
+      "engines": [
+        "E12"
+      ]
+    },
+    {
+      "id": "R20",
+      "title": "Corrections through the whole chain",
+      "requirement": "Propagate source or consent changes to claims, tasks, scenes, renders, exports and releases; retain version history and require affected decisions to be renewed.",
+      "engines": [
+        "E05",
+        "E07",
+        "E09",
+        "E10",
+        "E11",
+        "E12"
+      ]
+    },
+    {
+      "id": "R21",
+      "title": "Commercial sustainability",
+      "requirement": "Track budgets, contributors, agreements, licenses, distribution revenue, expenses and project margins independently of factual conclusions.",
+      "engines": [
+        "E13"
+      ]
+    },
+    {
+      "id": "R22",
+      "title": "Distinct operating identities",
+      "requirement": "Separate deployments, organizations, publishing identities, satirical work and campaign-related activity through explicit projects, accounts and access.",
+      "engines": [
+        "E01",
+        "E03",
+        "E09",
+        "E12",
+        "E13"
+      ]
+    },
+    {
+      "id": "R23",
+      "title": "Accountability and professional reuse",
+      "requirement": "Create research reports, record requests, case chronologies, referral packages, evidence indexes and public-service materials; support citizen and professional investigations.",
+      "engines": [
+        "E02",
+        "E08",
+        "E10",
+        "E12"
+      ]
+    },
+    {
+      "id": "R24",
+      "title": "Global and external operation",
+      "requirement": "Support different languages, legal systems, institutions, calendars and hosting regions; external operators can investigate public material without depending on the institution being investigated.",
+      "engines": [
+        "E01",
+        "E04",
+        "E06",
+        "E08"
+      ]
+    },
+    {
+      "id": "R25",
+      "title": "Balanced effort allocation",
+      "requirement": "Use configurable research lanes and auditable active-work accounting to allocate equal or otherwise specified effort without setting quotas for adverse conclusions.",
+      "engines": [
+        "E00",
+        "E13",
+        "E14"
+      ]
+    },
+    {
+      "id": "R26",
+      "title": "Operational reliability and recovery",
+      "requirement": "Provide isolation, backups, restoration, encryption, monitoring, rollback, cost controls and source-bound acceptance evidence.",
+      "engines": [
+        "E00",
+        "E01",
+        "E05",
+        "E14"
+      ]
+    },
+    {
+      "id": "R27",
+      "title": "Interoperability and portability",
+      "requirement": "Expose versioned APIs, events, SDKs and export bundles; avoid provider lock-in and support scoped offline review.",
+      "engines": [
+        "E00",
+        "E05",
+        "E07",
+        "E12"
+      ]
+    },
+    {
+      "id": "R28",
+      "title": "Reuse existing intake work",
+      "requirement": "Consume the Secure Intake and Case Workflow Engine through its pinned image and versioned integration contract, extending generic gaps upstream.",
+      "engines": [
+        "E02"
+      ]
+    },
+    {
+      "id": "R29",
+      "title": "Research continuity before deployment",
+      "requirement": "Preserve existing research outside engine repositories, then import it into the private deployment with reconciliation and provenance-gap records.",
+      "engines": [
+        "E04",
+        "E05",
+        "E07"
+      ]
+    },
+    {
+      "id": "R30",
+      "title": "Observable autonomy and operator control",
+      "requirement": "Show objectives, task dependencies, agents, progress, costs, correspondence and production; allow pause, cancellation, reassignment and bounded escalation.",
+      "engines": [
+        "E00",
+        "E03",
+        "E14"
+      ]
+    }
+  ]
+}

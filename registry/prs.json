@@ -1,0 +1,223 @@
+{
+  "repository": "Justice-For-All-Movement/Media-Production",
+  "engine": "E10",
+  "units": [
+    {
+      "id": "AM-10.01",
+      "dependsOn": [
+        "AM-02.05",
+        "AM-09.02",
+        "AM-09.04"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.02",
+      "dependsOn": [
+        "AM-10.01"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.03",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.04",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.05",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.06",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.03",
+        "AM-10.05"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.07",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.08",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.09",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-10.10",
+      "dependsOn": [
+        "AM-10.01",
+        "AM-10.02",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08",
+        "AM-10.09"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.01",
+      "dependsOn": [
+        "AM-10.10",
+        "AM-11.07",
+        "AM-12.08",
+        "AM-13.08"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.02",
+      "dependsOn": [
+        "AM-14.01"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.03",
+      "dependsOn": [
+        "AM-14.01",
+        "AM-14.02"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.04",
+      "dependsOn": [
+        "AM-14.01",
+        "AM-14.03"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.05",
+      "dependsOn": [
+        "AM-14.01"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.06",
+      "dependsOn": [
+        "AM-14.01"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.07",
+      "dependsOn": [
+        "AM-14.01"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    },
+    {
+      "id": "AM-14.08",
+      "dependsOn": [
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-00.08",
+        "AM-01.08",
+        "AM-02.08",
+        "AM-03.08",
+        "AM-04.08",
+        "AM-05.08",
+        "AM-06.10",
+        "AM-07.08",
+        "AM-08.08",
+        "AM-09.06",
+        "AM-10.10",
+        "AM-11.08",
+        "AM-12.08",
+        "AM-13.08"
+      ],
+      "implementationStatus": "existing service; current integration and original milestone acceptance separate"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "scoped-consent-http",
+      "status": "incomplete WIP; cancelled duplicate requires fresh all-green head before merge",
+      "baseCommit": "6a77e38e1cd9dad1fef5c2e1eb2939a9a16f3c68",
+      "documentation": "docs/CONSENT_HTTP.md",
+      "reproduction": "Two native local HTTP regressions fail on base: foreign caller scope receives allow; missing restrictions/time fabricated as an allow response. No real provider input.",
+      "remaining": [
+        "final-head full existing Media CI and real pinned E11 test",
+        "original-human/current Identity/all-source rights/credential refresh and retained-output permission qualification",
+        "sandbox/render/deployed/browser/AT quality remain owning API limitations"
+      ],
+      "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/1",
+      "localEvidence": "8focused source+8packed public ./serve groups, strict public declarations/typecheck/build/registry/3runtime byte matches;0fail/cancel/skip;copied prepared deps, not fresh install or full local PostgreSQL/media-tool suite",
+      "peerCi": {
+        "source": "115e37afa729601beed7fb2383f865d2bece22dd",
+        "realConsentJob": 134764029731,
+        "tests": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear for bounded exact request/credential capture, strict literal response, fail-closed scope and sanitized monotonic transport; no change to render/export/byte-read authority semantics",
+      "verification": "docs/consent-http-verification.json",
+      "lastCi": {
+        "source": "b45cb8117ddd9ae5a55ca8b15fc3b17a2855f972",
+        "ordinaryJob": 134765281892,
+        "ordinaryTests": 24,
+        "realConsentJob": 134765282492,
+        "realConsentTests": 1,
+        "failures": 0,
+        "skips": 0,
+        "duplicateJob": 134765250205,
+        "duplicateConclusion": "cancelled during media-tool installation; not test success"
+      }
+    }
+  ],
+  "approvedDesignSha256": {
+    "engine_catalog.json": "7e5b265cdb81c2255e01955db08ef4f8ea6b5e480c0866aacaa44cccf973eea8",
+    "development_backlog.json": "eee514fe5189b6e3133f8c6781b6eff4546dfea4314d334ac21f21ad3cfdae74",
+    "domain_contracts.json": "98ccb94433b5878de815d0bf56a57f48bdd0e2e9eadbcd9efbae919493b2fb8f",
+    "requirements.json": "4091ff2747785906219484b359b5b1720cce97e1cad6f06590b84bd99ab49a2e"
+  }
+}

@@ -1,0 +1,6127 @@
+{
+  "schema_version": "1.0",
+  "status": "planned",
+  "date": "2026-10-26",
+  "requirements_file": "requirements.json",
+  "engines_file": "engine_catalog.json",
+  "milestones": [
+    {
+      "id": "M00",
+      "title": "Baseline and contracts",
+      "owner_role": "Platform lead",
+      "entry_dependencies": [],
+      "task_ids": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07",
+        "AM-00.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M01",
+      "title": "Core runtime and authority",
+      "owner_role": "Platform and security",
+      "entry_dependencies": [
+        "AM-00.04",
+        "AM-00.05"
+      ],
+      "task_ids": [
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M02",
+      "title": "Evidence and provenance",
+      "owner_role": "Data engineering",
+      "entry_dependencies": [
+        "AM-01.03",
+        "AM-01.05",
+        "AM-01.06"
+      ],
+      "task_ids": [
+        "AM-02.01",
+        "AM-02.02",
+        "AM-02.03",
+        "AM-02.04",
+        "AM-02.05",
+        "AM-02.06",
+        "AM-02.07",
+        "AM-02.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M03",
+      "title": "Intake integration and case operations",
+      "owner_role": "Intake integration",
+      "entry_dependencies": [
+        "AM-00.02",
+        "AM-01.02",
+        "AM-02.01"
+      ],
+      "task_ids": [
+        "AM-03.01",
+        "AM-03.02",
+        "AM-03.03",
+        "AM-03.04",
+        "AM-03.05",
+        "AM-03.06",
+        "AM-03.07",
+        "AM-03.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M04",
+      "title": "Source discovery and processing",
+      "owner_role": "Data and processing",
+      "entry_dependencies": [
+        "AM-01.04",
+        "AM-02.01",
+        "AM-02.02"
+      ],
+      "task_ids": [
+        "AM-04.01",
+        "AM-04.02",
+        "AM-04.03",
+        "AM-04.04",
+        "AM-04.05",
+        "AM-04.06",
+        "AM-04.07",
+        "AM-04.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M05",
+      "title": "Knowledge verification and investigation",
+      "owner_role": "Investigation and data",
+      "entry_dependencies": [
+        "AM-02.03",
+        "AM-02.04",
+        "AM-04.04"
+      ],
+      "task_ids": [
+        "AM-05.01",
+        "AM-05.02",
+        "AM-05.03",
+        "AM-05.04",
+        "AM-05.05",
+        "AM-05.06",
+        "AM-05.07",
+        "AM-05.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M06",
+      "title": "Correspondence and factual outreach",
+      "owner_role": "Communications",
+      "entry_dependencies": [
+        "AM-01.03",
+        "AM-01.04",
+        "AM-05.03"
+      ],
+      "task_ids": [
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09",
+        "AM-06.10"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M07",
+      "title": "Master engine and agent autonomy",
+      "owner_role": "Orchestration",
+      "entry_dependencies": [
+        "AM-01.04",
+        "AM-05.03",
+        "AM-06.08"
+      ],
+      "task_ids": [
+        "AM-07.01",
+        "AM-07.02",
+        "AM-07.03",
+        "AM-07.04",
+        "AM-07.05",
+        "AM-07.06",
+        "AM-07.07",
+        "AM-07.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M08",
+      "title": "Visual audit workbench",
+      "owner_role": "Product design and frontend",
+      "entry_dependencies": [
+        "AM-01.07"
+      ],
+      "task_ids": [
+        "AM-08.01",
+        "AM-08.02",
+        "AM-08.03",
+        "AM-08.04",
+        "AM-08.05",
+        "AM-08.06",
+        "AM-08.07",
+        "AM-08.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M09",
+      "title": "Editorial and storytelling",
+      "owner_role": "Editorial and product",
+      "entry_dependencies": [
+        "AM-05.02",
+        "AM-05.08"
+      ],
+      "task_ids": [
+        "AM-09.01",
+        "AM-09.02",
+        "AM-09.03",
+        "AM-09.04",
+        "AM-09.05",
+        "AM-09.06"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M10",
+      "title": "Production across media",
+      "owner_role": "Media engineering and creative",
+      "entry_dependencies": [
+        "AM-02.05",
+        "AM-09.02",
+        "AM-09.04"
+      ],
+      "task_ids": [
+        "AM-10.01",
+        "AM-10.02",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08",
+        "AM-10.09",
+        "AM-10.10"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M11",
+      "title": "Rights consent release and corrections",
+      "owner_role": "Policy and publishing",
+      "entry_dependencies": [
+        "AM-01.03",
+        "AM-02.06"
+      ],
+      "task_ids": [
+        "AM-11.01",
+        "AM-11.02",
+        "AM-11.03",
+        "AM-11.04",
+        "AM-11.05",
+        "AM-11.06",
+        "AM-11.07",
+        "AM-11.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M12",
+      "title": "Commercial reuse and interoperability",
+      "owner_role": "Product and integrations",
+      "entry_dependencies": [
+        "AM-01.03",
+        "AM-07.05"
+      ],
+      "task_ids": [
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M13",
+      "title": "Private pilot deployment and migration",
+      "owner_role": "Operations and product",
+      "entry_dependencies": [
+        "AM-03.08",
+        "AM-06.09",
+        "AM-07.08",
+        "AM-08.08",
+        "AM-11.08"
+      ],
+      "task_ids": [
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07",
+        "AM-13.08"
+      ],
+      "status": "planned"
+    },
+    {
+      "id": "M14",
+      "title": "Complete suite qualification and extension",
+      "owner_role": "Quality and operations",
+      "entry_dependencies": [
+        "AM-10.10",
+        "AM-11.07",
+        "AM-12.08",
+        "AM-13.08"
+      ],
+      "task_ids": [
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ],
+      "status": "planned"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "name": "Architecture ready",
+      "tasks": [
+        "AM-00.08"
+      ],
+      "acceptance": "All requirements, ownership, contracts, security boundaries, neutral fixtures and upstream gaps are defined.",
+      "estimate": {
+        "included_tasks": 8,
+        "engineer_days_low": 26,
+        "engineer_days_high": 52,
+        "capacity_weeks_with_contingency_low": 2.2,
+        "capacity_weeks_with_contingency_high": 4.3
+      }
+    },
+    {
+      "id": "G1",
+      "name": "Private platform foundation",
+      "tasks": [
+        "AM-01.08",
+        "AM-02.08"
+      ],
+      "acceptance": "Tenant isolation, evidence integrity, queue recovery, audit and authorized visual inspection work in staging.",
+      "estimate": {
+        "included_tasks": 24,
+        "engineer_days_low": 111,
+        "engineer_days_high": 208,
+        "capacity_weeks_with_contingency_low": 9.2,
+        "capacity_weeks_with_contingency_high": 17.3
+      }
+    },
+    {
+      "id": "G2",
+      "name": "Private investigation and outreach pilot",
+      "tasks": [
+        "AM-03.08",
+        "AM-04.08",
+        "AM-05.08",
+        "AM-06.10",
+        "AM-07.08",
+        "AM-08.08",
+        "AM-11.08",
+        "AM-13.08"
+      ],
+      "acceptance": "Report-to-finding and question-to-contact-to-evaluated-answer loops work with human takeover, recovery, private default and owner control.",
+      "estimate": {
+        "included_tasks": 88,
+        "engineer_days_low": 487,
+        "engineer_days_high": 880,
+        "capacity_weeks_with_contingency_low": 40.6,
+        "capacity_weeks_with_contingency_high": 73.3
+      }
+    },
+    {
+      "id": "G3",
+      "name": "Complete creative production",
+      "tasks": [
+        "AM-09.06",
+        "AM-10.10",
+        "AM-11.08",
+        "AM-12.08"
+      ],
+      "acceptance": "Finished output in each principal medium, rights and consent, source companions, costing and corrections work privately.",
+      "estimate": {
+        "included_tasks": 76,
+        "engineer_days_low": 424,
+        "engineer_days_high": 764,
+        "capacity_weeks_with_contingency_low": 35.3,
+        "capacity_weeks_with_contingency_high": 63.7
+      }
+    },
+    {
+      "id": "G4",
+      "name": "Reusable stable suite",
+      "tasks": [
+        "AM-14.08"
+      ],
+      "acceptance": "Generic engines support independent deployments and measured operations, portability, all-media workflows and version-bound release control.",
+      "estimate": {
+        "included_tasks": 122,
+        "engineer_days_low": 689,
+        "engineer_days_high": 1240,
+        "capacity_weeks_with_contingency_low": 57.4,
+        "capacity_weeks_with_contingency_high": 103.3
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "AM-00.01",
+      "milestone": "M00",
+      "title": "Scope and coverage registry",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [],
+      "deliverable": "Create requirement and engine registries, ADRs and ownership; freeze stable IDs.",
+      "acceptance": [
+        "All 30 requirements map to tasks and a measurable acceptance scenario.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 2,
+        "high": 4
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.02",
+      "milestone": "M00",
+      "title": "Existing intake inventory",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01"
+      ],
+      "deliverable": "Inspect the pinned source, image, API/event routes, security policy and current deployment evidence.",
+      "acceptance": [
+        "Produce implemented/tested/live matrix and unresolved compatibility gaps without assuming roadmap items are deployed.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.03",
+      "milestone": "M00",
+      "title": "Neutral repository boundary",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01"
+      ],
+      "deliverable": "Create engine/composition/deployment separation and neutral fixtures; preserve old research in external staging.",
+      "acceptance": [
+        "Build inspection finds no deployment research or named-country fixtures in engine artifacts.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 2,
+        "high": 4
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.04",
+      "milestone": "M00",
+      "title": "Typed contract package",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01"
+      ],
+      "deliverable": "Define resource references, commands, revisions, events, selectors, errors and SDK generation.",
+      "acceptance": [
+        "Schema validation and compatibility fixtures pass for old/new supported consumers.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.05",
+      "milestone": "M00",
+      "title": "Threat and disclosure inventory",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01"
+      ],
+      "deliverable": "Map data classes, actors, flows, providers, key ownership and outward actions.",
+      "acceptance": [
+        "Every sensitive flow has an enforcement point, audit projection and failure test.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.06",
+      "milestone": "M00",
+      "title": "Architecture and delivery evidence ledger",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01"
+      ],
+      "deliverable": "Define source-bound evidence, feature flags, readiness statuses and release records.",
+      "acceptance": [
+        "A screenshot or demo cannot mark a live integration complete without runtime evidence.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 2,
+        "high": 4
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.07",
+      "milestone": "M00",
+      "title": "Provider and tool capability spikes",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01"
+      ],
+      "deliverable": "Verify email, model, OCR, media and storage adapters, licenses and deployment limits.",
+      "acceptance": [
+        "Each selected adapter has an actual capability/permission matrix and tested sample request or a documented blocker.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-00.08",
+      "milestone": "M00",
+      "title": "Synthetic end to end fixtures",
+      "status": "planned",
+      "owner_role": "Platform lead",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R14",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07"
+      ],
+      "deliverable": "Create neutral multilingual reports, contradictory records, emails and media assets.",
+      "acceptance": [
+        "Fixtures cover incomplete claims, restricted testimony, duplicates and correction propagation without real private data.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.01",
+      "milestone": "M01",
+      "title": "Module and runtime scaffold",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.08"
+      ],
+      "deliverable": "Create typed API, web shell, module contracts, worker containers and local environment.",
+      "acceptance": [
+        "A synthetic task crosses API, queue and worker with correlated trace and safe error handling.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.02",
+      "milestone": "M01",
+      "title": "Authentication and tenant adapter",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01"
+      ],
+      "deliverable": "Map existing intake identities or federation into trusted suite tenant/project identities.",
+      "acceptance": [
+        "Session, membership and deactivated-user tests deny unauthorized access across both systems.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.03",
+      "milestone": "M01",
+      "title": "Authorization and database isolation",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01",
+        "AM-01.02"
+      ],
+      "deliverable": "Implement scoped capability checks, row policies, compartment boundaries and deny-by-default projections.",
+      "acceptance": [
+        "Cross-tenant API, joins, exports, cached views and counts fail closed.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.04",
+      "milestone": "M01",
+      "title": "Durable queue and outbox foundation",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01"
+      ],
+      "deliverable": "Implement task leases, heartbeat, retry classes, inbox deduplication and transactional events.",
+      "acceptance": [
+        "Crash before/after commit and duplicate delivery tests produce one accepted logical effect.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.05",
+      "milestone": "M01",
+      "title": "Secrets keys and private objects",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01"
+      ],
+      "deliverable": "Provision interchangeable private storage/secret adapters, key references and scoped upload/download.",
+      "acceptance": [
+        "Expired URLs, wrong keys and unauthorized reads fail; secrets never appear in logs.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.06",
+      "milestone": "M01",
+      "title": "Audit and revision primitives",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01",
+        "AM-01.03"
+      ],
+      "deliverable": "Implement immutable revisions, actor attribution, optimistic updates and signed audit checkpoints.",
+      "acceptance": [
+        "Concurrent edits conflict explicitly; tampered history fails verification without disclosing payloads.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.07",
+      "milestone": "M01",
+      "title": "Visual shell and policy inspector",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01"
+      ],
+      "deliverable": "Build navigation, resource inspector, work list and access explanation view.",
+      "acceptance": [
+        "Keyboard users can navigate to a denied or permitted action and understand the reason.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-01.08",
+      "milestone": "M01",
+      "title": "CI deployment and migration foundation",
+      "status": "planned",
+      "owner_role": "Platform and security",
+      "engines": [
+        "E00",
+        "E01",
+        "E14"
+      ],
+      "requirements": [
+        "R01",
+        "R02",
+        "R13",
+        "R22",
+        "R26",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07"
+      ],
+      "deliverable": "Pin builds, generate SBOM, run schema checks and deploy synthetic staging with rollback.",
+      "acceptance": [
+        "Staging release and rollback retain data; no production credentials or private data enter builds.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.01",
+      "milestone": "M02",
+      "title": "Evidence versions and acquisitions",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-01.03",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.08"
+      ],
+      "deliverable": "Implement immutable originals, acquisition methods, dates, digests and object references.",
+      "acceptance": [
+        "Changed bytes at the same URL become a new version and old citations still resolve.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.02",
+      "milestone": "M02",
+      "title": "Quarantine and parser isolation",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01"
+      ],
+      "deliverable": "Connect scanning and file-type limits; sandbox parsing and derivative generation.",
+      "acceptance": [
+        "Infected, unknown and failed-scan files cannot be promoted; malformed documents cannot escape workers.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.03",
+      "milestone": "M02",
+      "title": "Source families and deduplication",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01"
+      ],
+      "deliverable": "Separate works, editions, mirrors, copies and independent sources with reversible matching.",
+      "acceptance": [
+        "Three mirrors do not become three corroborating witnesses; merge reversal restores references.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.04",
+      "milestone": "M02",
+      "title": "Precise selectors and evidence viewer",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01",
+        "AM-02.03"
+      ],
+      "deliverable": "Implement text/page/time selectors, original/derivative alignment and highlights.",
+      "acceptance": [
+        "Selected snippets open the correct page, region or media segment after export/import.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.05",
+      "milestone": "M02",
+      "title": "Handling records and integrity checks",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01"
+      ],
+      "deliverable": "Record custody and transformations, verify digests and generate evidence manifests.",
+      "acceptance": [
+        "Backup restoration and a deliberate corruption produce correct pass/fail records.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.06",
+      "milestone": "M02",
+      "title": "Retention and protected derivatives",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01",
+        "AM-02.02"
+      ],
+      "deliverable": "Implement scoped copies, redaction, holds, expiry and erasure impact reporting.",
+      "acceptance": [
+        "Redacted text and metadata are absent from derivative bytes while restricted originals remain authorized-only.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.07",
+      "milestone": "M02",
+      "title": "Interchange and import dry run",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01"
+      ],
+      "deliverable": "Create versioned portable bundles with legacy IDs and provenance gaps.",
+      "acceptance": [
+        "Round-trip preserves revisions, uncertainty and source relationships and rejects missing mandatory references.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-02.08",
+      "milestone": "M02",
+      "title": "Visual provenance and audit export",
+      "status": "planned",
+      "owner_role": "Data engineering",
+      "engines": [
+        "E05",
+        "E07"
+      ],
+      "requirements": [
+        "R09",
+        "R11",
+        "R20",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-02.01",
+        "AM-02.02",
+        "AM-02.03",
+        "AM-02.04",
+        "AM-02.05",
+        "AM-02.06",
+        "AM-02.07"
+      ],
+      "deliverable": "Provide lineage graph, acquisition history and authorized evidence inventory.",
+      "acceptance": [
+        "Every derivative reveals inputs and handling events; hidden evidence cannot leak through graph counts.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.01",
+      "milestone": "M03",
+      "title": "Pinned intake adapter",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-00.02",
+        "AM-01.02",
+        "AM-02.01"
+      ],
+      "deliverable": "Implement supported operations and signed event mapping against a fixed upstream image.",
+      "acceptance": [
+        "Contract suite rejects unsupported versions and confirms no direct suite writes to intake tables.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.02",
+      "milestone": "M03",
+      "title": "Accessible report forms",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01"
+      ],
+      "deliverable": "Configure generic report intake, language support, save/resume and optional identity.",
+      "acceptance": [
+        "A low-bandwidth keyboard-only user submits without payment, lawyer details or mandatory government identity.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.03",
+      "milestone": "M03",
+      "title": "Participant privacy and recovery",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01"
+      ],
+      "deliverable": "Integrate protected fields, receipt/secret separation, safe channel preferences and recovery limits.",
+      "acceptance": [
+        "Tracking code alone grants no access; ordinary views exclude protected identity.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.04",
+      "milestone": "M03",
+      "title": "Attachment and evidence bridge",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01",
+        "AM-02.02"
+      ],
+      "deliverable": "Map clean versioned intake files into research evidence references with handling provenance.",
+      "acceptance": [
+        "Quarantined files remain inaccessible and no copy loses its intake source version.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.05",
+      "milestone": "M03",
+      "title": "Triage and investigation initiation",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01",
+        "AM-03.02"
+      ],
+      "deliverable": "Create scope, urgency, capacity and duplicate assessment with reasoned status and case links.",
+      "acceptance": [
+        "Accepted reports produce an investigation plan; queued or out-of-scope outcomes have a visible reason.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.06",
+      "milestone": "M03",
+      "title": "Participant follow up",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01",
+        "AM-03.03"
+      ],
+      "deliverable": "Connect safe bidirectional portal messaging under the source form policy; spec generic gaps upstream.",
+      "acceptance": [
+        "Status-only participants cannot read internal messages; permitted participants can correct an account.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.07",
+      "milestone": "M03",
+      "title": "Deadlines referrals and review",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01"
+      ],
+      "deliverable": "Reuse case clocks, consent-aware referrals, status updates and reconsideration.",
+      "acceptance": [
+        "Recipient-specific deadlines remain independent; referral dispatch requires an authorized channel.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-03.08",
+      "milestone": "M03",
+      "title": "Intake end to end acceptance",
+      "status": "planned",
+      "owner_role": "Intake integration",
+      "engines": [
+        "E02",
+        "E08"
+      ],
+      "requirements": [
+        "R03",
+        "R04",
+        "R23",
+        "R28"
+      ],
+      "dependencies": [
+        "AM-03.01",
+        "AM-03.02",
+        "AM-03.03",
+        "AM-03.04",
+        "AM-03.05",
+        "AM-03.06",
+        "AM-03.07"
+      ],
+      "deliverable": "Exercise submission, scanning, protected identity, investigation, follow-up and closure in staging.",
+      "acceptance": [
+        "Complete a realistic neutral case with failed scanner, recovered worker and denied cross-case access.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.01",
+      "milestone": "M04",
+      "title": "Connector SDK and source registry",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-01.04",
+        "AM-02.01",
+        "AM-02.02"
+      ],
+      "deliverable": "Define acquisition/search adapters, capabilities, access rules, limits and checkpoints.",
+      "acceptance": [
+        "A new connector uses the SDK without importing deployment-specific policy into core.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.02",
+      "milestone": "M04",
+      "title": "Public web and archive capture",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01"
+      ],
+      "deliverable": "Implement permitted retrieval, pagination, source snapshots and metadata-only leads.",
+      "acceptance": [
+        "A blocked page stays a lead; a resumed collection loses no pages and records retrieval coverage.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.03",
+      "milestone": "M04",
+      "title": "File and bulk dataset ingestion",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01"
+      ],
+      "deliverable": "Support authorized directories, export bundles, tables and document collections.",
+      "acceptance": [
+        "Large jobs resume by checkpoint and deduplicate bytes without merging distinct accounts.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.04",
+      "milestone": "M04",
+      "title": "OCR and layout extraction",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01"
+      ],
+      "deliverable": "Implement document OCR with coordinates, quality markers and original alignment.",
+      "acceptance": [
+        "Representative scans align to source pages and low-quality extraction remains visibly uncertain.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.05",
+      "milestone": "M04",
+      "title": "Audio video transcription",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01",
+        "AM-02.04"
+      ],
+      "deliverable": "Create timed transcripts, provisional speaker labels, waveform view and correction history.",
+      "acceptance": [
+        "Seeking a transcript segment plays the correct interval and amended words create revisions.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.06",
+      "milestone": "M04",
+      "title": "Translation and multilingual search",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01",
+        "AM-04.04",
+        "AM-04.05"
+      ],
+      "deliverable": "Preserve original script, translated versions, language confidence and reviewer corrections.",
+      "acceptance": [
+        "Two-language retrieval returns relevant authorized material and exposes source text for checking.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.07",
+      "milestone": "M04",
+      "title": "Refresh and collection coverage",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01"
+      ],
+      "deliverable": "Track additions, removals, changing URLs, fetch failures and rediscovery.",
+      "acceptance": [
+        "Refresh creates new versions and explicit missing records without overwriting history.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-04.08",
+      "milestone": "M04",
+      "title": "Processing quality and cost evaluation",
+      "status": "planned",
+      "owner_role": "Data and processing",
+      "engines": [
+        "E04",
+        "E06"
+      ],
+      "requirements": [
+        "R08",
+        "R10",
+        "R24",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-04.01",
+        "AM-04.02",
+        "AM-04.03",
+        "AM-04.04",
+        "AM-04.05",
+        "AM-04.06",
+        "AM-04.07"
+      ],
+      "deliverable": "Benchmark providers against a representative labelled corpus with resource caps.",
+      "acceptance": [
+        "Publish measured OCR/transcript/translation error and cost by language and data class.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.01",
+      "milestone": "M05",
+      "title": "Entity event and claim model",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-02.03",
+        "AM-02.04",
+        "AM-04.04"
+      ],
+      "deliverable": "Implement versioned entities, time ranges, role assertions and independent assessment dimensions.",
+      "acceptance": [
+        "Unknown dates remain unknown and entity match ambiguity is reviewable and reversible.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.02",
+      "milestone": "M05",
+      "title": "Evidence link and source dependence",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01"
+      ],
+      "deliverable": "Support/challenge claims with selectors and source-family relations.",
+      "acceptance": [
+        "Copied reports cannot inflate corroboration and unsupported links fail validation.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.03",
+      "milestone": "M05",
+      "title": "Question and hypothesis planning",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01"
+      ],
+      "deliverable": "Create material-question trees, competing explanations, leads and stop conditions.",
+      "acceptance": [
+        "A report becomes a plan including at least one route for testing contrary evidence where applicable.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.04",
+      "milestone": "M05",
+      "title": "Claim extraction and answer proposals",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01",
+        "AM-05.02",
+        "AM-04.05"
+      ],
+      "deliverable": "Generate structured assertions from passages and replies with exact citations.",
+      "acceptance": [
+        "Every accepted proposal resolves to the original span; invented citations are rejected.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.05",
+      "milestone": "M05",
+      "title": "Verification and challenge workflow",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01",
+        "AM-05.04"
+      ],
+      "deliverable": "Assess authenticity, source knowledge, independent support and counterevidence.",
+      "acceptance": [
+        "A contradicted or unresolved assertion cannot silently become a verified finding.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.06",
+      "milestone": "M05",
+      "title": "Investigation completeness and closure",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01",
+        "AM-05.03",
+        "AM-05.05"
+      ],
+      "deliverable": "Track coverage, unavailable sources, exhausted leads, review basis and reopening triggers.",
+      "acceptance": [
+        "Material unanswered questions are explicitly unresolved, deferred or assigned before closure.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.07",
+      "milestone": "M05",
+      "title": "Evidence reports and referral packages",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01"
+      ],
+      "deliverable": "Generate chronologies, claim dossiers, records-request drafts and scoped professional bundles.",
+      "acceptance": [
+        "Export includes contrary material, attribution limits and exact evidence versions within its authorized scope.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-05.08",
+      "milestone": "M05",
+      "title": "Correction impact computation",
+      "status": "planned",
+      "owner_role": "Investigation and data",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "requirements": [
+        "R04",
+        "R11",
+        "R12",
+        "R23"
+      ],
+      "dependencies": [
+        "AM-05.01",
+        "AM-05.02",
+        "AM-05.03",
+        "AM-05.04",
+        "AM-05.05",
+        "AM-05.06",
+        "AM-05.07"
+      ],
+      "deliverable": "Traverse revised claim/source relationships and invalidate dependent decisions.",
+      "acceptance": [
+        "A corrected date finds all affected claims, findings and draft outputs while leaving unrelated work usable.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.01",
+      "milestone": "M06",
+      "title": "Mailbox and sender model",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-01.03",
+        "AM-01.04",
+        "AM-05.03"
+      ],
+      "deliverable": "Create provider-neutral mailboxes, identities, scopes, suppression and secret references.",
+      "acceptance": [
+        "Mailbox credentials cannot be retrieved by a research agent or another project.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.02",
+      "milestone": "M06",
+      "title": "Gmail synchronization adapter",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01"
+      ],
+      "deliverable": "Implement OAuth, watch renewal, history cursor, full-resync recovery and thread mapping.",
+      "acceptance": [
+        "Duplicate, missing and out-of-order notifications converge to one consistent mailbox view.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.03",
+      "milestone": "M06",
+      "title": "Delivery gateway and uncertain sends",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-06.02"
+      ],
+      "deliverable": "Create send attempts, idempotency records, receipt reconciliation and delivery status.",
+      "acceptance": [
+        "A provider timeout does not trigger blind duplicate sends; uncertain state is visible and resolved.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.04",
+      "milestone": "M06",
+      "title": "Ordinary email workspace",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-06.02"
+      ],
+      "deliverable": "Build inbox/sent/drafts/archive/trash, search, labels, thread view, compose and attachments.",
+      "acceptance": [
+        "A user can read, find, reply, forward and manage a conversation without learning an agent-specific interface.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.05",
+      "milestone": "M06",
+      "title": "Human takeover and race fencing",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-06.03",
+        "AM-06.04"
+      ],
+      "deliverable": "Implement control epochs, per-thread dispatch checks, queued-send cancellation and explicit resume.",
+      "acceptance": [
+        "Takeover-before-dispatch prevents send; takeover-after-provider-acceptance reports in-flight state accurately.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.06",
+      "milestone": "M06",
+      "title": "Relevant contact discovery",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01"
+      ],
+      "deliverable": "Find role-qualified contacts from public professional sources and verify channels.",
+      "acceptance": [
+        "Every candidate has question relevance and a source; ambiguous or private scraped contacts are excluded from automatic sending.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.07",
+      "milestone": "M06",
+      "title": "Concise truthful question drafting",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-06.06"
+      ],
+      "deliverable": "Generate minimal contextual email with accurate automated identity and one to three questions.",
+      "acceptance": [
+        "Evaluation rejects invented affiliation, unnecessary case disclosure, promotional copy and excessively long first messages.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.08",
+      "milestone": "M06",
+      "title": "Autonomous outreach policy",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-06.05",
+        "AM-06.07"
+      ],
+      "deliverable": "Apply standing authority, channel rules, per-contact limits, reminders, refusals and complaints.",
+      "acceptance": [
+        "A refusal or suppression cancels pending follow-ups and blocks alternate-agent retries to the same person.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.09",
+      "milestone": "M06",
+      "title": "Reply ingestion and validation loop",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-05.05",
+        "AM-06.08"
+      ],
+      "deliverable": "Preserve raw messages, extract attributed answers, flag use restrictions and schedule verification.",
+      "acceptance": [
+        "One reply creates sourced answer proposals without automatic truth promotion; restricted-use replies remain restricted.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-06.10",
+      "milestone": "M06",
+      "title": "Second provider and secure portal bridge",
+      "status": "planned",
+      "owner_role": "Communications",
+      "engines": [
+        "E03",
+        "E08",
+        "E14"
+      ],
+      "requirements": [
+        "R05",
+        "R06",
+        "R07",
+        "R12",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09"
+      ],
+      "deliverable": "Add a second mail-provider adapter and participant-safe protected-channel handoff.",
+      "acceptance": [
+        "The same inbox actions and takeover tests pass across providers; sensitive text stays out of email notifications.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.01",
+      "milestone": "M07",
+      "title": "Objective and dependency planner",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.04",
+        "AM-05.03",
+        "AM-06.08"
+      ],
+      "deliverable": "Convert objectives to typed task graphs with explicit inputs and measurable results.",
+      "acceptance": [
+        "Cycle, missing-input and forbidden-action proposals are rejected before execution.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.02",
+      "milestone": "M07",
+      "title": "Agent registry and capability broker",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01"
+      ],
+      "deliverable": "Register roles, tools, models and narrowly scoped resource grants.",
+      "acceptance": [
+        "A researcher cannot send, publish, decrypt or spend outside its task grant.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.03",
+      "milestone": "M07",
+      "title": "Persistent memory and checkpoints",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01",
+        "AM-07.02"
+      ],
+      "deliverable": "Store scoped summaries, decisions, evidence refs and recoverable run state.",
+      "acceptance": [
+        "A restarted agent resumes from a verified checkpoint without importing unrelated project memory.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.04",
+      "milestone": "M07",
+      "title": "Autonomy modes and operator controls",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01",
+        "AM-07.02"
+      ],
+      "deliverable": "Implement manual, draft, bounded autonomous and paused modes by action class.",
+      "acceptance": [
+        "Policy changes revoke stale work and all state transitions have visible reasons.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.05",
+      "milestone": "M07",
+      "title": "Budget reservation and metering",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01"
+      ],
+      "deliverable": "Reserve token/time/compute/egress budgets before work and reconcile actual use.",
+      "acceptance": [
+        "Simultaneous jobs cannot overspend a shared cap through a check-then-act race.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.06",
+      "milestone": "M07",
+      "title": "Effort lane scheduler",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01",
+        "AM-07.05"
+      ],
+      "deliverable": "Implement weighted fair queues and active-time accounting with separate human/model/cost ledgers.",
+      "acceptance": [
+        "Unequal worker counts, retries and waiting replies do not hide lane allocation differences.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.07",
+      "milestone": "M07",
+      "title": "Prompt injection and tool abuse evaluation",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01",
+        "AM-07.02",
+        "AM-07.04"
+      ],
+      "deliverable": "Use malicious documents/emails and adversarial plans against bounded tool workers.",
+      "acceptance": [
+        "External instructions cannot change policy, leak a private case or trigger unauthorized outreach.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-07.08",
+      "milestone": "M07",
+      "title": "Recovery and autonomy acceptance",
+      "status": "planned",
+      "owner_role": "Orchestration",
+      "engines": [
+        "E00",
+        "E01",
+        "E13"
+      ],
+      "requirements": [
+        "R13",
+        "R25",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-07.01",
+        "AM-07.02",
+        "AM-07.03",
+        "AM-07.04",
+        "AM-07.05",
+        "AM-07.06",
+        "AM-07.07"
+      ],
+      "deliverable": "Exercise cancellation, retries, dead letters, provider failure, budget stop and operator resumption.",
+      "acceptance": [
+        "A long synthetic investigation resumes after faults with no untracked effect or fabricated completion.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.01",
+      "milestone": "M08",
+      "title": "Shared visual contract and inspector",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-01.07"
+      ],
+      "deliverable": "Implement engine view manifests, timestamps, action states and linked resource inspector.",
+      "acceptance": [
+        "Every registered engine has a useful view and a table fallback.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.02",
+      "milestone": "M08",
+      "title": "Objective task and agent graph",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01",
+        "AM-07.01"
+      ],
+      "deliverable": "Show task dependencies, assignment, blockers, budgets and activity summaries.",
+      "acceptance": [
+        "Selecting any completed task reveals revision-bound output and acceptance evidence.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.03",
+      "milestone": "M08",
+      "title": "Case and question workspace",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01",
+        "AM-03.05",
+        "AM-05.06"
+      ],
+      "deliverable": "Combine intake status, investigation questions, leads and findings without leaking protected identity.",
+      "acceptance": [
+        "A user follows a question from report to evidence and correspondence in a few linked views.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.04",
+      "milestone": "M08",
+      "title": "Integrated correspondence inspector",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01",
+        "AM-06.05",
+        "AM-06.09"
+      ],
+      "deliverable": "Connect ordinary inbox operations to question/answer panels and live control state.",
+      "acceptance": [
+        "Human takeover is visible, immediate locally and accurately reconciled with provider state.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.05",
+      "milestone": "M08",
+      "title": "Evidence graph and timeline",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01",
+        "AM-05.02"
+      ],
+      "deliverable": "Render bounded source/claim/event neighborhoods with uncertainty and source dependence.",
+      "acceptance": [
+        "Large graphs paginate and protected topology remains absent from counts and tooltips.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.06",
+      "milestone": "M08",
+      "title": "Correction and version comparison",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01",
+        "AM-05.08"
+      ],
+      "deliverable": "Show before/after evidence and downstream affected work with assigned repair tasks.",
+      "acceptance": [
+        "An operator can explain why a render or release became stale without reading raw logs.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.07",
+      "milestone": "M08",
+      "title": "Accessibility and multilingual UI",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01"
+      ],
+      "deliverable": "Implement keyboard equivalents, reader labels, RTL, reduced motion and language switching.",
+      "acceptance": [
+        "Complete intake, inbox takeover and evidence review by keyboard and an assistive-technology test script.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-08.08",
+      "milestone": "M08",
+      "title": "Browser and usability acceptance",
+      "status": "planned",
+      "owner_role": "Product design and frontend",
+      "engines": [
+        "E14"
+      ],
+      "requirements": [
+        "R07",
+        "R14",
+        "R20",
+        "R30"
+      ],
+      "dependencies": [
+        "AM-08.01",
+        "AM-08.02",
+        "AM-08.03",
+        "AM-08.04",
+        "AM-08.05",
+        "AM-08.06",
+        "AM-08.07"
+      ],
+      "deliverable": "Test real browsers, responsive layouts, long names, large data and representative operators.",
+      "acceptance": [
+        "Capture source-bound visual and interaction evidence; no screen is marked verified from static code inspection alone.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-09.01",
+      "milestone": "M09",
+      "title": "Creative briefs and collections",
+      "status": "planned",
+      "owner_role": "Editorial and product",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "requirements": [
+        "R15",
+        "R17",
+        "R18",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-05.02",
+        "AM-05.08"
+      ],
+      "deliverable": "Create medium, audience, viewpoint, series and editorial constraints with private defaults.",
+      "acceptance": [
+        "A collection reuses approved facts and assets without copying confidential material across projects.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-09.02",
+      "milestone": "M09",
+      "title": "Script and factual line ledger",
+      "status": "planned",
+      "owner_role": "Editorial and product",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "requirements": [
+        "R15",
+        "R17",
+        "R18",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-09.01",
+        "AM-11.01"
+      ],
+      "deliverable": "Implement scripts, narration, lyric assertions and claim-revision links.",
+      "acceptance": [
+        "Every factual assertion is sourced or visibly unresolved; selecting it opens the exact source.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-09.03",
+      "milestone": "M09",
+      "title": "Scenes perspective and reconstruction",
+      "status": "planned",
+      "owner_role": "Editorial and product",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "requirements": [
+        "R15",
+        "R17",
+        "R18",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-09.01",
+        "AM-09.02"
+      ],
+      "deliverable": "Develop scene beats, testimony-based viewpoint and reconstruction/composite declarations.",
+      "acceptance": [
+        "Invented dialogue or private thought cannot be labelled a documented quotation.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-09.04",
+      "milestone": "M09",
+      "title": "Cinematography and sound planning",
+      "status": "planned",
+      "owner_role": "Editorial and product",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "requirements": [
+        "R15",
+        "R17",
+        "R18",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-09.01",
+        "AM-09.03"
+      ],
+      "deliverable": "Create storyboard and shot fields for framing, duration, camera, performance, sound and factual basis.",
+      "acceptance": [
+        "A complete scene can be handed to a production worker with no hidden unsupported factual claim.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-09.05",
+      "milestone": "M09",
+      "title": "Editorial review and correction links",
+      "status": "planned",
+      "owner_role": "Editorial and product",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "requirements": [
+        "R15",
+        "R17",
+        "R18",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-09.01",
+        "AM-09.04"
+      ],
+      "deliverable": "Version review decisions and invalidate only affected lines/beats after new evidence.",
+      "acceptance": [
+        "A correction propagates to all versions awaiting release and preserves prior rationale.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-09.06",
+      "milestone": "M09",
+      "title": "Satire and identity separation",
+      "status": "planned",
+      "owner_role": "Editorial and product",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "requirements": [
+        "R15",
+        "R17",
+        "R18",
+        "R22"
+      ],
+      "dependencies": [
+        "AM-09.01",
+        "AM-09.02",
+        "AM-09.03",
+        "AM-09.04",
+        "AM-09.05"
+      ],
+      "deliverable": "Support clearly declared fictional/satirical works and separate publisher identities.",
+      "acceptance": [
+        "A satirical asset cannot be surfaced as archival evidence or use another identity’s sending credentials.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.01",
+      "milestone": "M10",
+      "title": "Asset registry and production graph",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-02.05",
+        "AM-09.02",
+        "AM-09.04"
+      ],
+      "deliverable": "Track originals, derivatives, editable sources, tool versions and rights-use references.",
+      "acceptance": [
+        "Every output has recoverable inputs and exact bytes; missing assets block final render.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.02",
+      "milestone": "M10",
+      "title": "Production adapter SDK",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01"
+      ],
+      "deliverable": "Define render/generate/edit contracts, sandbox profiles, resource forecasts and QC callbacks.",
+      "acceptance": [
+        "Two independent tool adapters execute the same generic job contract without core branching.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.03",
+      "milestone": "M10",
+      "title": "Video timeline and rendering",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "deliverable": "Implement clips, tracks, transitions, proxies, edit decisions, captions and final masters.",
+      "acceptance": [
+        "A short film renders with consistent timebase, valid sources and reproducible input manifest.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.04",
+      "milestone": "M10",
+      "title": "Audio and music production",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "deliverable": "Create narration, compositions, stems, editing, mixing and audio quality checks.",
+      "acceptance": [
+        "An audio work and musical piece retain performer/voice permission and source-linked factual lines.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.05",
+      "milestone": "M10",
+      "title": "Images illustration and print",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "deliverable": "Implement image generation/edit adapters, layers, layouts, captions and print/web export.",
+      "acceptance": [
+        "Final images preserve provenance and clearly identify reconstruction or illustration.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.06",
+      "milestone": "M10",
+      "title": "Animation and motion",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.03",
+        "AM-10.05"
+      ],
+      "deliverable": "Create storyboard-to-animatic workflow, scene assets and compositing.",
+      "acceptance": [
+        "A short animated sequence renders from versioned assets and supports a corrected factual beat.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.07",
+      "milestone": "M10",
+      "title": "Writing and public service materials",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "deliverable": "Produce long/short written works, accessible documents and public-service packages.",
+      "acceptance": [
+        "An accessible document or announcement includes correct source companion and allowed identity use.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.08",
+      "milestone": "M10",
+      "title": "Interactive exhibition and 3D extension",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.02"
+      ],
+      "deliverable": "Build accessible narrative/web output and extension interfaces for exhibit/3D/XR adapters.",
+      "acceptance": [
+        "One interactive work is playable with keyboard; extension conformance tests validate external specialist adapters.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.09",
+      "milestone": "M10",
+      "title": "Cross medium accessibility and QC",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08"
+      ],
+      "deliverable": "Check captions/transcripts, sound, legibility, frame gaps, metadata and factual staleness.",
+      "acceptance": [
+        "Deliberately broken media fails QC and a valid multi-format package passes recorded checks.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-10.10",
+      "milestone": "M10",
+      "title": "Render recovery and catalogue acceptance",
+      "status": "planned",
+      "owner_role": "Media engineering and creative",
+      "engines": [
+        "E10"
+      ],
+      "requirements": [
+        "R16",
+        "R17",
+        "R19"
+      ],
+      "dependencies": [
+        "AM-10.01",
+        "AM-10.02",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08",
+        "AM-10.09"
+      ],
+      "deliverable": "Checkpoint rendering, manage disk/GPU budgets, reuse assets and inspect final works.",
+      "acceptance": [
+        "Five principal output classes complete privately and a corrected asset triggers only necessary rebuilds.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.01",
+      "milestone": "M11",
+      "title": "Purpose specific rights model",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-01.03",
+        "AM-02.06"
+      ],
+      "deliverable": "Separate citation, quote, original access, adaptation, processing, likeness and publication.",
+      "acceptance": [
+        "Unknown reproduction rights do not automatically suppress permissible citation metadata.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.02",
+      "milestone": "M11",
+      "title": "Consent capture expiry and withdrawal",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01"
+      ],
+      "deliverable": "Store scope/version/evidence, use conditions and withdrawal effects.",
+      "acceptance": [
+        "Withdrawal prevents new unauthorized use and enumerates existing affected deliveries.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.03",
+      "milestone": "M11",
+      "title": "Private package and disclosure builder",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01",
+        "AM-11.02"
+      ],
+      "deliverable": "Build scoped investigation and media packages from authorized projections.",
+      "acceptance": [
+        "Originals, hidden text and protected metadata cannot enter a lower-disclosure package.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.04",
+      "milestone": "M11",
+      "title": "Owner release manifest",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01",
+        "AM-11.03"
+      ],
+      "deliverable": "Bind approval to exact content, audience, destination, use, policy and expiry.",
+      "acceptance": [
+        "Any material content or audience change requires a fresh authorization; agents cannot self-approve.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.05",
+      "milestone": "M11",
+      "title": "Distribution gateway and reference pages",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01",
+        "AM-11.04"
+      ],
+      "deliverable": "Deliver approved packages, optional source companion pages and receipt records.",
+      "acceptance": [
+        "Gateway cannot fetch private originals and repeated dispatch reconciles prior delivery.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.06",
+      "milestone": "M11",
+      "title": "Correction replacement and withdrawal",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01",
+        "AM-05.08",
+        "AM-11.05"
+      ],
+      "deliverable": "Implement impact-led repair, hosted supersession, scoped notifications and detached-copy records.",
+      "acceptance": [
+        "A corrected claim identifies affected releases; a replacement retains dated correction history.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.07",
+      "milestone": "M11",
+      "title": "Public release adversarial tests",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01",
+        "AM-11.06"
+      ],
+      "deliverable": "Inspect captions, metadata, thumbnails, search indexes and third-party export artifacts.",
+      "acceptance": [
+        "Planted sensitive values never appear in an unauthorized audience projection.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-11.08",
+      "milestone": "M11",
+      "title": "Private by default acceptance",
+      "status": "planned",
+      "owner_role": "Policy and publishing",
+      "engines": [
+        "E11",
+        "E12"
+      ],
+      "requirements": [
+        "R02",
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "dependencies": [
+        "AM-11.01",
+        "AM-11.02",
+        "AM-11.03",
+        "AM-11.04",
+        "AM-11.05",
+        "AM-11.06",
+        "AM-11.07"
+      ],
+      "deliverable": "Exercise complete research and media production with publishing disabled.",
+      "acceptance": [
+        "No public endpoint, cache, sitemap or storage ACL exposes deployment content; outbound inquiries remain separately scoped.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.01",
+      "milestone": "M12",
+      "title": "Project costing and contributor obligations",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-01.03",
+        "AM-07.05"
+      ],
+      "deliverable": "Track budgets, actual usage, agreements and production responsibilities.",
+      "acceptance": [
+        "Project totals reconcile to task usage and missing obligations are visible before licensed delivery.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.02",
+      "milestone": "M12",
+      "title": "Licensing products and accounting export",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01",
+        "AM-11.01"
+      ],
+      "deliverable": "Support license terms, invoices, expenses, allocations and provider adapters.",
+      "acceptance": [
+        "Duplicate receipts cause no duplicated revenue; currency and adjustment history remain intact.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.03",
+      "milestone": "M12",
+      "title": "White label deployment manifest",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01"
+      ],
+      "deliverable": "Package branding, locales, sender identities, forms, policy packs and engine pins.",
+      "acceptance": [
+        "A new neutral deployment runs without a source-code change or shared confidential data.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.04",
+      "milestone": "M12",
+      "title": "Professional investigation profile",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01"
+      ],
+      "deliverable": "Configure authorized institutional workflows, notices, role controls and reviewable evidence products.",
+      "acceptance": [
+        "A finding cannot automatically trigger an adverse administrative or enforcement action.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.05",
+      "milestone": "M12",
+      "title": "Portable exports and archival adapters",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01",
+        "AM-02.07"
+      ],
+      "deliverable": "Export evidence, annotations, source families, claims and media manifests.",
+      "acceptance": [
+        "A round-trip into a clean deployment preserves IDs, uncertainty, references and permissions.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.06",
+      "milestone": "M12",
+      "title": "Scoped offline review",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01",
+        "AM-12.05"
+      ],
+      "deliverable": "Create encrypted authorized snapshots with visible version/expiry and later reconciliation.",
+      "acceptance": [
+        "Offline edits are explicit proposals on reconnect; stale data cannot overwrite a newer finding silently.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.07",
+      "milestone": "M12",
+      "title": "External collaboration and federation",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01",
+        "AM-11.03"
+      ],
+      "deliverable": "Implement purpose-bound recipient access, bounded sharing and revocation receipts.",
+      "acceptance": [
+        "Revocation stops future retrieval and discloses limitations for already-downloaded copies.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-12.08",
+      "milestone": "M12",
+      "title": "Commercial and reuse acceptance",
+      "status": "planned",
+      "owner_role": "Product and integrations",
+      "engines": [
+        "E13",
+        "E12"
+      ],
+      "requirements": [
+        "R17",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07"
+      ],
+      "deliverable": "Run independent research, public-service and institutional profiles over generic engines.",
+      "acceptance": [
+        "Policies and credentials remain isolated while each profile produces its intended private output.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.01",
+      "milestone": "M13",
+      "title": "Deployment and key custody readiness",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-03.08",
+        "AM-06.09",
+        "AM-07.08",
+        "AM-08.08",
+        "AM-11.08"
+      ],
+      "deliverable": "Provision or reconcile approved existing resources, isolate environments and validate key recovery.",
+      "acceptance": [
+        "Pinned production resources pass readiness with documented custody and least privilege.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.02",
+      "milestone": "M13",
+      "title": "Existing intake readiness resolution",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01"
+      ],
+      "deliverable": "Resolve actual upstream integration readiness, scanner, worker and storage dependencies.",
+      "acceptance": [
+        "Live readiness, clean-file handling, safe participant access and restore evidence pass on the pinned image.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.03",
+      "milestone": "M13",
+      "title": "Research migration rehearsal",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01",
+        "AM-02.07"
+      ],
+      "deliverable": "Snapshot staging research, map legacy fields, split rights uses and report provenance gaps.",
+      "acceptance": [
+        "Before/after reconciliation preserves legacy IDs and uncertainty; missing originals are never synthesized.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.04",
+      "milestone": "M13",
+      "title": "Private data import and rollback",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03"
+      ],
+      "deliverable": "Import into deployment databases only after platform readiness; retain snapshot and rollback map.",
+      "acceptance": [
+        "Integrity and count checks pass and a failed import restores the prior private deployment.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.05",
+      "milestone": "M13",
+      "title": "Operational monitoring and response",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01"
+      ],
+      "deliverable": "Add alerts, support procedures, incident containment, provider failure and key rotation drills.",
+      "acceptance": [
+        "An operator diagnoses an unhealthy scanner, queue, mailbox or database from the console.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.06",
+      "milestone": "M13",
+      "title": "Backup and recovery exercise",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01",
+        "AM-13.04"
+      ],
+      "deliverable": "Restore database, objects, grants, policies and jobs in an isolated environment.",
+      "acceptance": [
+        "Measured recovery meets the declared pilot RPO/RTO and reconciles pending external effects.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.07",
+      "milestone": "M13",
+      "title": "Closed pilot with representative workflows",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01",
+        "AM-13.05",
+        "AM-13.06"
+      ],
+      "deliverable": "Run real authorized private use with limited participants and controlled test contacts.",
+      "acceptance": [
+        "Operators complete report-to-finding and question-to-reply workflows with no unauthorized disclosure.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-13.08",
+      "milestone": "M13",
+      "title": "Pilot acceptance and support handoff",
+      "status": "planned",
+      "owner_role": "Operations and product",
+      "engines": [
+        "E00",
+        "E02",
+        "E05",
+        "E14"
+      ],
+      "requirements": [
+        "R02",
+        "R03",
+        "R26",
+        "R28",
+        "R29"
+      ],
+      "dependencies": [
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07"
+      ],
+      "deliverable": "Record source/image/config evidence, usability findings, capacity and remaining limitations.",
+      "acceptance": [
+        "Owner can operate, pause and recover the system; no completion status relies on an untested demo.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.01",
+      "milestone": "M14",
+      "title": "Performance and scale qualification",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-10.10",
+        "AM-11.07",
+        "AM-12.08",
+        "AM-13.08"
+      ],
+      "deliverable": "Benchmark representative corpus, concurrency, graphs, search, processing and storage.",
+      "acceptance": [
+        "Measured results meet declared targets or the supported envelope is reduced transparently.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.02",
+      "milestone": "M14",
+      "title": "Security and adversarial regression",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01"
+      ],
+      "deliverable": "Exercise tenancy, prompt injection, uploads, identity, data egress, keys and unauthorized releases.",
+      "acceptance": [
+        "All concrete critical/high findings are remediated or feature-disabled with source-bound retests.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.03",
+      "milestone": "M14",
+      "title": "Cross language and jurisdiction profiles",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01",
+        "AM-14.02"
+      ],
+      "deliverable": "Validate at least two deployment policy packs and multilingual workflows without engine branches.",
+      "acceptance": [
+        "Time precision, language, roles and legal-route configuration round-trip correctly.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.04",
+      "milestone": "M14",
+      "title": "Complete multi medium acceptance",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01",
+        "AM-14.03"
+      ],
+      "deliverable": "Run investigation-to-film/audio/music/image/writing/interactive scenarios with rights and correction.",
+      "acceptance": [
+        "Each output is a usable artifact, and every factual component can be traced and corrected.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.05",
+      "milestone": "M14",
+      "title": "Distribution readiness without forced release",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01"
+      ],
+      "deliverable": "Verify optional destinations with non-sensitive test artifacts and replay/withdrawal scenarios.",
+      "acceptance": [
+        "Private investigations remain private; public readiness does not itself authorize publication.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.06",
+      "milestone": "M14",
+      "title": "Reusable engine packaging and documentation",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01"
+      ],
+      "deliverable": "Publish versioned generic SDKs/contracts/runbooks and independent engine conformance suites.",
+      "acceptance": [
+        "A separate application consumes selected engines without copying the Accountability Machine deployment.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.07",
+      "milestone": "M14",
+      "title": "Specialist adapter programme",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01"
+      ],
+      "deliverable": "Implement prioritized specialist animation/3D/exhibition tools through the extension SDK.",
+      "acceptance": [
+        "Each selected adapter ships an end-to-end example and passes contract, rights and resource tests.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 7,
+        "high": 12
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    },
+    {
+      "id": "AM-14.08",
+      "milestone": "M14",
+      "title": "Stable release and continuous maintenance",
+      "status": "planned",
+      "owner_role": "Quality and operations",
+      "engines": [
+        "E00",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "requirements": [
+        "R14",
+        "R16",
+        "R19",
+        "R24",
+        "R26",
+        "R27"
+      ],
+      "dependencies": [
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-00.08",
+        "AM-01.08",
+        "AM-02.08",
+        "AM-03.08",
+        "AM-04.08",
+        "AM-05.08",
+        "AM-06.10",
+        "AM-07.08",
+        "AM-08.08",
+        "AM-09.06",
+        "AM-10.10",
+        "AM-11.08",
+        "AM-12.08",
+        "AM-13.08"
+      ],
+      "deliverable": "Version the suite, record known limits, schedule dependency/security evaluations and support ownership.",
+      "acceptance": [
+        "Release ledger separates code, tests, live integrations, external review and certification; upgrade/rollback runbooks pass.",
+        "Provide the authorized visual or table view, source-bound test evidence and documented failure behavior."
+      ],
+      "estimate_engineer_days": {
+        "low": 4,
+        "high": 8
+      },
+      "risks": [],
+      "evidence_required": [
+        "source revision",
+        "automated or integration result",
+        "visual interaction evidence when UI changes",
+        "migration and rollback notes when persistence changes"
+      ]
+    }
+  ],
+  "traceability": [
+    {
+      "requirement_id": "R01",
+      "engines": [
+        "E00",
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "task_ids": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07",
+        "AM-00.08",
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08"
+      ]
+    },
+    {
+      "requirement_id": "R02",
+      "engines": [
+        "E01",
+        "E03",
+        "E12"
+      ],
+      "task_ids": [
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08",
+        "AM-11.01",
+        "AM-11.02",
+        "AM-11.03",
+        "AM-11.04",
+        "AM-11.05",
+        "AM-11.06",
+        "AM-11.07",
+        "AM-11.08",
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07",
+        "AM-13.08"
+      ]
+    },
+    {
+      "requirement_id": "R03",
+      "engines": [
+        "E02",
+        "E06"
+      ],
+      "task_ids": [
+        "AM-03.01",
+        "AM-03.02",
+        "AM-03.03",
+        "AM-03.04",
+        "AM-03.05",
+        "AM-03.06",
+        "AM-03.07",
+        "AM-03.08",
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07",
+        "AM-13.08"
+      ]
+    },
+    {
+      "requirement_id": "R04",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "task_ids": [
+        "AM-03.01",
+        "AM-03.02",
+        "AM-03.03",
+        "AM-03.04",
+        "AM-03.05",
+        "AM-03.06",
+        "AM-03.07",
+        "AM-03.08",
+        "AM-05.01",
+        "AM-05.02",
+        "AM-05.03",
+        "AM-05.04",
+        "AM-05.05",
+        "AM-05.06",
+        "AM-05.07",
+        "AM-05.08"
+      ]
+    },
+    {
+      "requirement_id": "R05",
+      "engines": [
+        "E03",
+        "E04",
+        "E08"
+      ],
+      "task_ids": [
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09",
+        "AM-06.10"
+      ]
+    },
+    {
+      "requirement_id": "R06",
+      "engines": [
+        "E00",
+        "E01",
+        "E03"
+      ],
+      "task_ids": [
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09",
+        "AM-06.10"
+      ]
+    },
+    {
+      "requirement_id": "R07",
+      "engines": [
+        "E03",
+        "E14"
+      ],
+      "task_ids": [
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09",
+        "AM-06.10",
+        "AM-08.01",
+        "AM-08.02",
+        "AM-08.03",
+        "AM-08.04",
+        "AM-08.05",
+        "AM-08.06",
+        "AM-08.07",
+        "AM-08.08"
+      ]
+    },
+    {
+      "requirement_id": "R08",
+      "engines": [
+        "E04",
+        "E05"
+      ],
+      "task_ids": [
+        "AM-04.01",
+        "AM-04.02",
+        "AM-04.03",
+        "AM-04.04",
+        "AM-04.05",
+        "AM-04.06",
+        "AM-04.07",
+        "AM-04.08"
+      ]
+    },
+    {
+      "requirement_id": "R09",
+      "engines": [
+        "E02",
+        "E05",
+        "E07"
+      ],
+      "task_ids": [
+        "AM-02.01",
+        "AM-02.02",
+        "AM-02.03",
+        "AM-02.04",
+        "AM-02.05",
+        "AM-02.06",
+        "AM-02.07",
+        "AM-02.08"
+      ]
+    },
+    {
+      "requirement_id": "R10",
+      "engines": [
+        "E06"
+      ],
+      "task_ids": [
+        "AM-04.01",
+        "AM-04.02",
+        "AM-04.03",
+        "AM-04.04",
+        "AM-04.05",
+        "AM-04.06",
+        "AM-04.07",
+        "AM-04.08"
+      ]
+    },
+    {
+      "requirement_id": "R11",
+      "engines": [
+        "E07"
+      ],
+      "task_ids": [
+        "AM-02.01",
+        "AM-02.02",
+        "AM-02.03",
+        "AM-02.04",
+        "AM-02.05",
+        "AM-02.06",
+        "AM-02.07",
+        "AM-02.08",
+        "AM-05.01",
+        "AM-05.02",
+        "AM-05.03",
+        "AM-05.04",
+        "AM-05.05",
+        "AM-05.06",
+        "AM-05.07",
+        "AM-05.08"
+      ]
+    },
+    {
+      "requirement_id": "R12",
+      "engines": [
+        "E07",
+        "E08"
+      ],
+      "task_ids": [
+        "AM-05.01",
+        "AM-05.02",
+        "AM-05.03",
+        "AM-05.04",
+        "AM-05.05",
+        "AM-05.06",
+        "AM-05.07",
+        "AM-05.08",
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09",
+        "AM-06.10"
+      ]
+    },
+    {
+      "requirement_id": "R13",
+      "engines": [
+        "E00",
+        "E01"
+      ],
+      "task_ids": [
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08",
+        "AM-07.01",
+        "AM-07.02",
+        "AM-07.03",
+        "AM-07.04",
+        "AM-07.05",
+        "AM-07.06",
+        "AM-07.07",
+        "AM-07.08"
+      ]
+    },
+    {
+      "requirement_id": "R14",
+      "engines": [
+        "E14"
+      ],
+      "task_ids": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07",
+        "AM-00.08",
+        "AM-08.01",
+        "AM-08.02",
+        "AM-08.03",
+        "AM-08.04",
+        "AM-08.05",
+        "AM-08.06",
+        "AM-08.07",
+        "AM-08.08",
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ]
+    },
+    {
+      "requirement_id": "R15",
+      "engines": [
+        "E09",
+        "E11"
+      ],
+      "task_ids": [
+        "AM-09.01",
+        "AM-09.02",
+        "AM-09.03",
+        "AM-09.04",
+        "AM-09.05",
+        "AM-09.06"
+      ]
+    },
+    {
+      "requirement_id": "R16",
+      "engines": [
+        "E10"
+      ],
+      "task_ids": [
+        "AM-10.01",
+        "AM-10.02",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08",
+        "AM-10.09",
+        "AM-10.10",
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ]
+    },
+    {
+      "requirement_id": "R17",
+      "engines": [
+        "E09",
+        "E10",
+        "E13"
+      ],
+      "task_ids": [
+        "AM-09.01",
+        "AM-09.02",
+        "AM-09.03",
+        "AM-09.04",
+        "AM-09.05",
+        "AM-09.06",
+        "AM-10.01",
+        "AM-10.02",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08",
+        "AM-10.09",
+        "AM-10.10",
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08"
+      ]
+    },
+    {
+      "requirement_id": "R18",
+      "engines": [
+        "E11"
+      ],
+      "task_ids": [
+        "AM-09.01",
+        "AM-09.02",
+        "AM-09.03",
+        "AM-09.04",
+        "AM-09.05",
+        "AM-09.06",
+        "AM-11.01",
+        "AM-11.02",
+        "AM-11.03",
+        "AM-11.04",
+        "AM-11.05",
+        "AM-11.06",
+        "AM-11.07",
+        "AM-11.08"
+      ]
+    },
+    {
+      "requirement_id": "R19",
+      "engines": [
+        "E12"
+      ],
+      "task_ids": [
+        "AM-10.01",
+        "AM-10.02",
+        "AM-10.03",
+        "AM-10.04",
+        "AM-10.05",
+        "AM-10.06",
+        "AM-10.07",
+        "AM-10.08",
+        "AM-10.09",
+        "AM-10.10",
+        "AM-11.01",
+        "AM-11.02",
+        "AM-11.03",
+        "AM-11.04",
+        "AM-11.05",
+        "AM-11.06",
+        "AM-11.07",
+        "AM-11.08",
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ]
+    },
+    {
+      "requirement_id": "R20",
+      "engines": [
+        "E05",
+        "E07",
+        "E09",
+        "E10",
+        "E11",
+        "E12"
+      ],
+      "task_ids": [
+        "AM-02.01",
+        "AM-02.02",
+        "AM-02.03",
+        "AM-02.04",
+        "AM-02.05",
+        "AM-02.06",
+        "AM-02.07",
+        "AM-02.08",
+        "AM-08.01",
+        "AM-08.02",
+        "AM-08.03",
+        "AM-08.04",
+        "AM-08.05",
+        "AM-08.06",
+        "AM-08.07",
+        "AM-08.08",
+        "AM-11.01",
+        "AM-11.02",
+        "AM-11.03",
+        "AM-11.04",
+        "AM-11.05",
+        "AM-11.06",
+        "AM-11.07",
+        "AM-11.08"
+      ]
+    },
+    {
+      "requirement_id": "R21",
+      "engines": [
+        "E13"
+      ],
+      "task_ids": [
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08"
+      ]
+    },
+    {
+      "requirement_id": "R22",
+      "engines": [
+        "E01",
+        "E03",
+        "E09",
+        "E12",
+        "E13"
+      ],
+      "task_ids": [
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08",
+        "AM-06.01",
+        "AM-06.02",
+        "AM-06.03",
+        "AM-06.04",
+        "AM-06.05",
+        "AM-06.06",
+        "AM-06.07",
+        "AM-06.08",
+        "AM-06.09",
+        "AM-06.10",
+        "AM-09.01",
+        "AM-09.02",
+        "AM-09.03",
+        "AM-09.04",
+        "AM-09.05",
+        "AM-09.06",
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08"
+      ]
+    },
+    {
+      "requirement_id": "R23",
+      "engines": [
+        "E02",
+        "E08",
+        "E10",
+        "E12"
+      ],
+      "task_ids": [
+        "AM-03.01",
+        "AM-03.02",
+        "AM-03.03",
+        "AM-03.04",
+        "AM-03.05",
+        "AM-03.06",
+        "AM-03.07",
+        "AM-03.08",
+        "AM-05.01",
+        "AM-05.02",
+        "AM-05.03",
+        "AM-05.04",
+        "AM-05.05",
+        "AM-05.06",
+        "AM-05.07",
+        "AM-05.08",
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08"
+      ]
+    },
+    {
+      "requirement_id": "R24",
+      "engines": [
+        "E01",
+        "E04",
+        "E06",
+        "E08"
+      ],
+      "task_ids": [
+        "AM-04.01",
+        "AM-04.02",
+        "AM-04.03",
+        "AM-04.04",
+        "AM-04.05",
+        "AM-04.06",
+        "AM-04.07",
+        "AM-04.08",
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08",
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ]
+    },
+    {
+      "requirement_id": "R25",
+      "engines": [
+        "E00",
+        "E13",
+        "E14"
+      ],
+      "task_ids": [
+        "AM-07.01",
+        "AM-07.02",
+        "AM-07.03",
+        "AM-07.04",
+        "AM-07.05",
+        "AM-07.06",
+        "AM-07.07",
+        "AM-07.08"
+      ]
+    },
+    {
+      "requirement_id": "R26",
+      "engines": [
+        "E00",
+        "E01",
+        "E05",
+        "E14"
+      ],
+      "task_ids": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07",
+        "AM-00.08",
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08",
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07",
+        "AM-13.08",
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ]
+    },
+    {
+      "requirement_id": "R27",
+      "engines": [
+        "E00",
+        "E05",
+        "E07",
+        "E12"
+      ],
+      "task_ids": [
+        "AM-02.01",
+        "AM-02.02",
+        "AM-02.03",
+        "AM-02.04",
+        "AM-02.05",
+        "AM-02.06",
+        "AM-02.07",
+        "AM-02.08",
+        "AM-12.01",
+        "AM-12.02",
+        "AM-12.03",
+        "AM-12.04",
+        "AM-12.05",
+        "AM-12.06",
+        "AM-12.07",
+        "AM-12.08",
+        "AM-14.01",
+        "AM-14.02",
+        "AM-14.03",
+        "AM-14.04",
+        "AM-14.05",
+        "AM-14.06",
+        "AM-14.07",
+        "AM-14.08"
+      ]
+    },
+    {
+      "requirement_id": "R28",
+      "engines": [
+        "E02"
+      ],
+      "task_ids": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07",
+        "AM-00.08",
+        "AM-03.01",
+        "AM-03.02",
+        "AM-03.03",
+        "AM-03.04",
+        "AM-03.05",
+        "AM-03.06",
+        "AM-03.07",
+        "AM-03.08",
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07",
+        "AM-13.08"
+      ]
+    },
+    {
+      "requirement_id": "R29",
+      "engines": [
+        "E04",
+        "E05",
+        "E07"
+      ],
+      "task_ids": [
+        "AM-00.01",
+        "AM-00.02",
+        "AM-00.03",
+        "AM-00.04",
+        "AM-00.05",
+        "AM-00.06",
+        "AM-00.07",
+        "AM-00.08",
+        "AM-04.01",
+        "AM-04.02",
+        "AM-04.03",
+        "AM-04.04",
+        "AM-04.05",
+        "AM-04.06",
+        "AM-04.07",
+        "AM-04.08",
+        "AM-13.01",
+        "AM-13.02",
+        "AM-13.03",
+        "AM-13.04",
+        "AM-13.05",
+        "AM-13.06",
+        "AM-13.07",
+        "AM-13.08"
+      ]
+    },
+    {
+      "requirement_id": "R30",
+      "engines": [
+        "E00",
+        "E03",
+        "E14"
+      ],
+      "task_ids": [
+        "AM-01.01",
+        "AM-01.02",
+        "AM-01.03",
+        "AM-01.04",
+        "AM-01.05",
+        "AM-01.06",
+        "AM-01.07",
+        "AM-01.08",
+        "AM-07.01",
+        "AM-07.02",
+        "AM-07.03",
+        "AM-07.04",
+        "AM-07.05",
+        "AM-07.06",
+        "AM-07.07",
+        "AM-07.08",
+        "AM-08.01",
+        "AM-08.02",
+        "AM-08.03",
+        "AM-08.04",
+        "AM-08.05",
+        "AM-08.06",
+        "AM-08.07",
+        "AM-08.08"
+      ]
+    }
+  ],
+  "acceptance_scenarios": [
+    {
+      "id": "T01",
+      "title": "Report intake",
+      "criterion": "A person submits a narrative without identity/payment, uploads evidence, receives correct receipt/secret and can access only the permitted participant surface.",
+      "milestones": [
+        "M03"
+      ]
+    },
+    {
+      "id": "T02",
+      "title": "Case inquiry",
+      "criterion": "The original report is preserved; the system creates material questions, documentary work, contact tasks, findings and unresolved limits.",
+      "milestones": [
+        "M05"
+      ]
+    },
+    {
+      "id": "T03",
+      "title": "Contact and question",
+      "criterion": "A verifiable professional contact receives a concise truthful inquiry for a real knowledge gap under a standing grant. Test contacts only during qualification.",
+      "milestones": [
+        "M06"
+      ]
+    },
+    {
+      "id": "T04",
+      "title": "Answer verification",
+      "criterion": "A reply is retained with headers and exact spans; it becomes an unassessed answer and is tested against records and source independence.",
+      "milestones": [
+        "M05",
+        "M06"
+      ]
+    },
+    {
+      "id": "T05",
+      "title": "Human takeover",
+      "criterion": "Race takeover with scheduled send, provider dispatch, incoming message and manual reply; stale agent jobs never send after the fence.",
+      "milestones": [
+        "M06"
+      ]
+    },
+    {
+      "id": "T06",
+      "title": "Uncertain send",
+      "criterion": "Kill the gateway after provider acceptance; reconcile sent state without automatically duplicating the message.",
+      "milestones": [
+        "M06"
+      ]
+    },
+    {
+      "id": "T07",
+      "title": "Protected evidence",
+      "criterion": "Cross-tenant access fails through source view, search, snippets, embeddings, counters, graph topology, exports and background jobs.",
+      "milestones": [
+        "M01",
+        "M02",
+        "M14"
+      ]
+    },
+    {
+      "id": "T08",
+      "title": "Malicious input",
+      "criterion": "PDF, web page and email prompt injection cannot read other cases, modify policy or invoke unauthorized tools.",
+      "milestones": [
+        "M04",
+        "M07"
+      ]
+    },
+    {
+      "id": "T09",
+      "title": "Worker recovery",
+      "criterion": "Crash jobs before and after object write, database commit and checkpoint; recover without lost evidence or falsely completed tasks.",
+      "milestones": [
+        "M01",
+        "M07"
+      ]
+    },
+    {
+      "id": "T10",
+      "title": "Equal effort",
+      "criterion": "Two configured lanes with different worker counts, blocked tasks and model rates expose active effort, waiting, cost and carry-forward separately.",
+      "milestones": [
+        "M07"
+      ]
+    },
+    {
+      "id": "T11",
+      "title": "Reconstruction honesty",
+      "criterion": "A script, image and music lyric distinguish supported assertions, testimony, interpretation and fictional choices.",
+      "milestones": [
+        "M09",
+        "M10"
+      ]
+    },
+    {
+      "id": "T12",
+      "title": "Complete production",
+      "criterion": "A finished film, audio/music work, image, written work and interactive experience render from exact asset and source manifests.",
+      "milestones": [
+        "M10"
+      ]
+    },
+    {
+      "id": "T13",
+      "title": "Rights separation",
+      "criterion": "Permissible citation metadata can be used while an uncleared image or performance remains blocked; restricted identity stays private.",
+      "milestones": [
+        "M11"
+      ]
+    },
+    {
+      "id": "T14",
+      "title": "Release authorization",
+      "criterion": "Changing bytes, rights, audience, destination or expired authority blocks dispatch until a new applicable owner authorization exists.",
+      "milestones": [
+        "M11"
+      ]
+    },
+    {
+      "id": "T15",
+      "title": "Correction propagation",
+      "criterion": "A source-date correction and a withdrawn consent each identify affected claims, scenes, captions, media, packages and releases.",
+      "milestones": [
+        "M05",
+        "M11"
+      ]
+    },
+    {
+      "id": "T16",
+      "title": "Private default",
+      "criterion": "Complete investigation and creative output with publisher disabled; inspect object ACLs, routes, logs, caches and indexes for leakage.",
+      "milestones": [
+        "M11",
+        "M13"
+      ]
+    },
+    {
+      "id": "T17",
+      "title": "Global reuse",
+      "criterion": "Run two generic locale/policy profiles without core code branches; original script, uncertain dates and legal posture survive exchange.",
+      "milestones": [
+        "M12",
+        "M14"
+      ]
+    },
+    {
+      "id": "T18",
+      "title": "Disaster recovery",
+      "criterion": "Restore isolated metadata/objects/keys and reconcile external effects within measured pilot RPO/RTO.",
+      "milestones": [
+        "M13"
+      ]
+    },
+    {
+      "id": "T19",
+      "title": "Visual audit",
+      "criterion": "A keyboard user traces report to question to answer to claim to scene to release, sees revisions and explains a blocked action.",
+      "milestones": [
+        "M08",
+        "M14"
+      ]
+    },
+    {
+      "id": "T20",
+      "title": "Commercial integrity",
+      "criterion": "Duplicate billing events do not duplicate revenue; a budget cap prevents concurrent overspend; payment status never changes evidence assessment.",
+      "milestones": [
+        "M12"
+      ]
+    }
+  ],
+  "estimates": {
+    "engineer_days_low": 689,
+    "engineer_days_high": 1240,
+    "contingency_fraction": 0.25,
+    "reference_core_engineers": 4,
+    "effective_capacity_fraction": 0.75
+  }
+}

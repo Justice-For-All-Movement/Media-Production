@@ -265,8 +265,9 @@ Not implemented / not verified:
   colour grading, no audio-from-video-asset passthrough.
 - No GPU pools, no isolated render sandbox beyond subprocess argument arrays, timeouts, output caps and a fresh temp
   directory per render; LibreOffice and pandoc run with the engine's privileges.
-- The HTTP `httpUseDecisionPort` in `serve.ts` uses one static service token (not per-request scoped); under PAM the host
-  should pass an in-process or per-tenant port.
+- The standalone token file selects one service scope at startup; decoded per-call scope/compartment checks restrict its use. Remote signatures, original-human delegation/current rights and host credential refresh remain separate. See `CONSENT_HTTP.md`.
 - No pixel-identical reproduction is promised across tool versions; manifests record versions and parameters.
 - Performance was not load-tested; the per-scene video cache is per tenant/project and never evicted.
 - Not deployed to a hosted environment. No independent security review.
+
+Scoped Consent maintenance replaces the static unscoped adapter behavior described above; see `CONSENT_HTTP.md` and `registry/prs.json`. Service credential selection is bounded to each captured caller; it is not current original-human or all-source rights proof. Existing public `./serve` export is preserved. Adapter final-head and host integration acceptance remain separate.
