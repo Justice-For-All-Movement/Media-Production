@@ -418,14 +418,18 @@
     },
     {
       "id": "worker-asset-materialization-permission",
-      "status": "incomplete WIP baseline tests; runtime unchanged",
+      "status": "incomplete WIP correction; corrected source/installed/final-head qualification pending",
       "baseCommit": "038164a463c43030e9ecb9f73e1ca63e17680305",
       "documentation": "docs/WORKER_ASSET_PERMISSIONS.md",
       "remaining": [
         "actual owning-PG baseline and runtime correction",
         "source/normal installed/current-head CI/review/rules/expected-head merge",
         "worker completion/cache/actual human/whole rights/liveness/sandbox/host acceptance"
-      ]
+      ],
+      "baselineSource": "220f855c1dd96471c5e9e9183c0cd055bb4832f9",
+      "baselineJob": 135224986522,
+      "local": "typecheck/build/original registry pass with prepared dependencies; no local PG/fresh/full test claim",
+      "verification": "docs/worker-asset-permission-verification.json"
     }
   ],
   "approvedDesignSha256": {

@@ -280,3 +280,5 @@ Asset-byte reads now recheck fresh reproduce permission and optional Authorizati
 Byte requests capture their configured optional authorizer's method/receiver at admission and consult it again after retrieval. Removing/replacing the host property mid-read cannot skip that request's post-read check. This does not cache its decision or establish host human identity; see ASSET_BYTE_PERMISSIONS.md.
 
 Worker asset materialization checks the exact selected edition byte count, takes independent byte ownership, and verifies SHA-256 before writing the work file. Failure retains asset/job history. See WORKER_ASSET_BYTES.md for baseline and current qualification; no new worker current-rights, cache, sandbox or live acceptance is implied.
+
+Worker materialization now requires strict reproduce permission for the exact selected asset edition and newest rights before/after retrieval, with unchanged complete asset basis across cached handoffs. See WORKER_ASSET_PERMISSIONS.md for evidence and current qualification. Worker completion/current original-human/whole-rights/cache/sandbox/host acceptance remain separate; snapshots are not a distributed fence.

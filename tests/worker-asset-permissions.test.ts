@@ -25,11 +25,12 @@ function objects(h: Parameters<Parameters<typeof withEngine>[0]>[0], get: Object
   return { get, put: h.objects.put.bind(h.objects), head: h.objects.head.bind(h.objects), delete: h.objects.delete.bind(h.objects), list: h.objects.list.bind(h.objects) };
 }
 const permission = 'E11:permission:fictional-worker';
-for (const change of ['withdrawal', 'rights-basis'] as const) test(`worker withholds materialization after ${change} during asset retrieval`, needsPg, async () => withEngine(async h => {
+for (const change of ['withdrawal', 'review', 'rights-basis'] as const) test(`worker withholds materialization after ${change} during asset retrieval`, needsPg, async () => withEngine(async h => {
   const { c, asset, project } = await fixture(h); let reads = 0;
   const worker = createEngine({ sql: h.sql, config: { workRoot: h.root }, ports: { useDecisions: h.port },
     objects: objects(h, async key => { reads++; const bytes = await h.objects.get(key);
       if (change === 'withdrawal') h.port.deny.add(permission);
+      else if (change === 'review') h.port.review.add(permission);
       else await h.engine.setAssetRights(c, { assetId: asset.id, rights: { kind: 'permission', ref: 'E11:permission:fictional-new-basis' } });
       return bytes;
     }) });
@@ -37,7 +38,7 @@ for (const change of ['withdrawal', 'rights-basis'] as const) test(`worker withh
   const result = await finish(worker, c, request);
   assert.equal(result.state, 'blocked', result.error ?? ''); assert.equal(reads, 1);
   assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
-  assert.equal((await h.engine.getAsset(c, asset.id)).versions.length, change === 'withdrawal' ? 1 : 2);
+  assert.equal((await h.engine.getAsset(c, asset.id)).versions.length, change === 'rights-basis' ? 2 : 1);
   assert.equal((await worker.getRender(c, request.id)).state, 'blocked');
   assert.deepEqual(await h.objects.list(`${c.tenantId}/${c.projectId}/renders/${request.id}`), []);
 }));
@@ -57,4 +58,14 @@ test('worker rechecks permission before reusing an already materialized asset', 
     assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
     assert.equal((await h.engine.getAsset(c, asset.id)).versions.length, 1);
   } finally { fs.writeFile = original; syncBuiltinESMExports(); }
+}));
+
+test('worker requires fresh strict permission before asset storage access', needsPg, async () => withEngine(async h => {
+  const { c, project } = await fixture(h); let calls = 0, reads = 0;
+  const worker = createEngine({ sql: h.sql, config: { workRoot: h.root },
+    objects: objects(h, async key => { reads++; return h.objects.get(key); }),
+    ports: { useDecisions: { async decide(c: any, r: any) { if (++calls === 3) h.port.deny.add(permission); return h.port.decide(c, r); } } } });
+  const result = await finish(worker, c, await worker.requestRender(c, { productionId: project.id }));
+  assert.equal(result.state, 'blocked', result.error ?? ''); assert.equal(reads, 0);
+  assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
 }));
