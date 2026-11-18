@@ -333,6 +333,16 @@
           "cancelledBeforeTests": 135047335473,
           "change": "scan legacy sources.list and active *.list/*.sources; fixture tests2 pass; no omitted packages/tests",
           "qualification": "new exact-head CI/review/rules/expected merge pending"
+        },
+        "mirrorListFollowUp": {
+          "source": "1147573a0ca3c4610260406a84593fa76943b86b",
+          "ordinaryJob": 135088343643,
+          "ordinaryTests": 33,
+          "cancelledBeforeTests": 135088299939,
+          "observed": "helper zero replacements but later regional HTTP apt requests",
+          "change": "follow confined local mirror+file references; reject external and symlink escapes; no remote list fetch",
+          "localTests": 3,
+          "qualification": "current-head actual mirror switching/full checks pending; runtime unchanged"
         }
       }
     }

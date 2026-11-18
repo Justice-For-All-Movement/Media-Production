@@ -11,10 +11,23 @@ def configure(root: pathlib.Path) -> int:
     candidates = [root / 'sources.list', *sorted((root / 'sources.list.d').glob('*.list')),
                   *sorted((root / 'sources.list.d').glob('*.sources'))]
     total = 0
+    visited = set()
     for path in candidates:
+        path = path.resolve()
+        if path in visited:
+            continue
+        visited.add(path)
         if not path.is_file():
             continue
         original = path.read_text(encoding='utf-8')
+        # Ubuntu runner sources can point at local mirror lists instead of naming an archive directly.
+        # Follow only local files confined to the apt configuration root; never fetch remote mirror lists.
+        for reference in re.findall(r'mirror\+file:([^\s]+)', original):
+            target = pathlib.Path(reference).resolve()
+            if not pathlib.Path(reference).is_absolute() or not target.is_relative_to(root.resolve()) or not target.is_file():
+                raise RuntimeError('Local mirror list must be an existing file inside the apt root')
+            if target not in visited:
+                candidates.append(target)
         updated, count = REGIONAL.subn('https://archive.ubuntu.com/ubuntu', original)
         if count:
             path.write_text(updated, encoding='utf-8')
