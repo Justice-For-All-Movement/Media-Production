@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - name: Use canonical HTTPS Ubuntu archive for large tool downloads
+        run: |
+          sudo sed -i -E 's@http://[a-z0-9-]+\.ec2\.archive\.ubuntu\.com/ubuntu@https://archive.ubuntu.com/ubuntu@g' /etc/apt/sources.list.d/ubuntu.sources
       - name: Install media tools
         run: sudo ./scripts/install-tools.sh
       - run: npm ci

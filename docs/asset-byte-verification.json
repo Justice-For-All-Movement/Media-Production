@@ -1,5 +1,5 @@
 {
-  "status": "incomplete reviewed WIP; original asset guards qualified, authorizer-removal follow-up/current-head CI pending",
+  "status": "reviewed runtime qualified; CI-only HTTPS archive checkpoint/current-head qualification pending",
   "base": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
   "reproduction": {
     "source": "41f3f0f5fb6ee12e22ac166054691ff39e53c5c1",
@@ -19,8 +19,8 @@
     "src/engine/index.ts": "9e204c78482be7de10647320f40a630ba45d59dd3c9ffcf53f985662789525ac",
     "tests/asset-byte-permission.test.ts": "54f02a2dc93be82e2d8d13163ddd11f7bf9570b712c08554823da0bd7a9ec6d2",
     "integration/consent-http.test.ts": "ff64b492d777435cf299f821171b2e3cc681b569fb279d25c0b75607055f2414",
-    ".github/workflows/ci.yml": "107aa1bf2a7c35bb09955dc4f6c76c0dd1952cdfa9bec68639dec9602c982c54",
-    "docs/ASSET_BYTE_PERMISSIONS.md": "c3e9cb9bc349f1a0f97699b37d08c47a01f28def384431aa8f222e68ce7a4b46",
+    ".github/workflows/ci.yml": "dd029b397456abca1fb2a6b1c64feeeafcb83712c7ccbef14acad08ee8ade7af",
+    "docs/ASSET_BYTE_PERMISSIONS.md": "7775fde98387bcb79694f1fe2e5632e0630018e4ce394492693119e777138aed",
     "docs/ENGINE_API.md": "740af347fb35c64dd0067f8628cfd190d1acef1463a458b4780c83deafca401c"
   },
   "qualifiedSource": {
@@ -36,5 +36,5 @@
     "cancelled": 0,
     "skips": 0
   },
-  "followUp": "captures byte authorization method/receiver at admission; new four-route removal regression baseline31eda33964d307d9e5deff2db30d27bfc86a4afa; actual reproduction and corrected current-head qualification pending"
+  "followUp": "c85 source33ordinary/five source/five normal installed/E11source1installed1 qualified; duplicate fullapt cancellations not testpass/fail"
 }

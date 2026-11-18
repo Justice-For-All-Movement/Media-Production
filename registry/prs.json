@@ -285,7 +285,7 @@
     },
     {
       "id": "asset-byte-current-permission",
-      "status": "incomplete reviewed WIP; original asset guards qualified, authorizer-removal follow-up/current-head CI pending",
+      "status": "reviewed runtime qualified; CI HTTPS mirror checkpoint/current-head checks pending",
       "baseCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
       "documentation": "docs/ASSET_BYTE_PERMISSIONS.md",
       "remaining": [
@@ -316,7 +316,17 @@
         "cancelled": 0,
         "skips": 0
       },
-      "followUp": "captures byte authorization method/receiver at admission; new four-route removal regression baseline31eda33964d307d9e5deff2db30d27bfc86a4afa; actual reproduction and corrected current-head qualification pending"
+      "followUp": "c85 captures authorizer once/fresh decisions; raw134971250427 baseline4pass1fail, corrected raw13497236459333ordinary and1349731792775source5installed/E11source1installed1 all pass0fail-cancel-skip",
+      "ciTransport": {
+        "cancelledBeforeTests": [
+          134973180248,
+          135009332871
+        ],
+        "cause": "slow regional HTTP Ubuntu package downloads including130MB soundfont",
+        "change": "CI-only canonical HTTPS Ubuntu archive URI, all packages and tests retained",
+        "local": "exact mirror fixture and idempotent transformation pass; no local apt/network/full-suite claim",
+        "remaining": "fresh final-head all checks/review/rules/expected-head merge"
+      }
     }
   ],
   "approvedDesignSha256": {
