@@ -185,10 +185,12 @@
       "documentation": "docs/CONSENT_HTTP.md",
       "reproduction": "Two native local HTTP regressions fail on base: foreign caller scope receives allow; missing restrictions/time fabricated as an allow response. No real provider input.",
       "remaining": [
-        "current-head CI and packed/source qualification",
-        "real E11 integration and host signature/key lifecycle/current human/all-source rights acceptance",
+        "final-head full CI, packed qualification and actual pinned E11 test",
+        "original-human/current Identity/all-source rights/credential refresh and retained-output permission qualification",
         "sandbox/render/deployed/browser/AT quality remain owning API limitations"
-      ]
+      ],
+      "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/1",
+      "localEvidence": "7focused source groups/typecheck/build/registry pass; copied prepared dependencies (including local @types/pg from Editorial), not fresh install or full local Media/Postgres/tool suite"
     }
   ],
   "approvedDesignSha256": {

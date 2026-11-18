@@ -32,3 +32,35 @@ jobs:
       - name: Install Playwright Chromium (interactive play-through test)
         run: npm install --no-save playwright@1.52.0 && npx playwright install --with-deps chromium
       - run: npm run check
+
+  consent-http:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: fixture-only
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - uses: actions/checkout@v4
+        with:
+          repository: Justice-For-All-Movement/Consent-rights-and-use-decisions-engine
+          ref: be8bf8cdaf333b5278027663eeffaf4a36b6f08a
+          path: .engines/consent
+          persist-credentials: false
+      - run: npm ci
+        working-directory: .engines/consent
+      - run: npm run test:consent
+        env:
+          E11_DIR: ${{ github.workspace }}/.engines/consent
+          TEST_DATABASE_URL: postgresql://postgres:fixture-only@127.0.0.1:5432/postgres

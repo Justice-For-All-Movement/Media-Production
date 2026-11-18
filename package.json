@@ -34,7 +34,8 @@
     "check": "npm run typecheck && npm test && npm run build && node scripts/validate-registry.mjs",
     "build": "tsc -p tsconfig.build.json",
     "serve": "node src/engine/serve.ts",
-    "pilot": "node scripts/pilot.ts"
+    "pilot": "node scripts/pilot.ts",
+    "test:consent": "node --test integration/consent-http.test.ts"
   },
   "dependencies": {
     "pg": "8.23.1"
