@@ -230,7 +230,7 @@
     },
     {
       "id": "retained-output-permission-reads",
-      "status": "incomplete regression checkpoint; runtime correction and qualification pending",
+      "status": "incomplete WIP; runtime correction builds, actual reproduction/final qualification pending",
       "baseCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
       "documentation": "docs/RETAINED_OUTPUT_PERMISSIONS.md",
       "remaining": [
