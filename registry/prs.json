@@ -368,7 +368,7 @@
     },
     {
       "id": "worker-asset-materialization-bytes",
-      "status": "runtime source/installed qualified; final documentation-head checks and merge pending",
+      "status": "accepted PR4; prior candidate pending notes historical",
       "baseCommit": "351435b5f491034f363e8180f0fe328d3087b333",
       "documentation": "docs/WORKER_ASSET_BYTES.md",
       "local": "typecheck/build/original design registry pass; prepared dependencies, no local PostgreSQL/installed/full test claim",
@@ -400,7 +400,32 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear: worker passes captured ObjectStore and exact selected count into existing independent copy helper, hashes owned bytes before native FS; no API/schema/cache/worker-authority change; bounds and host limits explicit"
+      "sourceReview": "clear: worker passes captured ObjectStore and exact selected count into existing independent copy helper, hashes owned bytes before native FS; no API/schema/cache/worker-authority change; bounds and host limits explicit",
+      "sourceCommit": "b47ee58c7a5c35f215db11f10485907e2374530a",
+      "mergeCommit": "038164a463c43030e9ecb9f73e1ca63e17680305",
+      "finalCi": {
+        "ordinaryJob": 135203295325,
+        "ordinaryTests": 36,
+        "focusedJob": 135203295597,
+        "sourceTests": 8,
+        "normalFreshInstalledTests": 8,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "worker-asset-materialization-permission",
+      "status": "incomplete WIP baseline tests; runtime unchanged",
+      "baseCommit": "038164a463c43030e9ecb9f73e1ca63e17680305",
+      "documentation": "docs/WORKER_ASSET_PERMISSIONS.md",
+      "remaining": [
+        "actual owning-PG baseline and runtime correction",
+        "source/normal installed/current-head CI/review/rules/expected-head merge",
+        "worker completion/cache/actual human/whole rights/liveness/sandbox/host acceptance"
+      ]
     }
   ],
   "approvedDesignSha256": {
