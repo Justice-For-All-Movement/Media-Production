@@ -13,8 +13,9 @@
     "src/engine/index.ts": "093a04e6f31a68909bf060efcc722b6ec346aa983ef33bfc8b0dc5d0717bf2c0",
     "tests/worker-asset-permissions.test.ts": "06034fd5b7a3b578f622e548e34b90f794721808a81713fd48cf15d50a9b0c95",
     ".github/workflows/ci.yml": "6c6413e0c80f3ac6745bedccd3a04bcf6c49e41910987b2543c1ba06dda601c1",
-    "docs/ENGINE_API.md": "cac5e7071ad3e506ce4f29229ab2ea9fc50969e1fe0ffaa424f4d346518a9fbe",
-    "docs/WORKER_ASSET_PERMISSIONS.md": "1bf067b11b26343ff579194d49cd3b71655f1f89f38ccaa8df2f1582a332f1ae"
+    "docs/ENGINE_API.md": "509f75a9038e7ab34062fd1c62b16d7928729f71c0b4bbf6aef2fd14ff23c78e",
+    "docs/WORKER_ASSET_PERMISSIONS.md": "5b4ac810e56e55a264209499fde7a1dbd3f7b6a75495d5cf989100682e6eb375",
+    "tests/engine-core.test.ts": "5c49be4ec59000004f70e1ff08b25d7165bf1fc63ff367144b3ad134e85803cc"
   },
   "qualifiedRuntimeCommit": "301ffe2c7d287b208b3e2d3bf56ed4158825883b",
   "focusedCi": {
@@ -27,5 +28,15 @@
     "cancelled": 0,
     "skips": 0
   },
-  "sourceReview": "clear for pinned complete selected asset basis/current newest rights/strict reproduce before and after bytes plus every cached handoff/copied frozen context; completion/current-human/whole-rights/cache/liveness/sandbox remain separate"
+  "sourceReview": "clear for pinned complete selected asset basis/current newest rights/strict reproduce before and after bytes plus every cached handoff/copied frozen context; completion/current-human/whole-rights/cache/liveness/sandbox remain separate",
+  "ordinaryFollowUp": {
+    "source": "301ffe2c7d287b208b3e2d3bf56ed4158825883b",
+    "job": 135225751027,
+    "tests": 41,
+    "passes": 40,
+    "failures": 1,
+    "cancelled": 0,
+    "skips": 0,
+    "change": "strengthen historical preview review expectation to blocked/no outputs/no manifest; deliberate strict reproduction admission tightening, no removed assertions"
+  }
 }

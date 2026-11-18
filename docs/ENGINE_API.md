@@ -282,3 +282,5 @@ Byte requests capture their configured optional authorizer's method/receiver at 
 Worker asset materialization checks the exact selected edition byte count, takes independent byte ownership, and verifies SHA-256 before writing the work file. Failure retains asset/job history. See WORKER_ASSET_BYTES.md for baseline and current qualification; no new worker current-rights, cache, sandbox or live acceptance is implied.
 
 Worker materialization now requires strict reproduce permission for the exact selected asset edition and newest rights before/after retrieval, with unchanged complete asset basis across cached handoffs. See WORKER_ASSET_PERMISSIONS.md for evidence and current qualification. Worker completion/current original-human/whole-rights/cache/sandbox/host acceptance remain separate; snapshots are not a distributed fence.
+
+Asset previews also require literal allow for reproduction at materialization. Adapt review can still queue a preview, but a reproduction review blocks its worker without output; review is never promoted to allow.
