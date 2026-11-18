@@ -31,7 +31,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.ts",
-    "check": "npm run typecheck && npm test && npm run build",
+    "check": "npm run typecheck && npm test && npm run build && node scripts/validate-registry.mjs",
     "build": "tsc -p tsconfig.build.json",
     "serve": "node src/engine/serve.ts",
     "pilot": "node scripts/pilot.ts"

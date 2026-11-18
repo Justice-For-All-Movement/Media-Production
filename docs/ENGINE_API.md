@@ -270,3 +270,5 @@ Not implemented / not verified:
 - No pixel-identical reproduction is promised across tool versions; manifests record versions and parameters.
 - Performance was not load-tested; the per-scene video cache is per tenant/project and never evicted.
 - Not deployed to a hosted environment. No independent security review.
+
+Scoped Consent maintenance replaces the static unscoped adapter behavior described above; see `CONSENT_HTTP.md` and `registry/prs.json`. Service credential selection is bounded to each captured caller; it is not current original-human or all-source rights proof. Existing public `./serve` export is preserved. Adapter final-head and host integration acceptance remain separate.

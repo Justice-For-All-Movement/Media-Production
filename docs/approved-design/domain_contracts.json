@@ -1,0 +1,367 @@
+{
+  "schema_version": "1.0",
+  "status": "proposed",
+  "common_fields": {
+    "id": "uuid",
+    "tenant_id": "uuid",
+    "project_id": "uuid or explicitly tenant-wide",
+    "created_at": "UTC instant",
+    "created_by": "actor reference",
+    "classification": "private | protected | sealed | approved_projection",
+    "revision_id": "uuid",
+    "row_version": "positive integer for optimistic concurrency"
+  },
+  "records": [
+    {
+      "name": "EvidenceVersion",
+      "engine": "E05",
+      "fields": {
+        "evidence_object_id": "uuid",
+        "acquisition_id": "uuid",
+        "sha256": "64 lowercase hex characters",
+        "byte_size": "nonnegative integer",
+        "media_type": "validated MIME type",
+        "storage_version_ref": "opaque private reference",
+        "scan_state": "quarantined | clean | infected | failed",
+        "original_language": "language tag or unknown",
+        "captured_at": "UTC instant",
+        "source_published_at": "uncertain temporal interval",
+        "source_family_id": "uuid or unknown",
+        "supersedes_revision_id": "uuid or null"
+      },
+      "invariants": [
+        "Preserve original bytes; derivative uses a new record.",
+        "A clean scan is necessary for ordinary processing but is not an authenticity finding.",
+        "Hash and storage-version fields cannot be rewritten by an extraction job."
+      ]
+    },
+    {
+      "name": "ClaimRevision",
+      "engine": "E07",
+      "fields": {
+        "claim_id": "stable uuid",
+        "text": "bounded text",
+        "subject_refs": "entity or event reference array",
+        "time_scope": "uncertain interval",
+        "evidence_links": "versioned selector and supports/challenges/quotes relation array",
+        "source_account_type": "attributed testimony | document assertion | observation | research inference",
+        "epistemic_assessment_ref": "assessment uuid or null",
+        "procedural_posture_ref": "scoped legal/procedural record or null",
+        "limitations": "bounded text array",
+        "supersedes_revision_id": "uuid or null"
+      },
+      "invariants": [
+        "Every assessment is separate and attributable.",
+        "A material proposition change creates a revision and invalidates dependent approval.",
+        "Evidence links never imply universal agreement."
+      ]
+    },
+    {
+      "name": "VerificationAssessment",
+      "engine": "E07",
+      "fields": {
+        "claim_revision_id": "uuid",
+        "status": "unassessed | supported | contested | unresolved | contradicted",
+        "assessor_actor_id": "uuid",
+        "method_version": "string",
+        "supporting_selector_refs": "array",
+        "challenging_selector_refs": "array",
+        "source_independence_basis": "source-family refs and explanation",
+        "rationale": "concise evidence-based explanation",
+        "scope_limits": "array",
+        "reviewed_at": "UTC instant",
+        "expires_at": "instant or null"
+      },
+      "invariants": [
+        "Successful execution of a verification task does not imply a supported claim.",
+        "No unsupported numerical guilt score.",
+        "Retain contrary material and reason for resolving apparent contradictions."
+      ]
+    },
+    {
+      "name": "Investigation",
+      "engine": "E08",
+      "fields": {
+        "case_ref": "upstream reference or null",
+        "objective_id": "uuid",
+        "scope_version": "uuid",
+        "question_ids": "array of uuids",
+        "hypothesis_ids": "array of uuids",
+        "plan_version_id": "uuid",
+        "budget_id": "uuid",
+        "status": "open | researching | waiting | review | paused | closed | reopened",
+        "closure_review_id": "uuid or null",
+        "reopening_triggers": "typed event array"
+      },
+      "invariants": [
+        "Case lifecycle remains intake-owned where a case exists.",
+        "Closure enumerates unanswered material questions and exhausted/unavailable leads.",
+        "Ability to pay is excluded from evidentiary evaluation and report access."
+      ]
+    },
+    {
+      "name": "Question",
+      "engine": "E08",
+      "fields": {
+        "investigation_id": "uuid",
+        "parent_question_id": "uuid or null",
+        "text": "one precise factual question",
+        "why_material": "bounded explanation",
+        "answer_assertion_refs": "array",
+        "known_evidence_refs": "array",
+        "hypothesis_refs": "array",
+        "status": "open | researching | waiting_outreach | answered | unresolved | superseded",
+        "closure_basis": "answer assessment or explicit deferral reason",
+        "contact_constraints_ref": "policy ref"
+      },
+      "invariants": [
+        "A question is not answered merely because an email arrived.",
+        "Non-leading clarification preserves the original account."
+      ]
+    },
+    {
+      "name": "Contact",
+      "engine": "E03",
+      "fields": {
+        "display_name": "professional identity or role",
+        "address_ref": "protected contact value",
+        "professional_source_refs": "public or authorized source array",
+        "relevance_question_ids": "array",
+        "channel_assurance": "observed | role_aligned | independently_confirmed",
+        "checked_at": "instant",
+        "preferred_language": "language tag or unknown",
+        "safe_channel_policy_ref": "reference",
+        "suppression_ref": "reference or null"
+      },
+      "invariants": [
+        "Do not guess email addresses or collect unrelated private details.",
+        "Public availability and permission basis are separate fields.",
+        "Email local parts are not universally normalized by lowercasing or stripping tags."
+      ]
+    },
+    {
+      "name": "Conversation",
+      "engine": "E03",
+      "fields": {
+        "mailbox_id": "uuid",
+        "participant_contact_ids": "array",
+        "question_ids": "array",
+        "provider_thread_refs": "opaque strings",
+        "control_mode": "agent | human | paused | suppressed | closed",
+        "control_epoch": "monotonic integer",
+        "context_epoch": "monotonic integer",
+        "assigned_actor_id": "uuid or null",
+        "latest_message_id": "uuid or null",
+        "followup_at": "instant or null"
+      },
+      "invariants": [
+        "Takeover atomically increments control_epoch.",
+        "Inbound reply increments context_epoch and invalidates stale follow-ups.",
+        "Suppression survives new conversation or sender identities within its scope."
+      ]
+    },
+    {
+      "name": "MessageVersion",
+      "engine": "E03",
+      "fields": {
+        "conversation_id": "uuid",
+        "direction": "incoming | outgoing",
+        "raw_mime_ref": "private evidence version",
+        "provider_message_id": "opaque string or null",
+        "internet_message_id": "header string or null",
+        "in_reply_to": "header array",
+        "references": "header array",
+        "sender_contact_ref": "reference",
+        "recipient_refs": "array",
+        "sent_at_claimed": "instant or null",
+        "received_at_observed": "instant",
+        "attachment_version_refs": "array",
+        "origin": "human | automated | provider | unknown",
+        "restrictions": "attributed use conditions array"
+      },
+      "invariants": [
+        "Header identity is not a truth or authorship guarantee.",
+        "Quoted and forwarded text retain attribution distinct from the actual sender.",
+        "Raw message is preserved separately from sanitized display."
+      ]
+    },
+    {
+      "name": "SendIntent",
+      "engine": "E03",
+      "fields": {
+        "conversation_id": "uuid",
+        "draft_revision_id": "uuid",
+        "payload_sha256": "64 hex characters",
+        "recipient_refs": "array",
+        "grant_ref": "uuid",
+        "control_epoch": "integer",
+        "context_epoch": "integer",
+        "mailbox_auth_epoch": "integer",
+        "suppression_version": "integer",
+        "budget_reservation_ref": "uuid",
+        "idempotency_key": "bounded opaque string",
+        "state": "draft | frozen | eligible | queued | handoff_committed | provider_accepted | uncertain | failed | cancelled",
+        "handoff_at": "instant or null",
+        "provider_receipt_ref": "reference or null"
+      },
+      "invariants": [
+        "Exact payload changes invalidate eligibility.",
+        "Handoff and control checks share one ordered serialization domain.",
+        "Unknown provider acceptance is reconciled, not blindly retried."
+      ]
+    },
+    {
+      "name": "AnswerAssertion",
+      "engine": "E07",
+      "fields": {
+        "question_id": "uuid",
+        "claim_revision_id": "uuid",
+        "message_version_ref": "uuid",
+        "quote_selector": "evidence selector",
+        "attributed_speaker_ref": "reference",
+        "knowledge_basis": "direct | secondhand | expertise | unknown",
+        "status": "unassessed | under_review | evaluated",
+        "use_conditions_ref": "reference"
+      },
+      "invariants": [
+        "Initial answer is attributed and unassessed.",
+        "An attachment does not become independent evidence simply because it is a separate file."
+      ]
+    },
+    {
+      "name": "Task",
+      "engine": "E00",
+      "fields": {
+        "run_id": "uuid",
+        "task_type_version": "string",
+        "input_refs": "exact revision refs",
+        "input_digest": "64 hex characters",
+        "dependency_ids": "array",
+        "dependency_failure_policy": "block | explicitly_optional",
+        "queue": "interactive | research | processing | render | delivery",
+        "capability_grant_ids": "array",
+        "budget_reservation_ref": "uuid",
+        "idempotency_key": "string",
+        "state": "queued | leased | running | waiting_external | blocked_policy | retryable_failed | terminal_failed | cancelled | completed",
+        "lease_generation": "monotonic integer",
+        "lease_expires_at": "instant or null",
+        "checkpoint_ref": "reference or null",
+        "result_refs": "array"
+      },
+      "invariants": [
+        "Only validated committed output satisfies a required dependency.",
+        "Stale lease generations cannot commit results or emit side effects.",
+        "DAG revision changes are attributed and checked for cycles."
+      ]
+    },
+    {
+      "name": "CreativeBeat",
+      "engine": "E09",
+      "fields": {
+        "story_version_id": "uuid",
+        "medium_profile": "registered generic profile",
+        "text": "bounded creative content",
+        "mode": "documented | attributed | inferred | reconstructed | composite | fictional | symbolic",
+        "claim_revision_refs": "array",
+        "depicted_person_refs": "array",
+        "private_thought_basis": "testimony selector or disclosed interpretation or not_applicable",
+        "use_decision_refs": "array",
+        "review_state": "draft | factual_review | approved | stale"
+      },
+      "invariants": [
+        "Purely fictional content does not need invented factual citations.",
+        "Factual portions remain independently traceable.",
+        "Origin labels survive final output and source companion."
+      ]
+    },
+    {
+      "name": "AssetVersion",
+      "engine": "E10",
+      "fields": {
+        "asset_id": "stable uuid",
+        "origin": "captured | licensed | performed | generated | edited",
+        "source_version_refs": "array",
+        "tool_model_version": "string or unknown explicitly",
+        "generation_parameters_ref": "private reference",
+        "content_digest": "64 hex characters",
+        "editable_source_ref": "reference or null",
+        "media_profile": "typed format",
+        "timebase": "integer numerator and denominator where relevant",
+        "rights_use_refs": "array",
+        "fact_map_ref": "reference",
+        "rendition_ids": "array"
+      },
+      "invariants": [
+        "Preserve exact output bytes even when external generation is stochastic.",
+        "Voice and likeness use have explicit decisions.",
+        "Asset reuse rechecks purpose and permission."
+      ]
+    },
+    {
+      "name": "RenderManifest",
+      "engine": "E10",
+      "fields": {
+        "project_version_ref": "uuid",
+        "timeline_version_ref": "uuid",
+        "asset_version_refs": "array",
+        "toolchain_versions": "array",
+        "input_digest": "64 hex characters",
+        "render_profile": "resolution format sample-rate and duration",
+        "budget_reservation_ref": "uuid",
+        "output_digests": "array",
+        "as_rendered_map_ref": "reference",
+        "qc_report_ref": "reference"
+      },
+      "invariants": [
+        "As-rendered map identifies factual content by final frame/sample/page/region/interactive branch.",
+        "Interchange loss is reported and required source anchors cannot disappear silently.",
+        "All reachable interactive content belongs to the frozen reviewed edition; new generated runtime content needs a separate controlled policy."
+      ]
+    },
+    {
+      "name": "UseDecision",
+      "engine": "E11",
+      "fields": {
+        "subject_or_asset_ref": "reference",
+        "purpose": "citation | quotation | reproduction | adaptation | processing | performance | likeness | distribution",
+        "audience": "explicit category or recipient set",
+        "territory_policy_ref": "deployment-owned reference",
+        "term_start": "instant or null",
+        "term_end": "instant or null",
+        "basis_refs": "license consent or scoped review evidence",
+        "decision": "allowed | denied | needs_review",
+        "decision_actor_ref": "uuid",
+        "conditions": "array",
+        "withdrawal_ref": "reference or null"
+      },
+      "invariants": [
+        "A source-wide public flag does not authorize all uses.",
+        "Unknown stays unknown.",
+        "Each output is checked against its actual intended use."
+      ]
+    },
+    {
+      "name": "ReleaseCandidate",
+      "engine": "E12",
+      "fields": {
+        "artifact_revision_refs": "array",
+        "artifact_digests": "array",
+        "dependency_closure_digest": "64 hex characters",
+        "projection_digest": "64 hex characters",
+        "rights_decision_refs": "array",
+        "policy_versions": "array",
+        "audience": "explicit audience",
+        "destination": "configured channel reference",
+        "correction_fence_epoch": "integer",
+        "status": "private_draft | ready | authorized | dispatched | superseded | withdrawn",
+        "authorization_ref": "reference or null"
+      },
+      "invariants": [
+        "Canonical payload excludes its own signature to avoid circular hashing; authorization signs the candidate digest.",
+        "Correction or consent holds are checked synchronously before dispatch.",
+        "Authorized private viewing does not grant public distribution."
+      ]
+    }
+  ],
+  "note": "The architecture data model lists additional domain records. These canonical contracts specify high-risk shared records; implementation expands them to complete request/response and persistence schemas in AM-00.04."
+}
