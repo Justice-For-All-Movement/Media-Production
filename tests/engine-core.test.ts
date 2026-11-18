@@ -373,7 +373,10 @@ test('retained render, manifest and export byte reads require fresh permission b
     assert.equal(reads, 0, 'no object credentials/I/O before current permission');
     assert.equal((await h.engine.getRender(c, render.id)).blocked, false, 'denial did not depend on an upstream flag');
     assert.equal((await h.engine.getExport(c, exported.id)).blocked, false);
-    h.port.deny.clear();
+    h.port.deny.clear(); h.port.review.add(PERM);
+    for (const read of operations) await assert.rejects(read(), fails('consent_denied'));
+    assert.equal(reads, 0, 'review is not permission for retained bytes');
+    h.port.review.clear();
     for (const read of operations) assert.ok((await read()).bytes.byteLength > 0);
     assert.equal(reads, 3, 'each explicit admitted read fetches once');
     assert.equal((await h.engine.listExports(c, { renderId: render.id })).length, 1, 'no export effects repeated');
@@ -394,5 +397,65 @@ test('permission withdrawal during retained object read withholds bytes and leav
     assert.equal(reads, 1, 'no automatic retry');
     assert.equal((await h.engine.getRender(c, render.id)).manifestDigest, render.manifestDigest);
     assert.deepEqual((await h.engine.getRender(c, render.id)).outputs, render.outputs);
+  });
+});
+
+test('retained reads bind export audience, current asset editions, strict decisions and caller authority', needsPg, async () => {
+  await withEngine(async h => {
+    const c = ctx(); const asset = await page(h);
+    const p = await h.engine.createProject(c, { kind: 'image', title: 'Fictional private card', doc: card(asset.id) });
+    const render = await finish(h.engine, c, await h.engine.requestRender(c, { productionId: p.id }));
+    assert.equal(render.state, 'done', render.error ?? '');
+    await h.engine.setAssetApproval(c, { assetId: asset.id, approval: 'approved' });
+    const exported = await h.engine.createExport(c, { renderId: render.id, audience: 'private-review', destination: 'internal-workspace' });
+    const calls: { action: string; audience?: string; destination?: string }[] = [];
+    let reads = 0; let duringRead: (() => Promise<void>) | undefined;
+    const objects: kit.ObjectStore = { put: h.objects.put.bind(h.objects), head: h.objects.head.bind(h.objects), delete: h.objects.delete.bind(h.objects), list: h.objects.list.bind(h.objects),
+      get: async key => { reads++; const bytes = await h.objects.get(key); await duringRead?.(); return bytes; } };
+    const { createEngine } = await import('../src/engine/index.ts');
+    const reader = createEngine({ sql: h.sql, objects, ports: { useDecisions: { async decide(current, request) { calls.push({ action: request.action, ...(request.audience === undefined ? {} : { audience: request.audience }), ...(request.destination === undefined ? {} : { destination: request.destination }) }); return h.port.decide(current, request); } } } });
+    await reader.getExportBytes(c, exported.id);
+    assert.ok(calls.length >= 2); assert.ok(calls.every(r => r.action === 'reproduce' && r.audience === 'private-review' && r.destination === 'internal-workspace'));
+    const before = reads;
+    for (const mode of ['unknown', 'throws']) {
+      const invalid = createEngine({ sql: h.sql, objects, ports: { useDecisions: { async decide() {
+        if (mode === 'throws') throw new DomainError('unavailable', 'SYNTHETIC_PRIVATE_DIAGNOSTIC');
+        return { decision: 'unexpected' as never, reasons: [], permissionRefs: [], restrictions: [], decidedAt: c.now };
+      } } } });
+      await assert.rejects(invalid.getExportBytes(c, exported.id), e => fails('consent_denied')(e) && !String(e).includes('SYNTHETIC_PRIVATE_DIAGNOSTIC'));
+    }
+    assert.equal(reads, before);
+    let authorized = true;
+    const protectedReader = createEngine({ sql: h.sql, objects, ports: { useDecisions: h.port, authorization: { async authorize() { return { allowed: authorized, reason: 'fixture', policyVersion: 'fixture' }; } } } });
+    duringRead = async () => { authorized = false; };
+    await assert.rejects(protectedReader.getExportBytes(c, exported.id), fails('forbidden'));
+    duringRead = async () => { await h.engine.setAssetRights(c, { assetId: asset.id, rights: LICENSE, note: 'Fictional correction during read' }); };
+    await assert.rejects(reader.getRenderOutput(c, render.id, render.outputs[0]!.name), fails('consent_denied'));
+    assert.equal((await h.engine.getRender(c, render.id)).manifestDigest, render.manifestDigest);
+  });
+});
+
+test('retained read owns producer bytes and snapshots caller scope across post-read callbacks', needsPg, async () => {
+  await withEngine(async h => {
+    const c = ctx(); const asset = await page(h);
+    const p = await h.engine.createProject(c, { kind: 'image', title: 'Fictional private card', doc: card(asset.id) });
+    const render = await finish(h.engine, c, await h.engine.requestRender(c, { productionId: p.id }));
+    assert.equal(render.state, 'done', render.error ?? '');
+    let producer: Buffer | undefined;
+    const objects: kit.ObjectStore = { put: h.objects.put.bind(h.objects), head: h.objects.head.bind(h.objects), delete: h.objects.delete.bind(h.objects), list: h.objects.list.bind(h.objects), get: async key => {
+      producer = Buffer.from(await h.objects.get(key));
+      (c as { tenantId: string }).tenantId = 'mutated-original-scope';
+      return producer;
+    } };
+    const { createEngine } = await import('../src/engine/index.ts');
+    const reader = createEngine({ sql: h.sql, objects, ports: { useDecisions: { async decide(current, request) {
+      assert.equal(current.tenantId, 'tenant-a'); assert.ok(Object.isFrozen(current));
+      producer?.fill(0); return h.port.decide(current, request);
+    } } } });
+    const output = await reader.getRenderOutput(c, render.id, render.outputs[0]!.name);
+    const { createHash } = await import('node:crypto');
+    assert.equal(createHash('sha256').update(output.bytes).digest('hex'), render.outputs[0]!.sha256);
+    assert.equal(output.sha256, render.outputs[0]!.sha256);
+    assert.ok(producer?.every(byte => byte === 0), 'producer buffer was mutated after delivery');
   });
 });
