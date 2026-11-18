@@ -1,5 +1,5 @@
 {
-  "status": "implemented candidate WIP; four actual PG baseline failures reproduced; corrected/source-installed/full CI pending",
+  "status": "incomplete reviewed WIP; original asset guards qualified, authorizer-removal follow-up/current-head CI pending",
   "base": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
   "reproduction": {
     "source": "41f3f0f5fb6ee12e22ac166054691ff39e53c5c1",
@@ -12,17 +12,29 @@
   },
   "local": "typecheck/build/original-registry pass; copied prepared dependencies, no local PG/full/installed suite claim",
   "limits": [
-    "actual baseline and corrected owning PG/source-installed CI",
-    "fresh permission/integrity implementation and source review",
-    "actual E11 asset mappings/current human/host bounds and lifecycle",
-    "final-head checks/rules/expected-head merge"
+    "current authorizer-removal regression source/installed/full final-head CI and review/rules/expected-head merge",
+    "host actual human/complete rights/clock-heap/key lifecycle/TLS/driver/sandbox/browserAT acceptance"
   ],
   "sha256": {
-    "src/engine/index.ts": "7890489d58a38fc44d66a931a49ce997ed79f0bb2ae92b23c91177cfcd898f2f",
-    "tests/asset-byte-permission.test.ts": "0a473a40f88c187bde1a1da6a07e8da3069c3e99edb10f26c19fde6f7babef0d",
+    "src/engine/index.ts": "9e204c78482be7de10647320f40a630ba45d59dd3c9ffcf53f985662789525ac",
+    "tests/asset-byte-permission.test.ts": "54f02a2dc93be82e2d8d13163ddd11f7bf9570b712c08554823da0bd7a9ec6d2",
     "integration/consent-http.test.ts": "ff64b492d777435cf299f821171b2e3cc681b569fb279d25c0b75607055f2414",
     ".github/workflows/ci.yml": "107aa1bf2a7c35bb09955dc4f6c76c0dd1952cdfa9bec68639dec9602c982c54",
-    "docs/ASSET_BYTE_PERMISSIONS.md": "ccf78ca84f8876ee5d32e6dda3885439c0190ea7b6bffd0130854e905f0a7568",
-    "docs/ENGINE_API.md": "1df2a5cefad4536f3c622d17704fbd636b4c4d7999586f3c3a37db28dd4772e6"
-  }
+    "docs/ASSET_BYTE_PERMISSIONS.md": "c3e9cb9bc349f1a0f97699b37d08c47a01f28def384431aa8f222e68ce7a4b46",
+    "docs/ENGINE_API.md": "740af347fb35c64dd0067f8628cfd190d1acef1463a458b4780c83deafca401c"
+  },
+  "qualifiedSource": {
+    "source": "8c623437ef761091462495eba29a5dc785008433",
+    "ordinaryJob": 134935431746,
+    "ordinaryTests": 32,
+    "peerJob": 134935431022,
+    "focusedSource": 4,
+    "focusedInstalled": 4,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "followUp": "captures byte authorization method/receiver at admission; new four-route removal regression baseline31eda33964d307d9e5deff2db30d27bfc86a4afa; actual reproduction and corrected current-head qualification pending"
 }

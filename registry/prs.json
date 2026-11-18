@@ -285,14 +285,12 @@
     },
     {
       "id": "asset-byte-current-permission",
-      "status": "implemented candidate WIP; four actual PG baseline failures reproduced; corrected/source-installed/full CI pending",
+      "status": "incomplete reviewed WIP; original asset guards qualified, authorizer-removal follow-up/current-head CI pending",
       "baseCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
       "documentation": "docs/ASSET_BYTE_PERMISSIONS.md",
       "remaining": [
-        "actual baseline and corrected owning PG/source-installed CI",
-        "fresh permission/integrity implementation and source review",
-        "actual E11 asset mappings/current human/host bounds and lifecycle",
-        "final-head checks/rules/expected-head merge"
+        "current authorizer-removal regression source/installed/full final-head CI and review/rules/expected-head merge",
+        "host actual human/complete rights/clock-heap/key lifecycle/TLS/driver/sandbox/browserAT acceptance"
       ],
       "reproduction": {
         "source": "41f3f0f5fb6ee12e22ac166054691ff39e53c5c1",
@@ -304,7 +302,21 @@
         "skips": 0
       },
       "verification": "docs/asset-byte-verification.json",
-      "local": "typecheck/build/original-registry pass; copied prepared dependencies, no local PG/full/installed suite claim"
+      "local": "typecheck/build/original-registry pass; copied prepared dependencies, no local PG/full/installed suite claim",
+      "qualifiedSource": {
+        "source": "8c623437ef761091462495eba29a5dc785008433",
+        "ordinaryJob": 134935431746,
+        "ordinaryTests": 32,
+        "peerJob": 134935431022,
+        "focusedSource": 4,
+        "focusedInstalled": 4,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "followUp": "captures byte authorization method/receiver at admission; new four-route removal regression baseline31eda33964d307d9e5deff2db30d27bfc86a4afa; actual reproduction and corrected current-head qualification pending"
     }
   ],
   "approvedDesignSha256": {
