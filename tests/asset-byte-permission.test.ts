@@ -5,8 +5,8 @@ import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { sha256 } from '../src/engine/tools.ts';
-import { ctx, ledgerPage, needsPg, withEngine } from './helpers.ts';
-import type { ObjectStore } from '../src/service-kit.ts';
+import { ctx, finish, ledgerPage, needsPg, withEngine } from './helpers.ts';
+import type { ObjectStore, AuthorizationPort } from '../src/service-kit.ts';
 const entry = process.env.MEDIA_PACKAGE_ROOT === undefined ? resolve('src/engine/index.ts')
   : createRequire(resolve(process.env.MEDIA_PACKAGE_ROOT, 'package.json')).resolve('@accountability/media-production/engine');
 const { createEngine } = await import(pathToFileURL(entry).href);
@@ -47,4 +47,26 @@ test('asset reads recheck optional host authorization after I/O without leaking 
     useDecisions: h.port, authorization: { async authorize() { if (!allowed) throw new Error('SYNTHETIC_PRIVATE_MARKER'); return { allowed: true, reason: 'fixture', policyVersion: 'fixture' }; } },
   } });
   await assert.rejects(reader.getAssetBytes(ctx(), a.id), (e: any) => e?.code === 'forbidden' && !String(e).includes('SYNTHETIC_PRIVATE_MARKER'));
+}));
+
+
+test('removing an authorizer during retrieval cannot skip current post-read checks for any byte route', needsPg, async () => withEngine(async h => {
+  const c = ctx(), a = await asset(h);
+  const project = await h.engine.createProject(c, { kind: 'image', title: 'Fictional guard fixture', sources: ['E05:evidence:guard-fixture@1'], doc: {
+    title: 'Private fixture', canvas: { width: 320, height: 180, background: '#ffffff' }, export: { formats: ['png'] },
+    layers: [{ id: 'text', type: 'text', text: 'Controlled fixture', x: 12, y: 12, width: 290, size: 18, color: '#111111' }],
+  } });
+  const render = await finish(h.engine, c, await h.engine.requestRender(c, { productionId: project.id })); assert.equal(render.state, 'done', render.error ?? '');
+  const exported = await h.engine.createExport(c, { renderId: render.id });
+  let allowed = true, calls = 0, reads = 0;
+  const authorizer: AuthorizationPort = { async authorize() { assert.equal(this, authorizer); calls++; return { allowed, reason: 'fictional current policy', policyVersion: 'fixture' }; } };
+  const ports: { useDecisions: typeof h.port; authorization?: AuthorizationPort } = { useDecisions: h.port, authorization: authorizer };
+  const reader = createEngine({ sql: h.sql, ports, objects: store(h, async key => {
+    const bytes = await h.objects.get(key); reads++; allowed = false; delete ports.authorization; return bytes;
+  }) });
+  for (const read of [() => reader.getAssetBytes(c, a.id), () => reader.getRenderOutput(c, render.id, render.outputs[0]!.name),
+    () => reader.getRenderOutput(c, render.id, 'manifest.json'), () => reader.getExportBytes(c, exported.id)]) {
+    allowed = true; ports.authorization = authorizer; calls = 0; const before = reads;
+    await assert.rejects(read(), (e: any) => e?.code === 'forbidden'); assert.equal(calls, 2, 'current post-read policy is consulted through the captured method/receiver'); assert.equal(reads, before + 1);
+  }
 }));
