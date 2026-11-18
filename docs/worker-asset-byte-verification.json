@@ -1,5 +1,5 @@
 {
-  "status": "incomplete WIP; corrected source/installed and final-head qualification pending",
+  "status": "runtime qualified; final documentation-head checks and merge pending",
   "base": "351435b5f491034f363e8180f0fe328d3087b333",
   "reproduction": {
     "source": "4c555b0b8a2c59c1bdefea037c86ac487635721e",
@@ -20,7 +20,22 @@
     "src/engine/index.ts": "4ace4f7fdaf2d9c21844f4176291829c347c5de3b927d2527984c636d2dd3cfb",
     "tests/worker-asset-bytes.test.ts": "6ba9cfc17ded83ff81cfc65eb293cd3d78fdfa344fc88a09fab5159bfdf83f72",
     ".github/workflows/ci.yml": "562b35fdd18801c96aeeefe818013321fa9518b30b862d1dc0abfdce08ff3314",
-    "docs/WORKER_ASSET_BYTES.md": "9de06fbff067536464d1b2866eab260d157ce106dcb7070a57e4050fe73bdf1d",
+    "docs/WORKER_ASSET_BYTES.md": "5dd4675655d69309a0e66c6b7df0ca9ca531df32202d2688b3927d5fca2ce57c",
     "docs/ENGINE_API.md": "0d3618e162b92991092c052c168092ae2300c74bfe0c0aa25beacc896982f540"
-  }
+  },
+  "qualifiedRuntimeCommit": "2560015ac1b79013cb930fbd31976b90b01311f8",
+  "qualifiedCi": {
+    "ordinaryJob": 135200392915,
+    "ordinaryTests": 36,
+    "focusedJob": 135200392436,
+    "sourceTests": 8,
+    "normalFreshInstalledPublicEngineTests": 8,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "allRuntimeHeadChecks": "4 success",
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear: worker passes captured ObjectStore and exact selected count into existing independent copy helper, hashes owned bytes before native FS; no API/schema/cache/worker-authority change; bounds and host limits explicit"
 }
