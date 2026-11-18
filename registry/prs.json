@@ -229,7 +229,7 @@
     },
     {
       "id": "retained-output-permission-reads",
-      "status": "implemented candidate; actual baseline failures and source/installed E11 chain qualified; final-head checks and merge pending",
+      "status": "accepted PR2; candidate notes historical",
       "baseCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
       "documentation": "docs/RETAINED_OUTPUT_PERMISSIONS.md",
       "remaining": [
@@ -265,7 +265,86 @@
         "skips": 0
       },
       "sourceReview": "clear for copied context/bytes, exact stored basis/audience, strict pre/post permission and current optional Authorization; sequential snapshots, metadata APIs unchanged, no distributed fence",
-      "verification": "docs/retained-output-verification.json"
+      "verification": "docs/retained-output-verification.json",
+      "sourceCommit": "7af7398b361125d02c4ae3f054315cc1354eef93",
+      "mergeCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
+      "finalCi": {
+        "ordinaryJobs": [
+          134862467463,
+          134883971066
+        ],
+        "ordinaryTestsEach": 28,
+        "realConsentJob": 134862506157,
+        "sourceTests": 1,
+        "freshInstalledTests": 1,
+        "allCurrentHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "asset-byte-current-permission",
+      "status": "reviewed runtime qualified; CI HTTPS mirror checkpoint/current-head checks pending",
+      "baseCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
+      "documentation": "docs/ASSET_BYTE_PERMISSIONS.md",
+      "remaining": [
+        "current authorizer-removal regression source/installed/full final-head CI and review/rules/expected-head merge",
+        "host actual human/complete rights/clock-heap/key lifecycle/TLS/driver/sandbox/browserAT acceptance"
+      ],
+      "reproduction": {
+        "source": "41f3f0f5fb6ee12e22ac166054691ff39e53c5c1",
+        "job": 134933583252,
+        "tests": 4,
+        "passes": 0,
+        "failures": 4,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/asset-byte-verification.json",
+      "local": "typecheck/build/original-registry pass; copied prepared dependencies, no local PG/full/installed suite claim",
+      "qualifiedSource": {
+        "source": "8c623437ef761091462495eba29a5dc785008433",
+        "ordinaryJob": 134935431746,
+        "ordinaryTests": 32,
+        "peerJob": 134935431022,
+        "focusedSource": 4,
+        "focusedInstalled": 4,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "followUp": "c85 captures authorizer once/fresh decisions; raw134971250427 baseline4pass1fail, corrected raw13497236459333ordinary and1349731792775source5installed/E11source1installed1 all pass0fail-cancel-skip",
+      "ciTransport": {
+        "cancelledBeforeTests": [
+          134973180248,
+          135009332871
+        ],
+        "cause": "slow regional HTTP Ubuntu package downloads including130MB soundfont",
+        "change": "CI-only canonical HTTPS Ubuntu archive URI, all packages and tests retained",
+        "local": "exact mirror fixture and idempotent transformation pass; no local apt/network/full-suite claim",
+        "remaining": "fresh final-head all checks/review/rules/expected-head merge",
+        "followUp": {
+          "qualifiedHead": "b1ff63056098200869c3e9de8b96dbb153cc499d",
+          "ordinaryJob": 135047377809,
+          "ordinaryTests": 33,
+          "cancelledBeforeTests": 135047335473,
+          "change": "scan legacy sources.list and active *.list/*.sources; fixture tests2 pass; no omitted packages/tests",
+          "qualification": "new exact-head CI/review/rules/expected merge pending"
+        },
+        "mirrorListFollowUp": {
+          "source": "1147573a0ca3c4610260406a84593fa76943b86b",
+          "ordinaryJob": 135088343643,
+          "ordinaryTests": 33,
+          "cancelledBeforeTests": 135088299939,
+          "observed": "helper zero replacements but later regional HTTP apt requests",
+          "change": "follow confined local mirror+file references; reject external and symlink escapes; no remote list fetch",
+          "localTests": 3,
+          "qualification": "current-head actual mirror switching/full checks pending; runtime unchanged"
+        }
+      }
     }
   ],
   "approvedDesignSha256": {

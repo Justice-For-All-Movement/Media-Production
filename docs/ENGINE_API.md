@@ -274,3 +274,7 @@ Scoped Consent maintenance replaces the static unscoped adapter behavior describ
 
 
 Retained byte reads now require fresh reproduce permission before object retrieval and before returning independently owned, integrity-checked bytes. `getRenderOutput` includes manifest.json; `getExportBytes` binds the recorded export audience/destination. Current asset-rights/render/export bases must remain unchanged; review/unknown/failed decisions withhold bytes without deleting history. These checks do not change metadata endpoints or make standalone declared-rights verified. See `RETAINED_OUTPUT_PERMISSIONS.md` and its verification manifest for actual reproduction, source/installed E11 evidence and pending final-head/host qualification. Sequential checks are not distributed fencing or revocable copies.
+
+Asset-byte reads now recheck fresh reproduce permission and optional Authorization before storage and before returning independently owned, hash/count-verified bytes. Historical selections use newest rights; metadata basis changes during read withhold bytes without rewriting/deleting history. Unknown/review does not admit bytes. See ASSET_BYTE_PERMISSIONS.md and its SHA manifest for qualification and explicit standalone/sequential/host limits.
+
+Byte requests capture their configured optional authorizer's method/receiver at admission and consult it again after retrieval. Removing/replacing the host property mid-read cannot skip that request's post-read check. This does not cache its decision or establish host human identity; see ASSET_BYTE_PERMISSIONS.md.

@@ -1,0 +1,42 @@
+{
+  "status": "reviewed runtime qualified; confined indirect mirror-list CI follow-up/current-head checks pending",
+  "base": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
+  "reproduction": {
+    "source": "41f3f0f5fb6ee12e22ac166054691ff39e53c5c1",
+    "job": 134933583252,
+    "tests": 4,
+    "passes": 0,
+    "failures": 4,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "local": "typecheck/build/original-registry pass; copied prepared dependencies, no local PG/full/installed suite claim",
+  "limits": [
+    "current authorizer-removal regression source/installed/full final-head CI and review/rules/expected-head merge",
+    "host actual human/complete rights/clock-heap/key lifecycle/TLS/driver/sandbox/browserAT acceptance"
+  ],
+  "sha256": {
+    "src/engine/index.ts": "9e204c78482be7de10647320f40a630ba45d59dd3c9ffcf53f985662789525ac",
+    "tests/asset-byte-permission.test.ts": "54f02a2dc93be82e2d8d13163ddd11f7bf9570b712c08554823da0bd7a9ec6d2",
+    "integration/consent-http.test.ts": "ff64b492d777435cf299f821171b2e3cc681b569fb279d25c0b75607055f2414",
+    ".github/workflows/ci.yml": "cbecd806314dd4d669c90e8c38aad5b459236f25fdc36dad6f7311040f519884",
+    "docs/ASSET_BYTE_PERMISSIONS.md": "c1293eaff86cd6dbc14627c9bcded2791257717c15498d2b2418484740be7e83",
+    "docs/ENGINE_API.md": "740af347fb35c64dd0067f8628cfd190d1acef1463a458b4780c83deafca401c",
+    "scripts/ci-ubuntu-archive.py": "6663aa8314bdc27e3f83c0a4cacf8474f99eb9fc2e95531ce443e1db2118d442",
+    "scripts/test-ci-ubuntu-archive.py": "1f07ed64855c5483292e2f98fc55950eceb7a52c4557a38b91b6447ebd6ae68c"
+  },
+  "qualifiedSource": {
+    "source": "8c623437ef761091462495eba29a5dc785008433",
+    "ordinaryJob": 134935431746,
+    "ordinaryTests": 32,
+    "peerJob": 134935431022,
+    "focusedSource": 4,
+    "focusedInstalled": 4,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "followUp": "c85 source33ordinary/five source/five normal installed/E11source1installed1 qualified; duplicate fullapt cancellations not testpass/fail"
+}

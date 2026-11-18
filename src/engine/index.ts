@@ -347,12 +347,20 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     profile: r.profile, inputs: r.inputs, sources: r.sources, outputs: r.outputs, manifestDigest: r.manifestDigest });
   const exportByteBasis = (row: kit.Row): string => canonical({ id: row.id, renderId: row.render_id, objectKey: row.object_key,
     sha256: row.sha256, size: row.size, manifest: row.manifest });
-  async function byteAuthority(ctx: ServiceContext, capability: string, resource: string): Promise<void> {
-    if (ports.authorization === undefined) return;
-    let allowed = false;
-    try { allowed = (await ports.authorization.authorize(ctx, { capability, resource })).allowed === true; }
-    catch { /* Host diagnostics may contain private data; deny without forwarding them. */ }
-    invariant(allowed, 'forbidden', 'Retained output access is not authorized');
+  function captureByteAuthority(ctx: ServiceContext): (capability: string, resource: string) => Promise<void> {
+    let port: AuthorizationPort | undefined;
+    let method: AuthorizationPort['authorize'] | undefined;
+    try { port = ports.authorization; method = port?.authorize; }
+    catch { throw new DomainError('forbidden', 'Retained output access is not authorized'); }
+    if (port === undefined) return async () => {}; // Optional only at admission, never a mid-read downgrade.
+    invariant(typeof method === 'function', 'forbidden', 'Retained output access is not authorized');
+    const selected = method, receiver = port;
+    return async (capability, resource) => {
+      let allowed = false;
+      try { allowed = (await selected.call(receiver, ctx, { capability, resource })).allowed === true; }
+      catch { /* Host diagnostics may contain private data; deny without forwarding them. */ }
+      invariant(allowed, 'forbidden', 'Retained output access is not authorized');
+    };
   }
   async function retainedPermission(ctx: ServiceContext, expected: Render, extra: { audience?: string; destination?: string } = {}): Promise<string> {
     const current = toRender(await renderRow(sql, ctx, expected.id));
@@ -371,6 +379,17 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     invariant(after.state === 'done' && !after.blocked && renderByteBasis(after) === renderByteBasis(current)
       && canonical(afterAssets) === canonical(assets), 'consent_denied', 'Retained output policy basis changed; request a fresh read');
     return canonical({ render: renderByteBasis(current), assets });
+  }
+  async function assetBytePermission(ctx: ServiceContext, id: string, version: number, expected: string): Promise<void> {
+    const current = await loadAsset(sql, ctx, id);
+    invariant(canonical(current) === expected && !current.blocked, 'consent_denied', 'Asset policy basis changed; request a fresh read');
+    const assets = await gateInputs(sql, ctx, [{ assetId: id, version }]);
+    const result = await gate(ctx, 'reproduce', assets, [], true);
+    invariant(result.denied.length === 0 && result.decisions.length === 1 && result.decisions[0]!.decision === 'allow',
+      'consent_denied', 'Current permission for asset bytes was not granted');
+    // Asset rows/rights can change while external policy is awaited; snapshots are not a distributed fence.
+    const after = await loadAsset(sql, ctx, id);
+    invariant(canonical(after) === expected && !after.blocked, 'consent_denied', 'Asset policy basis changed; request a fresh read');
   }
   function recordedAudience(row: kit.Row): { audience?: string; destination?: string } {
     invariant(isObj(row.manifest) && isObj(row.manifest.export), 'integrity_failed', 'Export policy metadata is invalid');
@@ -680,11 +699,20 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       return out;
     },
     async getAssetBytes(ctx, assetId, version) {
-      cap(ctx, 'read'); const a = await loadAsset(sql, ctx, assetId);
-      const v = a.versions.find((x) => x.version === (version ?? a.headVersion)); if (v === undefined) throw new DomainError('not_found', 'Not found');
-      if (a.blocked) throw new DomainError('consent_denied', 'This asset is blocked for use');
-      const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2 and tenant_id=$3 and project_id=$4`, [a.id, v.version, ctx.tenantId, ctx.projectId]))[0]?.object_key as string;
-      return { bytes: await objects().get(key), mediaType: v.mediaType, filename: v.filename, sha256: v.sha256 };
+      ctx = byteContext(ctx); cap(ctx, 'read'); const authorize = captureByteAuthority(ctx);
+      const a = await loadAsset(sql, ctx, assetId);
+      const v = a.versions.find(x => x.version === (version ?? a.headVersion));
+      if (v === undefined) throw new DomainError('not_found', 'Not found');
+      const basis = canonical(a);
+      await authorize('production:read', v.ref);
+      await assetBytePermission(ctx, a.id, v.version, basis);
+      const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2 and tenant_id=$3 and project_id=$4`, [a.id, v.version, ctx.tenantId, ctx.projectId]))[0]?.object_key;
+      invariant(typeof key === 'string', 'not_found', 'Not found');
+      const bytes = await ownedBytes(key, v.size);
+      invariant(sha256(bytes) === v.sha256, 'integrity_failed', 'Stored asset does not match its recorded digest');
+      await authorize('production:read', v.ref);
+      await assetBytePermission(ctx, a.id, v.version, basis);
+      return { bytes, mediaType: v.mediaType, filename: v.filename, sha256: v.sha256 };
     },
 
     // ── renders ──
@@ -751,12 +779,12 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       return { ...(row.manifest as Doc), manifestDigest: row.manifest_digest as string, status: { stale: row.stale as boolean, blocked: row.blocked as boolean, reasons: row.reasons as Json } };
     },
     async getRenderOutput(ctx, renderId, name) {
-      ctx = byteContext(ctx); cap(ctx, 'read');
+      ctx = byteContext(ctx); cap(ctx, 'read'); const authorize = captureByteAuthority(ctx);
       const r = toRender(await renderRow(sql, ctx, renderId));
       const manifestRead = name === 'manifest.json' && r.state === 'done';
       const output = r.outputs.find(o => o.name === name);
       invariant(manifestRead || output !== undefined, 'not_found', 'Not found');
-      await byteAuthority(ctx, 'production:read', r.ref);
+      await authorize('production:read', r.ref);
       const basis = await retainedPermission(ctx, r);
       const bytes = await ownedBytes(scopeKey(ctx, 'renders', r.id, name), manifestRead ? undefined : output!.size);
       const hash = sha256(bytes);
@@ -766,7 +794,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
         catch { throw new DomainError('integrity_failed', 'Stored manifest is invalid'); }
         invariant(digest === r.manifestDigest, 'integrity_failed', 'Stored manifest does not match its recorded digest');
       } else invariant(hash === output!.sha256, 'integrity_failed', 'Stored output does not match its recorded digest');
-      await byteAuthority(ctx, 'production:read', r.ref);
+      await authorize('production:read', r.ref);
       invariant(await retainedPermission(ctx, r) === basis, 'consent_denied', 'Retained output basis changed during read');
       return { bytes, mediaType: manifestRead ? 'application/json' : output!.mediaType, filename: name, sha256: hash };
     },
@@ -837,16 +865,16 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       return rows.map(toExport);
     },
     async getExportBytes(ctx, exportId) {
-      ctx = byteContext(ctx); cap(ctx, 'export');
+      ctx = byteContext(ctx); cap(ctx, 'export'); const authorize = captureByteAuthority(ctx);
       const row = await exportRow(sql, ctx, exportId);
       invariant(row.blocked !== true, 'consent_denied', 'Retained export bytes cannot currently be served');
       const r = toRender(await renderRow(sql, ctx, row.render_id as string));
       const extra = recordedAudience(row), exportBasis = exportByteBasis(row);
-      await byteAuthority(ctx, 'production:export', exportRef(exportId));
+      await authorize('production:export', exportRef(exportId));
       const basis = await retainedPermission(ctx, r, extra);
       const bytes = await ownedBytes(row.object_key as string, Number(row.size));
       invariant(sha256(bytes) === row.sha256, 'integrity_failed', 'Stored export does not match its recorded digest');
-      await byteAuthority(ctx, 'production:export', exportRef(exportId));
+      await authorize('production:export', exportRef(exportId));
       invariant(await retainedPermission(ctx, r, extra) === basis, 'consent_denied', 'Retained output basis changed during read');
       const after = await exportRow(sql, ctx, exportId);
       invariant(after.blocked !== true && exportByteBasis(after) === exportBasis, 'consent_denied', 'Retained export basis changed during read');
