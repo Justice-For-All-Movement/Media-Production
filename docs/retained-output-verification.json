@@ -1,0 +1,47 @@
+{
+  "status": "implemented candidate; final-head CI/rules/expected-head merge pending in PR2",
+  "pullRequest": "https://github.com/Justice-For-All-Movement/Media-Production/pull/2",
+  "base": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
+  "reproduction": {
+    "source": "14df9e85c1c938276e6f0ac110bea67e9581174f",
+    "job": 134851675106,
+    "tests": 26,
+    "passes": 24,
+    "failures": 2,
+    "skips": 0
+  },
+  "firstCorrection": {
+    "source": "02893d751da727409bce31922938d7aacd1919b0",
+    "job": 134853911965,
+    "tests": 26,
+    "passes": 26,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "peerQualification": {
+    "source": "5dbcff6f3b9ac5a9155be8663cfdbc9342e7066d",
+    "job": 134858231234,
+    "sourceTests": 1,
+    "freshInstalledPublicEngineTests": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "local": "typecheck/build/original-registry checks; copied prepared dependencies, no local PG/render/full installed-suite claim",
+  "review": "clear for copied context/bytes, exact stored basis/audience, strict pre/post permission and current optional Authorization; sequential snapshots, metadata APIs unchanged, no distributed fence",
+  "limits": [
+    "host-human/complete source-rights mapping/clock/key lifecycle/driver/time-memory-concurrency limits",
+    "isolated sandbox/deployed/browser/AT acceptance; no distributed fence or full suite claim",
+    "remote decision audit may commit during withheld/unknown reads; no rollback, quiescence, recordUse or retry",
+    "PAM foundation stop; no live providers/send/publication/payment/paid infrastructure"
+  ],
+  "sha256": {
+    "src/engine/index.ts": "942eb145fd52399b177e19cba6b33bb8d4dfd2b340fdd6d4831347b5a22681d4",
+    "tests/engine-core.test.ts": "4e0996c0eb4935fbc58b8ca0671f035d04f03e96d4f5300f236736e1d9d06b86",
+    "integration/consent-http.test.ts": "4cbf24365dd355839624b86e0b7899f7dd2bfbe592c76a8763074611a08cd758",
+    ".github/workflows/ci.yml": "ac8cbebe77e44e0afb0e151cd8f01dd536880bbd2d756a430c6a6a301db36633",
+    "docs/RETAINED_OUTPUT_PERMISSIONS.md": "40de8870e136997f03d7c577960fa52507e5dd8d4f5400fa21ae32a43ea454b0",
+    "docs/ENGINE_API.md": "3bd56bfcafca117e002f81c69e878aacfd8db6a5af87919f8b2438ad9e8202b8"
+  }
+}

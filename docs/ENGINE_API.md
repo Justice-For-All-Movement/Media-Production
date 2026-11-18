@@ -271,3 +271,6 @@ Not implemented / not verified:
 - Not deployed to a hosted environment. No independent security review.
 
 Scoped Consent maintenance replaces the static unscoped adapter behavior described above; see `CONSENT_HTTP.md` and `registry/prs.json`. Service credential selection is bounded to each captured caller; it is not current original-human or all-source rights proof. Existing public `./serve` export is preserved. Adapter final-head and host integration acceptance remain separate.
+
+
+Retained byte reads now require fresh reproduce permission before object retrieval and before returning independently owned, integrity-checked bytes. `getRenderOutput` includes manifest.json; `getExportBytes` binds the recorded export audience/destination. Current asset-rights/render/export bases must remain unchanged; review/unknown/failed decisions withhold bytes without deleting history. These checks do not change metadata endpoints or make standalone declared-rights verified. See `RETAINED_OUTPUT_PERMISSIONS.md` and its verification manifest for actual reproduction, source/installed E11 evidence and pending final-head/host qualification. Sequential checks are not distributed fencing or revocable copies.
