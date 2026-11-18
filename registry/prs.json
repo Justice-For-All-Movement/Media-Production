@@ -368,15 +368,25 @@
     },
     {
       "id": "worker-asset-materialization-bytes",
-      "status": "incomplete WIP regression checkpoint; no runtime correction",
+      "status": "incomplete WIP: size/ownership correction committed; source/installed qualification pending",
       "baseCommit": "351435b5f491034f363e8180f0fe328d3087b333",
       "documentation": "docs/WORKER_ASSET_BYTES.md",
-      "local": "typecheck with prepared dependencies; no local PostgreSQL/installed/full test claim",
+      "local": "typecheck/build/original design registry pass; prepared dependencies, no local PostgreSQL/installed/full test claim",
       "remaining": [
-        "baseline source and normal fresh-installed real PostgreSQL/image worker qualification",
+        "corrected source and normal fresh-installed real PostgreSQL/image worker qualification",
         "runtime correction and meaningful current-head review/checks/rules/expected-head merge",
         "current original-human/source rights during worker lifecycle, isolated sandbox and host acceptance"
-      ]
+      ],
+      "reproduction": {
+        "source": "4c555b0b8a2c59c1bdefea037c86ac487635721e",
+        "job": 135199239204,
+        "tests": 8,
+        "passes": 6,
+        "failures": 2,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-asset-byte-verification.json"
     }
   ],
   "approvedDesignSha256": {
