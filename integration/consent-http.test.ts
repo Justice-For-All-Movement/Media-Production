@@ -44,8 +44,8 @@ test('Actual Consent withdrawal during retained Media read withholds private byt
     await migrate(ownSql);
     const folder=await mkdtemp(join(tmpdir(),'media-consent-reads-'));
     try {
-     const store=new FsObjectStore(join(folder,'objects'));let objectReads=0;let withdrawDuringRead=false;
-     const objects={put:store.put.bind(store),head:store.head.bind(store),delete:store.delete.bind(store),list:store.list.bind(store),get:async(key:string)=>{objectReads++;const bytes=await store.get(key);if(withdrawDuringRead){withdrawDuringRead=false;await send(`/v1/permissions/${permission.id}/withdraw`,{reason:'Fictional withdrawal during object read'});}return bytes;}};
+     const store=new FsObjectStore(join(folder,'objects'));let objectReads=0;let withdrawDuringRead=false;let assetWithdrawal:string|undefined;
+     const objects={put:store.put.bind(store),head:store.head.bind(store),delete:store.delete.bind(store),list:store.list.bind(store),get:async(key:string)=>{objectReads++;const bytes=await store.get(key);if(assetWithdrawal!==undefined){const id=assetWithdrawal;assetWithdrawal=undefined;await send(`/v1/permissions/${id}/withdraw`,{reason:'Fictional asset withdrawal during retrieval'});}if(withdrawDuringRead){withdrawDuringRead=false;await send(`/v1/permissions/${permission.id}/withdraw`,{reason:'Fictional withdrawal during object read'});}return bytes;}};
      const media=createEngine({sql:ownSql,objects,ports:{useDecisions:port},config:{workRoot:folder}});
      const operator={...ctx,capabilities:['production:read','production:write','production:render','production:approve','production:export']};
      const project=await media.createProject(operator,{kind:'image',title:'Fictional private render',sources:[subject],doc:{title:'Fictional private render',canvas:{width:320,height:180,background:'#ffffff'},export:{formats:['png']},layers:[{id:'text',type:'text',text:'Fictional controlled output',x:12,y:12,width:290,size:18,color:'#111111'}]}});
@@ -57,6 +57,17 @@ test('Actual Consent withdrawal during retained Media read withholds private byt
      const output=await media.getRenderOutput(operator,render.id,render.outputs[0]!.name);assert.ok(output.bytes.byteLength>0);
      assert.ok((await media.getRenderOutput(operator,render.id,'manifest.json')).bytes.byteLength>0);
      assert.ok((await media.getExportBytes(operator,exported.id)).bytes.byteLength>0);
+     const privateAsset=await media.importAsset(operator,{name:'Controlled private asset',filename:'fixture.png',bytes:output.bytes,rights:{kind:'license',license:'Fictional test fixture only',attribution:'Controlled fixture'}});
+     const beforeAsset=objectReads;
+     await assert.rejects(media.getAssetBytes(operator,privateAsset.id),(e:any)=>e.code==='consent_denied');
+     assert.equal(objectReads,beforeAsset,'unknown asset permission is review, not byte-read authority');
+     const assetPermission=await send('/v1/permissions',{holderId:holder.id,scope:{type:'subject',value:privateAsset.versions[0].ref},actions:['reproduce'],purposes:['production'],provenance:{method:'other',note:'Controlled fictional asset-byte grant; no source truth claim.'}});
+     assert.equal((await media.getAssetBytes(operator,privateAsset.id,1)).sha256,privateAsset.versions[0].sha256);
+     const beforeAssetWithdrawal=objectReads;assetWithdrawal=assetPermission.id;
+     await assert.rejects(media.getAssetBytes(operator,privateAsset.id,1),(e:any)=>e.code==='consent_denied');
+     assert.equal(objectReads,beforeAssetWithdrawal+1);
+     const beforeAssetRetry=objectReads;await assert.rejects(media.getAssetBytes(operator,privateAsset.id,1),(e:any)=>e.code==='consent_denied');assert.equal(objectReads,beforeAssetRetry);
+     const retainedAsset=await media.getAsset(operator,privateAsset.id);assert.equal(retainedAsset.blocked,false);assert.equal(retainedAsset.versions.length,1);assert.equal(retainedAsset.versions[0].sha256,privateAsset.versions[0].sha256);
      const beforeWithdrawal=objectReads;withdrawDuringRead=true;
      await assert.rejects(media.getRenderOutput(operator,render.id,render.outputs[0]!.name),(e:any)=>e.code==='consent_denied');
      assert.equal(objectReads,beforeWithdrawal+1,'one object read occurred before real E11 withdrawal; no retry');

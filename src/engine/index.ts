@@ -372,6 +372,17 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       && canonical(afterAssets) === canonical(assets), 'consent_denied', 'Retained output policy basis changed; request a fresh read');
     return canonical({ render: renderByteBasis(current), assets });
   }
+  async function assetBytePermission(ctx: ServiceContext, id: string, version: number, expected: string): Promise<void> {
+    const current = await loadAsset(sql, ctx, id);
+    invariant(canonical(current) === expected && !current.blocked, 'consent_denied', 'Asset policy basis changed; request a fresh read');
+    const assets = await gateInputs(sql, ctx, [{ assetId: id, version }]);
+    const result = await gate(ctx, 'reproduce', assets, [], true);
+    invariant(result.denied.length === 0 && result.decisions.length === 1 && result.decisions[0]!.decision === 'allow',
+      'consent_denied', 'Current permission for asset bytes was not granted');
+    // Asset rows/rights can change while external policy is awaited; snapshots are not a distributed fence.
+    const after = await loadAsset(sql, ctx, id);
+    invariant(canonical(after) === expected && !after.blocked, 'consent_denied', 'Asset policy basis changed; request a fresh read');
+  }
   function recordedAudience(row: kit.Row): { audience?: string; destination?: string } {
     invariant(isObj(row.manifest) && isObj(row.manifest.export), 'integrity_failed', 'Export policy metadata is invalid');
     const policy = row.manifest.export;
@@ -680,11 +691,20 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       return out;
     },
     async getAssetBytes(ctx, assetId, version) {
-      cap(ctx, 'read'); const a = await loadAsset(sql, ctx, assetId);
-      const v = a.versions.find((x) => x.version === (version ?? a.headVersion)); if (v === undefined) throw new DomainError('not_found', 'Not found');
-      if (a.blocked) throw new DomainError('consent_denied', 'This asset is blocked for use');
-      const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2 and tenant_id=$3 and project_id=$4`, [a.id, v.version, ctx.tenantId, ctx.projectId]))[0]?.object_key as string;
-      return { bytes: await objects().get(key), mediaType: v.mediaType, filename: v.filename, sha256: v.sha256 };
+      ctx = byteContext(ctx); cap(ctx, 'read');
+      const a = await loadAsset(sql, ctx, assetId);
+      const v = a.versions.find(x => x.version === (version ?? a.headVersion));
+      if (v === undefined) throw new DomainError('not_found', 'Not found');
+      const basis = canonical(a);
+      await byteAuthority(ctx, 'production:read', v.ref);
+      await assetBytePermission(ctx, a.id, v.version, basis);
+      const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2 and tenant_id=$3 and project_id=$4`, [a.id, v.version, ctx.tenantId, ctx.projectId]))[0]?.object_key;
+      invariant(typeof key === 'string', 'not_found', 'Not found');
+      const bytes = await ownedBytes(key, v.size);
+      invariant(sha256(bytes) === v.sha256, 'integrity_failed', 'Stored asset does not match its recorded digest');
+      await byteAuthority(ctx, 'production:read', v.ref);
+      await assetBytePermission(ctx, a.id, v.version, basis);
+      return { bytes, mediaType: v.mediaType, filename: v.filename, sha256: v.sha256 };
     },
 
     // ── renders ──
