@@ -11,11 +11,15 @@ import pg from 'pg';
 import { generateSigningKey, signAccessToken, withDisposableDatabase, FsObjectStore } from '../src/service-kit.ts';
 import type { ServiceContext } from '../src/service-kit.ts';
 import { httpUseDecisionPort } from '../src/engine/serve.ts';
-import { createEngine, migrate } from '../src/engine/index.ts';
+import { createRequire } from 'node:module';
 
-test('Media port uses actual signed Consent HTTP and observes grant withdrawal with no replay or foreign-scope transport', async () => {
+test('Actual Consent withdrawal during retained Media read withholds private bytes without event flags', async () => {
  const directory=process.env.E11_DIR, admin=process.env.TEST_DATABASE_URL;
  assert.ok(directory && admin, 'E11_DIR and disposable TEST_DATABASE_URL are required; no silent skip');
+ const mediaEntry = process.env.MEDIA_PACKAGE_ROOT
+   ? createRequire(resolve(process.env.MEDIA_PACKAGE_ROOT, 'package.json')).resolve('@accountability/media-production/engine')
+   : resolve('src/engine/index.ts');
+ const { createEngine, migrate } = await import(pathToFileURL(mediaEntry).href);
  const consent=await import(pathToFileURL(resolve(directory,'src/engine/index.ts')).href);
  const kit=await import(pathToFileURL(resolve(directory,'src/service-kit.ts')).href);
  await withDisposableDatabase(pg,admin,async(_url,sql)=>{
@@ -34,14 +38,14 @@ test('Media port uses actual signed Consent HTTP and observes grant withdrawal w
    assert.equal((await port.decide(ctx,request)).decision,'review');
    const before=requests;await assert.rejects(port.decide({...ctx,tenantId:'foreign'},request));assert.equal(requests,before);
    const holder=await send('/v1/holders',{ref:'pseudonym:fictional-producer',kind:'participant'});
-   const permission=await send('/v1/permissions',{holderId:holder.id,scope:{type:'subject',value:subject},actions:['adapt','reproduce'],purposes:['production'],provenance:{method:'other',note:'Fictional controlled integration grant; no real research or contact.'}});
+   const permission=await send('/v1/permissions',{holderId:holder.id,scope:{type:'subject',value:subject},actions:['adapt','reproduce'],purposes:['production'],audiences:['private-review'],provenance:{method:'other',note:'Fictional controlled integration grant; no real research or contact.'}});
    assert.equal((await port.decide(ctx,request)).decision,'allow');
    await withDisposableDatabase(pg,admin,async(_mediaUrl,ownSql)=>{
     await migrate(ownSql);
     const folder=await mkdtemp(join(tmpdir(),'media-consent-reads-'));
     try {
-     const store=new FsObjectStore(join(folder,'objects'));let objectReads=0;
-     const objects={put:store.put.bind(store),head:store.head.bind(store),delete:store.delete.bind(store),list:store.list.bind(store),get:async(key:string)=>{objectReads++;return store.get(key);}};
+     const store=new FsObjectStore(join(folder,'objects'));let objectReads=0;let withdrawDuringRead=false;
+     const objects={put:store.put.bind(store),head:store.head.bind(store),delete:store.delete.bind(store),list:store.list.bind(store),get:async(key:string)=>{objectReads++;const bytes=await store.get(key);if(withdrawDuringRead){withdrawDuringRead=false;await send(`/v1/permissions/${permission.id}/withdraw`,{reason:'Fictional withdrawal during object read'});}return bytes;}};
      const media=createEngine({sql:ownSql,objects,ports:{useDecisions:port},config:{workRoot:folder}});
      const operator={...ctx,capabilities:['production:read','production:write','production:render','production:approve','production:export']};
      const project=await media.createProject(operator,{kind:'image',title:'Fictional private render',sources:[subject],doc:{title:'Fictional private render',canvas:{width:320,height:180,background:'#ffffff'},export:{formats:['png']},layers:[{id:'text',type:'text',text:'Fictional controlled output',x:12,y:12,width:290,size:18,color:'#111111'}]}});
@@ -53,7 +57,9 @@ test('Media port uses actual signed Consent HTTP and observes grant withdrawal w
      const output=await media.getRenderOutput(operator,render.id,render.outputs[0]!.name);assert.ok(output.bytes.byteLength>0);
      assert.ok((await media.getRenderOutput(operator,render.id,'manifest.json')).bytes.byteLength>0);
      assert.ok((await media.getExportBytes(operator,exported.id)).bytes.byteLength>0);
-     await send(`/v1/permissions/${permission.id}/withdraw`,{reason:'Fictional withdrawal fixture'});
+     const beforeWithdrawal=objectReads;withdrawDuringRead=true;
+     await assert.rejects(media.getRenderOutput(operator,render.id,render.outputs[0]!.name),(e:any)=>e.code==='consent_denied');
+     assert.equal(objectReads,beforeWithdrawal+1,'one object read occurred before real E11 withdrawal; no retry');
      const beforeReads=objectReads;
      for(const read of [()=>media.getRenderOutput(operator,render.id,render.outputs[0]!.name),()=>media.getRenderOutput(operator,render.id,'manifest.json'),()=>media.getExportBytes(operator,exported.id)])await assert.rejects(read(),(e:any)=>e.code==='consent_denied');
      assert.equal(objectReads,beforeReads,'withdrawal denies before object I/O without event delivery');
