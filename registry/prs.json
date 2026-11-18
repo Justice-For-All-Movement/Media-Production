@@ -229,7 +229,7 @@
     },
     {
       "id": "retained-output-permission-reads",
-      "status": "implemented candidate; actual baseline failures and source/installed E11 chain qualified; final-head checks and merge pending",
+      "status": "accepted PR2; candidate notes historical",
       "baseCommit": "170c54f29c3c8a8136cc4e1a681198874e1d9e6f",
       "documentation": "docs/RETAINED_OUTPUT_PERMISSIONS.md",
       "remaining": [
@@ -265,7 +265,35 @@
         "skips": 0
       },
       "sourceReview": "clear for copied context/bytes, exact stored basis/audience, strict pre/post permission and current optional Authorization; sequential snapshots, metadata APIs unchanged, no distributed fence",
-      "verification": "docs/retained-output-verification.json"
+      "verification": "docs/retained-output-verification.json",
+      "sourceCommit": "7af7398b361125d02c4ae3f054315cc1354eef93",
+      "mergeCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
+      "finalCi": {
+        "ordinaryJobs": [
+          134862467463,
+          134883971066
+        ],
+        "ordinaryTestsEach": 28,
+        "realConsentJob": 134862506157,
+        "sourceTests": 1,
+        "freshInstalledTests": 1,
+        "allCurrentHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "asset-byte-current-permission",
+      "status": "incomplete regression WIP; no runtime change yet",
+      "baseCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
+      "documentation": "docs/ASSET_BYTE_PERMISSIONS.md",
+      "remaining": [
+        "actual baseline and corrected owning PG/source-installed CI",
+        "fresh permission/integrity implementation and source review",
+        "actual E11 asset mappings/current human/host bounds and lifecycle",
+        "final-head checks/rules/expected-head merge"
+      ]
     }
   ],
   "approvedDesignSha256": {
