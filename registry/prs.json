@@ -285,11 +285,10 @@
     },
     {
       "id": "asset-byte-current-permission",
-      "status": "reviewed runtime qualified; CI HTTPS mirror checkpoint/current-head checks pending",
+      "status": "accepted PR3; prior pending candidate notes historical",
       "baseCommit": "e2335c60529f6b4543e4486410eff3cad73ed1a4",
       "documentation": "docs/ASSET_BYTE_PERMISSIONS.md",
       "remaining": [
-        "current authorizer-removal regression source/installed/full final-head CI and review/rules/expected-head merge",
         "host actual human/complete rights/clock-heap/key lifecycle/TLS/driver/sandbox/browserAT acceptance"
       ],
       "reproduction": {
@@ -344,7 +343,40 @@
           "localTests": 3,
           "qualification": "current-head actual mirror switching/full checks pending; runtime unchanged"
         }
+      },
+      "sourceCommit": "713ee0a1b80eba547081e67861dc3b995a0cab69",
+      "mergeCommit": "351435b5f491034f363e8180f0fe328d3087b333",
+      "finalCi": {
+        "ordinaryJobs": [
+          135124784623,
+          135124744490
+        ],
+        "ordinaryTestsEach": 33,
+        "peerJobs": [
+          135124785068,
+          135124745184
+        ],
+        "sourceGroupsEach": 5,
+        "normalFreshInstalledGroupsEach": 5,
+        "actualE11SourceEach": 1,
+        "actualE11InstalledEach": 1,
+        "allHeadChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
+    },
+    {
+      "id": "worker-asset-materialization-bytes",
+      "status": "incomplete WIP regression checkpoint; no runtime correction",
+      "baseCommit": "351435b5f491034f363e8180f0fe328d3087b333",
+      "documentation": "docs/WORKER_ASSET_BYTES.md",
+      "local": "typecheck with prepared dependencies; no local PostgreSQL/installed/full test claim",
+      "remaining": [
+        "baseline source and normal fresh-installed real PostgreSQL/image worker qualification",
+        "runtime correction and meaningful current-head review/checks/rules/expected-head merge",
+        "current original-human/source rights during worker lifecycle, isolated sandbox and host acceptance"
+      ]
     }
   ],
   "approvedDesignSha256": {

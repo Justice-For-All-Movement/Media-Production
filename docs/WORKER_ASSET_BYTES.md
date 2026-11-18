@@ -1,0 +1,9 @@
+# Worker asset materialization
+
+This checkpoint adds real owning-PostgreSQL/image-worker regressions for the next ready E10 worker requirement. It is explicitly incomplete: the baseline worker checks SHA-256 but does not verify the selected edition's recorded byte count or independently copy its producer buffer before filesystem admission. No runtime correction is in this checkpoint.
+
+The tests deliberately corrupt selected-version size metadata through fixture SQL, reject equal-count corrupted content, and intercept the native filesystem write boundary to mutate a producer Buffer deterministically. The latter is a test instrument, not a deployed filesystem or sandbox. Rejected jobs and all asset editions must remain retained; failed materialization must not produce an output or manifest. The same tests are wired for source and a normal fresh-installed public engine in CI. Existing PostgreSQL, tools, browser and E11 tests remain enabled.
+
+Local qualification: typecheck only, using already prepared dependencies. Real PostgreSQL/source/installed results and runtime correction/review/current-head checks are pending. No local PostgreSQL, fresh dependency installation, live provider, current original-human rights, new worker liveness, crash reconciliation, isolation or full-suite acceptance is claimed. Existing pre-render permission checks do not fence later materialization/output. Cache byte paths, worker current rights and sandbox qualification remain separate work. Unknown outcomes do not authorize deletion or another execution.
+
+Media PR3 is accepted at source 713ee0a1b80eba547081e67861dc3b995a0cab69 / merge 351435b5f491034f363e8180f0fe328d3087b333. Its pending candidate notes are historical; this unit does not reimplement its byte-return authorization. PAM remains stopped at the accepted foundation. All fixtures and artifacts are private and fictional; no provider sends, publication, payments or paid infrastructure are authorized.
