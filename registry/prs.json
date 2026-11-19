@@ -689,13 +689,23 @@
     },
     {
       "id": "worker-recorded-blocks",
-      "status": "incomplete WIP; baseline/runtime/CI/review pending",
+      "status": "implemented correction; runtime source-installed/current-head CI pending",
       "baseCommit": "dcc10dab4195849c5f6c9bb342926adb8f5adb71",
       "documentation": "docs/WORKER_RECORDED_BLOCKS.md",
       "remaining": [
         "MediaPR10 prerequisite, baseline/runtime/source-installed/current-head CI/review/rules/expected merge",
         "current-human/event-proofing/recursive rights/cache/liveness/sandbox/host acceptance; no external permission fence"
-      ]
+      ],
+      "baselineSource": "0e4ce0a44232cabc8a3029df419f91375fcb6313",
+      "baselineJob": 135380820898,
+      "baselineResults": {
+        "tests": 40,
+        "passes": 35,
+        "failures": 5,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-recorded-block-verification.json"
     }
   ],
   "approvedDesignSha256": {
