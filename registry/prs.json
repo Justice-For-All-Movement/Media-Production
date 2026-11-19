@@ -809,6 +809,16 @@
         "skips": 0
       },
       "sourceReview": "clear: one captured put method/receiver at all3 worker write sites; generic getter-invalid-rejected failure; retained bytes/history, no implicit replay/delete; host/asset/project/flag guards preserved; no separate negative cache-write/crash/liveness/receipt/atomicity/currenthuman qualification"
+    },
+    {
+      "id": "worker-source-storage-error-privacy",
+      "status": "incomplete WIP; baseline/runtime/source-installed/current-head CI/review pending",
+      "baseCommit": "0b8b20f11532fba4da6af081174bd48c724dada8",
+      "documentation": "docs/WORKER_SOURCE_STORAGE_ERRORS.md",
+      "remaining": [
+        "PR12 after11; baseline reproduction/runtime/installed/fullCI/review/rules/expected merge",
+        "callback liveness/crash/currenthuman/rights/sandbox/host and external fencing unqualified; no cleanup/delete/retry authority"
+      ]
     }
   ],
   "approvedDesignSha256": {
