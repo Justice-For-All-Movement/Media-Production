@@ -11,13 +11,12 @@ const entry = process.env.MEDIA_PACKAGE_ROOT === undefined ? resolve('src/engine
 const { createEngine } = await import(pathToFileURL(entry).href) as typeof import('../src/engine/index.ts');
 test('worker retains unknown cache write without leaking storage diagnostics or replaying', needsPg, () => withEngine(async h => {
   const c = ctx(); const marker = 'SYNTHETIC_PRIVATE_CACHE_WRITE_DIAGNOSTIC';
-  const keys: string[] = [];
+  const keys: string[] = []; const receivers: boolean[] = [];
   const objects: ObjectStore = {
     async put(key, bytes) {
-      assert.equal(this, objects);
+      receivers.push(this === objects);
       keys.push(key);
       await h.objects.put(key, bytes);
-      assert.ok(key.includes('/cache/'), 'first write must be the actual segment cache');
       throw Error(marker);
     },
     get: h.objects.get.bind(h.objects), head: h.objects.head.bind(h.objects), list: h.objects.list.bind(h.objects),
@@ -32,6 +31,8 @@ test('worker retains unknown cache write without leaking storage diagnostics or 
   const request = await engine.requestRender(c, { productionId: project.id, profile: 'preview' });
   const result = await finish(engine, c, request);
   assert.equal(result.state, 'failed'); assert.equal(keys.length, 1);
+  assert.deepEqual(receivers, [true]);
+  assert.ok(keys[0]!.includes('/cache/'), 'lost acknowledgement must be on the actual cache path');
   assert.ok(!JSON.stringify(result).includes(marker));
   assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
   const retained = await h.objects.get(keys[0]!);
