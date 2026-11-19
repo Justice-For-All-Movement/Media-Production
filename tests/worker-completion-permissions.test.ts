@@ -48,3 +48,24 @@ for (const change of ['withdrawal', 'rights-basis'] as const) test(`worker withh
   assert.equal((await h.engine.getAsset(c, asset.id)).versions.length, change === 'withdrawal' ? 1 : 2);
   assert.deepEqual(await h.objects.list(`${c.tenantId}/${c.projectId}/renders/${request.id}`), retained);
 }));
+
+test('worker rechecks asset permission after pipeline use before storing any render output', needsPg, async () => withEngine(async h => {
+  const { c, asset, project } = await fixture(h); let reads = 0, puts = 0;
+  const worker = createEngine({ sql: h.sql, config: { workRoot: h.root }, ports: { useDecisions: h.port }, objects: {
+    get: h.objects.get.bind(h.objects), head: h.objects.head.bind(h.objects), list: h.objects.list.bind(h.objects), delete: h.objects.delete.bind(h.objects),
+    async put(key: string, bytes: Uint8Array) { puts++; return h.objects.put(key, bytes); },
+  } });
+  const original = fs.readFile;
+  fs.readFile = (async (...args: Parameters<typeof original>) => {
+    const result = await original(...args);
+    if (String(args[0]).includes(`asset-${asset.id.slice(0, 8)}-v1-`)) { reads++; h.port.deny.add(permission); }
+    return result;
+  }) as typeof original;
+  syncBuiltinESMExports();
+  try {
+    const request = await worker.requestRender(c, { productionId: project.id }); const result = await finish(worker, c, request);
+    assert.ok(reads > 0); assert.equal(result.state, 'blocked', result.error ?? ''); assert.equal(puts, 0);
+    assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
+    assert.deepEqual(await h.objects.list(`${c.tenantId}/${c.projectId}/renders/${request.id}`), []);
+  } finally { fs.readFile = original; syncBuiltinESMExports(); }
+}));

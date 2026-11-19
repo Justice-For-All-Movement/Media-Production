@@ -460,7 +460,7 @@
     },
     {
       "id": "worker-completion-asset-permission",
-      "status": "incomplete WIP correction; actual baseline/corrected qualification pending",
+      "status": "two storage regressions source/installed qualified; third pre-storage test/full-final-head pending",
       "baseCommit": "893a0fb8f329eb8ec139abd2c808aea0630514cb",
       "documentation": "docs/WORKER_COMPLETION_PERMISSIONS.md",
       "remaining": [
@@ -469,7 +469,27 @@
       ],
       "baselineSource": "1018c20d6520e1814a43bd33920afc9501af8561",
       "local": "typecheck/build/original registry pass with prepared deps; no local PG/fresh/full test claim",
-      "verification": "docs/worker-completion-permission-verification.json"
+      "verification": "docs/worker-completion-permission-verification.json",
+      "baselineJob": 135252111716,
+      "baselineResults": {
+        "tests": 15,
+        "passes": 13,
+        "failures": 2,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "qualifiedRuntimeCommit": "56a744b46f10d09fad81abbea29e92e2e5605f72",
+      "focusedCi": {
+        "job": 135252620155,
+        "sourceTests": 15,
+        "normalFreshInstalledTests": 15,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: every actual materialized asset via pinned complete basis/newest rights/exact edition; strict reproduce after pipeline and after storage; retain unknown/orphan bytes; SQL wait/external later changes not fenced"
     }
   ],
   "approvedDesignSha256": {

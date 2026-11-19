@@ -1,5 +1,5 @@
 {
-  "status": "incomplete WIP actual CI/review/merge pending",
+  "status": "two storage regressions source/installed qualified; third pre-storage test/full-final-head pending",
   "baselineSource": "1018c20d6520e1814a43bd33920afc9501af8561",
   "local": "typecheck/build/original registry pass with prepared deps; no local PG/fresh/full test claim",
   "limits": [
@@ -10,9 +10,29 @@
   ],
   "sha256": {
     "src/engine/index.ts": "102fdcd5d3dc7afd50e4b37bd61dd2063039dcd51cb849ce7b95a160526a490d",
-    "tests/worker-completion-permissions.test.ts": "a16919b790e8e0a9cf51ef004de9cfb5bad30faae52f97431b6a3029bdf2bde6",
+    "tests/worker-completion-permissions.test.ts": "427cd5322abd20a90f9577e852de8e0ccd126ca028c10c7933703469213b190f",
     ".github/workflows/ci.yml": "fed2d6378352e8c6f593249936fd2b099c14c7a8fda692bd2b61f9d497894b4e",
     "docs/ENGINE_API.md": "b328620695b6f85738e6350ea0215eb38d4829da6e6fb634ce99e0afd0a6a0e7",
-    "docs/WORKER_COMPLETION_PERMISSIONS.md": "2b1ec2857e28d3ff3756292dd4ce9035be31034ab353233b80a1e8c100d34701"
-  }
+    "docs/WORKER_COMPLETION_PERMISSIONS.md": "81161ef63fc9b45b1f4cdd1243da995ec62a7e8d46e3aa3646664c21cd5ea378"
+  },
+  "baselineJob": 135252111716,
+  "baselineResults": {
+    "tests": 15,
+    "passes": 13,
+    "failures": 2,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "qualifiedRuntimeCommit": "56a744b46f10d09fad81abbea29e92e2e5605f72",
+  "focusedCi": {
+    "job": 135252620155,
+    "sourceTests": 15,
+    "normalFreshInstalledTests": 15,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear: every actual materialized asset via pinned complete basis/newest rights/exact edition; strict reproduce after pipeline and after storage; retain unknown/orphan bytes; SQL wait/external later changes not fenced"
 }
