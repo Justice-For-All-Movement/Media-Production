@@ -1,5 +1,5 @@
 {
-  "status": "implemented correction; runtime/current-head CI/review pending",
+  "status": "source-installed43 qualified; incomplete pending prerequisite/current full head CI/review/rules/merge",
   "baselineSource": "0f4309215465f86a54bd0d7442b53d052cf8412c",
   "baselineJob": 135387385270,
   "baselineResults": {
@@ -16,6 +16,19 @@
     "tests/worker-storage-errors.test.ts": "4af13f79d38b17c31ea66d679facca681a61b317211e10209e12f132ab5460f3",
     ".github/workflows/ci.yml": "6fd0f043a126af1104a2fa79afbe1d44fc9fcb8d4945ba883e9506c41d3d4a15",
     "docs/ENGINE_API.md": "786bb9b898fbc477e1906ce5e6e1b9a2a0ce653f0316ed8f0ff2500d080aa55b",
-    "docs/WORKER_STORAGE_ERRORS.md": "452c4d14b9e2aad902eb3a3b8bcdb503624d69ac658e1bea3cb094461138fb1c"
-  }
+    "docs/WORKER_STORAGE_ERRORS.md": "672a133901dee878b078745449c21955623642bd4cd59e03f0a78010d0214e00"
+  },
+  "qualifiedRuntimeCommit": "5c573b6475fd687cffd202e1036c50e9b02a4139",
+  "focusedCi": {
+    "job": 135389565243,
+    "sourceTests": 43,
+    "normalFreshInstalledTests": 43,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear: one captured put method/receiver at all3 worker write sites; generic getter-invalid-rejected failure; retained bytes/history, no implicit replay/delete; host/asset/project/flag guards preserved; no separate negative cache-write/crash/liveness/receipt/atomicity/currenthuman qualification",
+  "localEnvironment": "became unavailable after source/CI checkpoint; prior local prepared typecheck/build/registry only"
 }
