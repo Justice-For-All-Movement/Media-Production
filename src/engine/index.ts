@@ -431,6 +431,13 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     return new Uint8Array(bytes);
   }
 
+  /** Own-record continuity only. Dates are converted explicitly; no metadata is an authority proof. */
+  function workerProjectBasis(project: kit.Row, revision: kit.Row): string {
+    const basis = canonical({ project: toProject(project), revision: { ...toRevInfo(revision), doc: revision.doc } });
+    invariant(Buffer.byteLength(basis, 'utf8') <= 2 * 1024 * 1024, 'consent_denied', 'Selected project basis exceeds its complete review budget');
+    return basis;
+  }
+
   // ── render worker ──
   async function markRender(id: string, set: string, params: unknown[]): Promise<void> { await sql.query(`update ${s}.renders set ${set} where id=$1`, [id, ...params]); }
   async function finishFailed(ctx: ServiceContext, row: kit.Row, state: 'failed' | 'blocked' | 'cancelled', error: string, decisions?: DecisionRecord[]): Promise<void> {
@@ -462,6 +469,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       const project = await projectRow(sql, ctx, row.production_id as string);
       const rev = await revisionRow(sql, ctx, project.id as string, row.revision as number);
       const p = pipeline(project.kind as string); const doc = rev.doc as Doc; const profile = row.profile as RenderProfile;
+      const selectedProjectBasis = workerProjectBasis(project, rev);
       const admitProjectSources = captureWorkerProjectPermission(ctx, [
         ...(project.editorial_ref === null ? [] : [project.editorial_ref as string]),
         ...(project.sources as string[]), ...(rev.sources as string[]),
@@ -537,6 +545,12 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       await authorize('production:render', renderRef(renderId));
       const qc = qcStatic(man, result.outputs);
       const done = await sql.tx(async (tx) => {
+        // Public project writers take this same lock. Keep it through the completion write/audit.
+        // External authorization/permission callbacks have already settled; never run them under this lock.
+        const currentProject = await projectRow(tx, ctx, project.id as string, true);
+        const currentRevision = await revisionRow(tx, ctx, project.id as string, row.revision as number);
+        invariant(workerProjectBasis(currentProject, currentRevision) === selectedProjectBasis,
+          'consent_denied', 'Selected project basis changed; completion withheld');
         const cur = (await tx.query(`select state from ${s}.renders where id=$1 for update`, [renderId]))[0];
         if (cur === undefined || cur.state !== 'running') return false;
         await tx.query(`update ${s}.renders set state='done', progress=1, stage='done', inputs=$2::jsonb, sources=$3, outputs=$4::jsonb, manifest=$5::jsonb, manifest_digest=$6, qc=$7::jsonb, completed_at=$8 where id=$1`, [renderId, J(inputList), sources, J(result.outputs), J(man), manifestDigest, J(qc), ctx.now]);

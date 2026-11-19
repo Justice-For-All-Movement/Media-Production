@@ -1,0 +1,54 @@
+{
+  "status": "2MiB source-installed and full ordinary qualified; final-head CI/rules/merge governed by GitHub",
+  "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
+  "baselineJob": 135377185699,
+  "baselineResults": {
+    "tests": 34,
+    "passes": 30,
+    "failures": 4,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "local": "prepared typecheck/build/registry only; no localPG/fresh installation/full-suite claim",
+  "limits": "own project-writer lock and complete captured basis only; external authority after checks/while awaiting SQL/currenthuman/recursive rights/cache/liveness/sandbox/host separate; no stopped/nooutput/cleanup/reset/delete/retry proof",
+  "sha256": {
+    "src/engine/index.ts": "deef0f336773c50ce12dbdfa2c1f795a70378a34428f65b4235125934a13dc6d",
+    "tests/worker-project-basis.test.ts": "8a3e3af8f1a6c9cf0354fc95122296db87335a55bb6824d66e2ce6fcdbe166b0",
+    ".github/workflows/ci.yml": "dbce73b4e3c5a4e37195351db31be85e4d6c603158d1382a286a0b5fd0b2e913",
+    "docs/ENGINE_API.md": "f031bfd4ff7453e5ad48772ac4d277460362e39785c53f0929a7a3d464842a69",
+    "docs/WORKER_PROJECT_BASIS.md": "475dde5435b1ea86cdc5854cb6cbdffd9b4efffcd61685b1de5d8907bcd00892"
+  },
+  "qualifiedRuntimeCommit": "a80eb2105998d95aef68e1bebefc06a77b639ca3",
+  "focusedCi": {
+    "job": 135378203184,
+    "sourceTests": 35,
+    "normalFreshInstalledTests": 35,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim",
+  "priorFullFailure": {
+    "job": 135379794054,
+    "tests": 63,
+    "passes": 62,
+    "failures": 1,
+    "cancelled": 0,
+    "skips": 0,
+    "reason": "provisional512KiB too small for unchanged existing long-report cancellation fixture; all existing assertions retained"
+  },
+  "qualification": {
+    "ordinaryJob": 135382557397,
+    "ordinaryTests": 63,
+    "focusedJob": 135382557868,
+    "sourceTests": 35,
+    "normalFreshInstalledTests": 35,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  }
+}

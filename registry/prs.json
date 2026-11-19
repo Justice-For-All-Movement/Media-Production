@@ -611,11 +611,10 @@
     },
     {
       "id": "worker-declared-project-permissions",
-      "status": "source and installed worker groups qualified; current full CI/readiness/merge governed by GitHub",
+      "status": "accepted PR9; original declared source set only",
       "baseCommit": "0edc26de26cbb3877a31902d326958161c5d6ca9",
       "documentation": "docs/WORKER_PROJECT_PERMISSIONS.md",
       "remaining": [
-        "baseline/runtime/source-installed/final-head CI/review/rules/expected merge",
         "current complete project/source basis, recursive/current-human/cache/liveness/sandbox/host acceptance separate"
       ],
       "baselineSource": "f7a4760f0f0582a69219cc705a72421cc40043a4",
@@ -639,7 +638,75 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear for original declared source set bounds/copy/captured methodreceiver-initial standalone/fresh strict reproduce after storage/generic blocked failure/retained effects; not complete current basis/recursive/currenthuman/fence"
+      "sourceReview": "clear for original declared source set bounds/copy/captured methodreceiver-initial standalone/fresh strict reproduce after storage/generic blocked failure/retained effects; not complete current basis/recursive/currenthuman/fence",
+      "sourceCommit": "5633dd5fe8b2951707c39229eabd7dc6fdba1a1c",
+      "mergeCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
+      "finalCi": {
+        "ordinaryJob": 135373255093,
+        "ordinaryTests": 57,
+        "focusedJob": 135373254897,
+        "sourceTests": 29,
+        "normalFreshInstalledTests": 29,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "worker-selected-project-basis",
+      "status": "2MiB source-installed and full ordinary qualified; final-head CI/rules/merge governed by GitHub",
+      "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
+      "documentation": "docs/WORKER_PROJECT_BASIS.md",
+      "remaining": [
+        "baseline reproduction/runtime/source-installed/current-head CI/review/rules/expected merge",
+        "actual current-human/recursive rights/cache/liveness/sandbox/host acceptance; no external permission fence"
+      ],
+      "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
+      "baselineJob": 135377185699,
+      "baselineResults": {
+        "tests": 34,
+        "passes": 30,
+        "failures": 4,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-project-basis-verification.json",
+      "qualifiedRuntimeCommit": "a80eb2105998d95aef68e1bebefc06a77b639ca3",
+      "focusedCi": {
+        "job": 135378203184,
+        "sourceTests": 35,
+        "normalFreshInstalledTests": 35,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim",
+      "priorFullFailure": {
+        "job": 135379794054,
+        "tests": 63,
+        "passes": 62,
+        "failures": 1,
+        "cancelled": 0,
+        "skips": 0,
+        "reason": "provisional512KiB too small for unchanged existing long-report cancellation fixture; all existing assertions retained"
+      },
+      "qualification": {
+        "ordinaryJob": 135382557397,
+        "ordinaryTests": 63,
+        "focusedJob": 135382557868,
+        "sourceTests": 35,
+        "normalFreshInstalledTests": 35,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     }
   ],
   "approvedDesignSha256": {
