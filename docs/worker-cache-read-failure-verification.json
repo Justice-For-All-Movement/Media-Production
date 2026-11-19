@@ -1,10 +1,21 @@
 {
-  "status": "incomplete WIP; actual PostgreSQL/FFmpeg source-installed/full CI pending",
+  "status": "52 source-installed qualified; final documentation/full current-head CI pending",
   "sha256": {
     "tests/worker-cache-bytes.test.ts": "437b131cc7e7f25fbb5f6865b60b6333c0262f694ece3dd2e7bc974e6c05a302",
-    "docs/WORKER_CACHE_READ_FAILURES.md": "19a6d1fc40c2a934304993dfa703ecb469fedaa2d1e4b3edd4bb540486f5d18f"
+    "docs/WORKER_CACHE_READ_FAILURES.md": "f8fa8757d6edb04b74f6a2b264e293e29f54058e840602604929bf431aec41f1"
   },
   "sourceReview": "valid seed and hit controls; cache rejection only for exact selected scope key; receiver/key assertions outside callback; metadata and three render histories retained; no extra worker pass; no runtime change",
   "local": "prepared typecheck/build PASS; no localPG/fresh/fullsuite",
-  "limits": "read rejection only; no content identity/liveness/crash/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host qualification or retry/cleanup/new permit"
+  "limits": "read rejection only; no content identity/liveness/crash/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host qualification or retry/cleanup/new permit",
+  "qualifiedSource": "3405e25c9b5e7226dfd7218999bcac9e8f3bd187",
+  "focusedCi": {
+    "job": 135511501433,
+    "sourceTests": 52,
+    "normalFreshInstalledTests": 52,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  }
 }
