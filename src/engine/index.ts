@@ -423,8 +423,8 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     return { ...(policy.audience === undefined ? {} : { audience: policy.audience as string }),
       ...(policy.destination === undefined ? {} : { destination: policy.destination as string }) };
   }
-  async function ownedBytes(key: string, size?: number, store: ObjectStore = objects()): Promise<Uint8Array> {
-    const bytes = await store.get(key);
+  async function ownedBytes(key: string, size?: number, store: ObjectStore = objects(), read?: (key: string) => Promise<Uint8Array>): Promise<Uint8Array> {
+    const bytes = read === undefined ? await store.get(key) : await read(key);
     invariant(bytes instanceof Uint8Array && (size === undefined || (Number.isSafeInteger(size) && size >= 0 && bytes.byteLength === size)),
       'integrity_failed', 'Stored output byte count is invalid');
     // Buffer.slice aliases storage; own bytes before later callbacks or filesystem admission.
@@ -436,6 +436,19 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     const basis = canonical({ project: toProject(project), revision: { ...toRevInfo(revision), doc: revision.doc } });
     invariant(Buffer.byteLength(basis, 'utf8') <= 2 * 1024 * 1024, 'consent_denied', 'Selected project basis exceeds its complete review budget');
     return basis;
+  }
+
+  /** Callback diagnostics are private; returned bytes still undergo the ordinary integrity checks. */
+  function captureWorkerReader(store: ObjectStore): (key: string) => Promise<Uint8Array> {
+    const unavailable = () => new DomainError('storage_unknown', 'Render source storage is unavailable');
+    let get: ObjectStore['get'];
+    try { get = store.get; if (typeof get !== 'function') throw unavailable(); }
+    catch { throw unavailable(); }
+    const selected = get;
+    return async key => {
+      try { return await selected.call(store, key); }
+      catch { throw unavailable(); }
+    };
   }
 
   /** A storage callback may write then reject. Retain state and sanitize diagnostics; never infer rollback. */
@@ -494,6 +507,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       if (g.denied.length > 0) { await finishFailed(ctx, row, 'blocked', g.denied.join(' | '), g.decisions); return { state: 'blocked' }; }
       await markRender(renderId, `state='running', started_at=$2, decisions=$3::jsonb`, [ctx.now, J(g.decisions)]);
       const tools = new Map<string, string>(); const inputs = new Map<string, AssetInput>(); const assetBases = new Map<string, string>(); const store = objects(); const write = captureWorkerWriter(store);
+      let read: ((key: string) => Promise<Uint8Array>) | undefined;
       const admitMaterializedAssets = async (): Promise<void> => {
         for (const input of inputs.values()) {
           const basis = assetBases.get(input.assetId);
@@ -514,7 +528,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
             await assetBytePermission(ctx, a.id, v.version, basis);
             const hit = inputs.get(v.ref); if (hit !== undefined) return hit;
             const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2`, [a.id, v.version]))[0]?.object_key as string;
-            const bytes = await ownedBytes(key, v.size, store);
+            const bytes = await ownedBytes(key, v.size, store, read ??= captureWorkerReader(store));
             invariant(sha256(bytes) === v.sha256, 'integrity_failed', `Stored bytes of asset ${a.name} do not match their recorded digest`);
             await assetBytePermission(ctx, a.id, v.version, basis);
             const path = join(dir, `asset-${a.id.slice(0, 8)}-v${v.version}-${v.filename}`); await writeFile(path, bytes);
