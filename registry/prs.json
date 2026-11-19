@@ -570,7 +570,16 @@
         "current human/whole-rights/cache/liveness/sandbox/host acceptance separate"
       ],
       "baselineSource": "c37903d82a5736aa3878e1cc0155ebf3b7294659",
-      "verification": "docs/worker-completion-authorization-verification.json"
+      "verification": "docs/worker-completion-authorization-verification.json",
+      "baselineJob": 135327190188,
+      "baselineResults": {
+        "tests": 24,
+        "passes": 21,
+        "failures": 3,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: same captured optional method/receiver freshly checked after output storage and asset permission, before done SQL; retain bytes/job history/strict true/sanitized failure; no current-human/whole-rights/post-lock-fence/liveness claim"
     }
   ],
   "approvedDesignSha256": {
