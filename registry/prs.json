@@ -910,7 +910,10 @@
       "remaining": [
         "accept PR14/15 then retargetdefault; actual PostgreSQL/FFmpeg source-installed/full current-head CI/review/rules/expected merge",
         "synthetic acknowledgement loss only; crash/liveness/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host unqualified"
-      ]
+      ],
+      "verification": "docs/worker-cache-storage-uncertainty-verification.json",
+      "sourceCommit": "c4c5dbb89953b69ff16b55cfcdae88549ddba453",
+      "sourceReview": "cache writer is captured once and awaits storage before cache SQL insert; unknown acknowledgement sanitized, row not inserted, no implicit replay; runtime unchanged"
     }
   ],
   "approvedDesignSha256": {

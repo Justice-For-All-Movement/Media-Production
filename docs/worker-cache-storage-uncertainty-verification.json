@@ -1,0 +1,19 @@
+{
+  "status": "incomplete WIP; actual source-installed/full CI pending",
+  "sourceReview": "cache writer is captured once and awaits storage before cache SQL insert; unknown acknowledgement sanitized, row not inserted, no implicit replay; runtime unchanged",
+  "local": "prepared typecheck/build and 3 Python archive fixtures pass; no localPG/fresh/fullsuite",
+  "limits": "synthetic lost acknowledgement only; crash/stopped-nooutput/receipt/liveness/atomicity/currenthuman/rights/sandbox/host unqualified",
+  "sha256": {
+    ".github/workflows/ci.yml": "d6200eed20bb5b46b4e9ad8a6359eeb4cdc251f704ed2beb39c1ce69f9e53895",
+    "docs/WORKER_CACHE_STORAGE_UNCERTAINTY.md": "5c3ee5c33d151476c26c42c92ec1e18671343719669c27667c345cd9f941b53b",
+    "tests/worker-cache-storage-errors.test.ts": "defeedcf9b53618774381d574c1f67d8ef65506ab057e0ef14cb54cf0b83caa6"
+  },
+  "sha256Ref": "485d27d1ccd862a1a458cf0cbb980456a0a13aca",
+  "archiveCi": {
+    "cancelledJob": 135456179189,
+    "reason": "slow regional HTTP Ubuntu downloads, not a test failure/pass",
+    "change": "reuse existing archive-layout test/canonical HTTPS helper; retain ALL packages/tests/timeouts",
+    "localPythonTests": 3,
+    "currentHeadCi": "pending"
+  }
+}
