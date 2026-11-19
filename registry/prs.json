@@ -611,7 +611,7 @@
     },
     {
       "id": "worker-declared-project-permissions",
-      "status": "incomplete WIP correction; baseline/source-installed/current-head qualification pending",
+      "status": "source and installed worker groups qualified; current full CI/readiness/merge governed by GitHub",
       "baseCommit": "0edc26de26cbb3877a31902d326958161c5d6ca9",
       "documentation": "docs/WORKER_PROJECT_PERMISSIONS.md",
       "remaining": [
@@ -619,7 +619,27 @@
         "current complete project/source basis, recursive/current-human/cache/liveness/sandbox/host acceptance separate"
       ],
       "baselineSource": "f7a4760f0f0582a69219cc705a72421cc40043a4",
-      "verification": "docs/worker-project-permission-verification.json"
+      "verification": "docs/worker-project-permission-verification.json",
+      "baselineJob": 135371676926,
+      "baselineResults": {
+        "tests": 29,
+        "passes": 24,
+        "failures": 5,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "qualifiedRuntimeCommit": "16a99f59b146d788c1247dce13a509b2d33e5237",
+      "focusedCi": {
+        "job": 135372165810,
+        "sourceTests": 29,
+        "normalFreshInstalledTests": 29,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear for original declared source set bounds/copy/captured methodreceiver-initial standalone/fresh strict reproduce after storage/generic blocked failure/retained effects; not complete current basis/recursive/currenthuman/fence"
     }
   ],
   "approvedDesignSha256": {
