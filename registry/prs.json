@@ -951,13 +951,12 @@
     },
     {
       "id": "worker-cache-storage-uncertainty",
-      "status": "80 ordinary/52 source-installed on ac5758 qualified; reconciliation-head CI pending",
+      "status": "accepted PR16; staged pending notes historical",
       "baseCommit": "9bc9376adfa65ef1a7ef51142dee1600a65c8f00",
       "documentation": "docs/WORKER_CACHE_STORAGE_UNCERTAINTY.md",
       "local": "prepared typecheck/build passed; no localPG/fresh/fullsuite",
       "remaining": [
-        "fresh reconciled current-head CI/review/rules/expected merge",
-        "synthetic ACK loss only; no crash/stopped-nooutput/receipt/liveness/atomicity/currenthuman/rights/sandbox/host proof"
+        "synthetic acknowledgement loss only; crash/liveness/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host unqualified"
       ],
       "qualifiedSource": "c30e3a8d100431ddda15d3ad60b71f0ce9cd3b29",
       "focusedCi": {
@@ -975,6 +974,60 @@
         "ordinaryJob": 135484178517,
         "ordinaryTests": 80,
         "focusedJob": 135484177868,
+        "sourceTests": 52,
+        "normalFreshInstalledTests": 52,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceCommit": "a664b41ff7d60086d422db7c5714d878e3302402",
+      "mergeCommit": "fc870efad3d35399bb500d5c28a24eef899d8749",
+      "finalCi": {
+        "ordinaryJob": 135509730489,
+        "ordinaryTests": 80,
+        "focusedJob": 135509730015,
+        "sourceTests": 52,
+        "normalFreshInstalledTests": 52,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "worker-cache-read-failures",
+      "status": "80 ordinary/52 source-installed qualified before PR16 reconciliation; fresh combined head CI pending",
+      "baseCommit": "3971623cc466e49a99543f71836ba7503872cc5b",
+      "documentation": "docs/WORKER_CACHE_READ_FAILURES.md",
+      "local": "prepared typecheck/build completed; no localPG/fresh/fullsuite",
+      "remaining": [
+        "actual PostgreSQL/FFmpeg source-installed/full current-head CI/review/rules/expected merge",
+        "cache content identity/liveness/crash/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host unqualified; no retry/cleanup authority"
+      ],
+      "verification": "docs/worker-cache-read-failure-verification.json",
+      "qualifiedSource": "3405e25c9b5e7226dfd7218999bcac9e8f3bd187",
+      "focusedCi": {
+        "job": 135511501433,
+        "sourceTests": 52,
+        "normalFreshInstalledTests": 52,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "valid seed and hit controls; cache rejection only for exact selected scope key; receiver/key assertions outside callback; metadata and three render histories retained; no extra worker pass; no runtime change",
+      "prerequisiteMerge": "fc870efad3d35399bb500d5c28a24eef899d8749",
+      "priorHeadCi": {
+        "source": "baadd0568df5e75098bb5b87c60bbb9a0c117840",
+        "ordinaryJob": 135513010269,
+        "ordinaryTests": 80,
+        "focusedJob": 135513010730,
         "sourceTests": 52,
         "normalFreshInstalledTests": 52,
         "actualE11Source": 1,
