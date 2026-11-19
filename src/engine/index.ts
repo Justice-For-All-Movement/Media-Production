@@ -434,7 +434,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
   /** Own-record continuity only. Dates are converted explicitly; no metadata is an authority proof. */
   function workerProjectBasis(project: kit.Row, revision: kit.Row): string {
     const basis = canonical({ project: toProject(project), revision: { ...toRevInfo(revision), doc: revision.doc } });
-    invariant(Buffer.byteLength(basis, 'utf8') <= 512 * 1024, 'consent_denied', 'Selected project basis exceeds its complete review budget');
+    invariant(Buffer.byteLength(basis, 'utf8') <= 2 * 1024 * 1024, 'consent_denied', 'Selected project basis exceeds its complete review budget');
     return basis;
   }
 

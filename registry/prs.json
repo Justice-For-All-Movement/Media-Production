@@ -657,7 +657,7 @@
     },
     {
       "id": "worker-selected-project-basis",
-      "status": "source and installed groups qualified; current full CI/rules/merge governed by GitHub",
+      "status": "implemented2MiB compatibility correction; fresh full/source-installed CI pending",
       "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
       "documentation": "docs/WORKER_PROJECT_BASIS.md",
       "remaining": [
@@ -685,7 +685,16 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim"
+      "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim",
+      "priorFullFailure": {
+        "job": 135379794054,
+        "tests": 63,
+        "passes": 62,
+        "failures": 1,
+        "cancelled": 0,
+        "skips": 0,
+        "reason": "provisional512KiB too small for unchanged existing long-report cancellation fixture; all existing assertions retained"
+      }
     }
   ],
   "approvedDesignSha256": {
