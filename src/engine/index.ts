@@ -347,19 +347,19 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     profile: r.profile, inputs: r.inputs, sources: r.sources, outputs: r.outputs, manifestDigest: r.manifestDigest });
   const exportByteBasis = (row: kit.Row): string => canonical({ id: row.id, renderId: row.render_id, objectKey: row.object_key,
     sha256: row.sha256, size: row.size, manifest: row.manifest });
-  function captureByteAuthority(ctx: ServiceContext): (capability: string, resource: string) => Promise<void> {
+  function captureByteAuthority(ctx: ServiceContext, message = 'Retained output access is not authorized'): (capability: string, resource: string) => Promise<void> {
     let port: AuthorizationPort | undefined;
     let method: AuthorizationPort['authorize'] | undefined;
     try { port = ports.authorization; method = port?.authorize; }
-    catch { throw new DomainError('forbidden', 'Retained output access is not authorized'); }
+    catch { throw new DomainError('forbidden', message); }
     if (port === undefined) return async () => {}; // Optional only at admission, never a mid-read downgrade.
-    invariant(typeof method === 'function', 'forbidden', 'Retained output access is not authorized');
+    invariant(typeof method === 'function', 'forbidden', message);
     const selected = method, receiver = port;
     return async (capability, resource) => {
       let allowed = false;
       try { allowed = (await selected.call(receiver, ctx, { capability, resource })).allowed === true; }
       catch { /* Host diagnostics may contain private data; deny without forwarding them. */ }
-      invariant(allowed, 'forbidden', 'Retained output access is not authorized');
+      invariant(allowed, 'forbidden', message);
     };
   }
   async function retainedPermission(ctx: ServiceContext, expected: Render, extra: { audience?: string; destination?: string } = {}): Promise<string> {
@@ -433,7 +433,8 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       catch (error) { if (error instanceof DomainError && error.code === 'lease_lost') controller.abort(); }
     })(); }, 400);
     try {
-      if (ports.authorization !== undefined) { const a = await ports.authorization.authorize(ctx, { capability: 'production:render', resource: renderRef(renderId) }); if (!a.allowed) throw new DomainError('forbidden', `Authorization re-check failed: ${a.reason}`); }
+      const authorize = captureByteAuthority(ctx, 'Render worker is not authorized');
+      await authorize('production:render', renderRef(renderId));
       const project = await projectRow(sql, ctx, row.production_id as string);
       const rev = await revisionRow(sql, ctx, project.id as string, row.revision as number);
       const p = pipeline(project.kind as string); const doc = rev.doc as Doc; const profile = row.profile as RenderProfile;

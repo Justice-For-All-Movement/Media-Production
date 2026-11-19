@@ -507,13 +507,24 @@
     },
     {
       "id": "worker-entry-authorization",
-      "status": "incomplete WIP baseline regressions; runtime pending",
+      "status": "incomplete WIP correction; baseline/current-head qualification pending",
       "baseCommit": "abb3ea8964549b1a09d2d9ce5e3040f03da86e04",
       "documentation": "docs/WORKER_AUTHORIZATION.md",
       "remaining": [
         "baseline/correction/source-installed/final-head CI/review/rules/expected merge",
         "current-human/completion/whole-rights/cache/liveness/sandbox/host acceptance separate"
-      ]
+      ],
+      "baselineSource": "a47a8e17c7dc6aad9022fd61da6c71eefb8616b6",
+      "verification": "docs/worker-authorization-verification.json",
+      "local": "typecheck/build/registry passed using prepared dependencies; no localPG/fresh/full suite claim",
+      "initialFixture": {
+        "source": "5d8c92f4f9512829f2bde2422c5acbfa378d5c6e",
+        "job": 135311015167,
+        "tests": 21,
+        "passes": 16,
+        "failures": 5,
+        "reason": "written fixture required absent pandoc before authorization; changed to already-required image pipeline, assertions/packages retained"
+      }
     }
   ],
   "approvedDesignSha256": {
