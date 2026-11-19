@@ -812,13 +812,14 @@
     },
     {
       "id": "worker-source-storage-error-privacy",
-      "status": "incomplete WIP; baseline/runtime/source-installed/current-head CI/review pending",
+      "status": "implemented; baseline/runtime current CI and source-installed review pending",
       "baseCommit": "0b8b20f11532fba4da6af081174bd48c724dada8",
       "documentation": "docs/WORKER_SOURCE_STORAGE_ERRORS.md",
       "remaining": [
-        "PR12 after11; baseline reproduction/runtime/installed/fullCI/review/rules/expected merge",
+        "PR12 after11, baseline rawlogs/runtime/installed/fullCI/review/rules/expected merge",
         "callback liveness/crash/currenthuman/rights/sandbox/host and external fencing unqualified; no cleanup/delete/retry authority"
-      ]
+      ],
+      "baselineSource": "2fda25a75db0d066e4fffc23803d32d5c6870c38"
     }
   ],
   "approvedDesignSha256": {
