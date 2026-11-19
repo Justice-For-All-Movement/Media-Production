@@ -73,7 +73,7 @@ jobs:
           sudo apt-get -o DPkg::Lock::Timeout=600 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 update
           sudo apt-get -o DPkg::Lock::Timeout=600 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 install -y --no-install-recommends librsvg2-bin imagemagick libimage-exiftool-perl fonts-dejavu-core zip ffmpeg
       - name: Check asset-byte permissions on real owning PostgreSQL
-        run: node --test tests/asset-byte-permission.test.ts tests/worker-asset-bytes.test.ts tests/worker-asset-permissions.test.ts tests/worker-completion-permissions.test.ts tests/worker-authorization.test.ts tests/worker-completion-authorization.test.ts tests/worker-project-permissions.test.ts tests/worker-project-basis.test.ts tests/worker-recorded-blocks.test.ts tests/worker-storage-errors.test.ts tests/worker-source-storage-errors.test.ts tests/worker-cache-bytes.test.ts tests/video-subtitle-presence.test.ts
+        run: node --test tests/asset-byte-permission.test.ts tests/worker-asset-bytes.test.ts tests/worker-asset-permissions.test.ts tests/worker-completion-permissions.test.ts tests/worker-authorization.test.ts tests/worker-completion-authorization.test.ts tests/worker-project-permissions.test.ts tests/worker-project-basis.test.ts tests/worker-recorded-blocks.test.ts tests/worker-storage-errors.test.ts tests/worker-source-storage-errors.test.ts tests/worker-cache-bytes.test.ts tests/video-subtitle-presence.test.ts tests/worker-cache-storage-errors.test.ts
         env:
           TEST_DATABASE_URL: postgresql://postgres:fixture-only@127.0.0.1:5432/postgres
       - run: npm run test:consent
@@ -95,7 +95,7 @@ jobs:
           TEST_DATABASE_URL: postgresql://postgres:fixture-only@127.0.0.1:5432/postgres
           MEDIA_PACKAGE_ROOT: ${{ runner.temp }}/media-read-consumer
       - name: Check asset-byte permissions through installed public engine
-        run: node --test tests/asset-byte-permission.test.ts tests/worker-asset-bytes.test.ts tests/worker-asset-permissions.test.ts tests/worker-completion-permissions.test.ts tests/worker-authorization.test.ts tests/worker-completion-authorization.test.ts tests/worker-project-permissions.test.ts tests/worker-project-basis.test.ts tests/worker-recorded-blocks.test.ts tests/worker-storage-errors.test.ts tests/worker-source-storage-errors.test.ts tests/worker-cache-bytes.test.ts tests/video-subtitle-presence.test.ts
+        run: node --test tests/asset-byte-permission.test.ts tests/worker-asset-bytes.test.ts tests/worker-asset-permissions.test.ts tests/worker-completion-permissions.test.ts tests/worker-authorization.test.ts tests/worker-completion-authorization.test.ts tests/worker-project-permissions.test.ts tests/worker-project-basis.test.ts tests/worker-recorded-blocks.test.ts tests/worker-storage-errors.test.ts tests/worker-source-storage-errors.test.ts tests/worker-cache-bytes.test.ts tests/video-subtitle-presence.test.ts tests/worker-cache-storage-errors.test.ts
         env:
           TEST_DATABASE_URL: postgresql://postgres:fixture-only@127.0.0.1:5432/postgres
           MEDIA_PACKAGE_ROOT: ${{ runner.temp }}/media-read-consumer
