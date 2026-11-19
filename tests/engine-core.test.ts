@@ -173,8 +173,14 @@ test('upstream changes mark projects, renders and exports stale or blocked; noth
     // new rights on record unblock the asset for new work; earlier renders stay blocked
     const fixed = await engine.setAssetRights(c, { assetId: asset.id, rights: { kind: 'permission', ref: 'E11:permission:perm-ledger-2', attribution: 'Larkmoor council archive' }, note: 'new agreement' });
     assert.equal(fixed.blocked, false); assert.equal(fixed.headVersion, 2); assert.equal(fixed.versions[1]!.sha256, fixed.versions[0]!.sha256); assert.equal(fixed.approval, 'pending');
-    const r3 = await finish(engine, c, await engine.requestRender(c, { productionId: p.id })); assert.equal(r3.state, 'done', r3.error ?? '');
-    assert.equal(((await engine.getRenderManifest(c, r3.id)) as any).inputs[0].rights.ref, 'E11:permission:perm-ledger-2'); assert.equal((await engine.getRender(c, r2.id)).blocked, true);
+    // Asset rights do not silently clear the old project's independent recorded blocking history.
+    const r3 = await finish(engine, c, await engine.requestRender(c, { productionId: p.id })); assert.equal(r3.state, 'blocked', r3.error ?? '');
+    assert.deepEqual(r3.outputs, []); assert.equal(r3.manifestDigest, null); await assert.rejects(engine.getRenderManifest(c, r3.id));
+    assert.equal((await engine.getProject(c, p.id)).blocked, true);
+    // Explicit fresh work under the new agreement still uses the new rights. No old record is reset/deleted/retried.
+    const fresh = await engine.createProject(c, { kind: 'image', title: 'New agreement work', doc: card(asset.id) });
+    const freshRender = await finish(engine, c, await engine.requestRender(c, { productionId: fresh.id })); assert.equal(freshRender.state, 'done', freshRender.error ?? '');
+    assert.equal(((await engine.getRenderManifest(c, freshRender.id)) as any).inputs[0].rights.ref, 'E11:permission:perm-ledger-2'); assert.equal((await engine.getRender(c, r2.id)).blocked, true);
     await assert.rejects(engine.applyUpstreamChange(c, { eventId: '', kind: 'content_changed', refs: [], reason: '' }), fails('invalid_input'));
     const audit = await engine.audit(c, { limit: 1000 }); assert.ok(kit.verifyAuditChain(audit)); assert.ok(audit.some((a) => a.action === 'production.render_blocked' && a.subject === r2.ref));
   });
