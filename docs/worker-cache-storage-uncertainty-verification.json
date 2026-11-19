@@ -1,0 +1,22 @@
+{
+  "status": "52 source-installed qualified; current full/documentation head and prerequisites pending",
+  "qualifiedSource": "c30e3a8d100431ddda15d3ad60b71f0ce9cd3b29",
+  "focusedCi": {
+    "job": 135480865354,
+    "sourceTests": 52,
+    "normalFreshInstalledTests": 52,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sha256": {
+    ".github/workflows/ci.yml": "d6200eed20bb5b46b4e9ad8a6359eeb4cdc251f704ed2beb39c1ce69f9e53895",
+    "docs/WORKER_CACHE_STORAGE_UNCERTAINTY.md": "b19489c3361be4617cf7ab616d3a613163901e124cba1e87cde5b926e77275c0",
+    "tests/worker-cache-storage-errors.test.ts": "8e12c02ec8fc9eb5d71189b44cfb49030c3adc89f7bd4af90b17d2a59523c94a"
+  },
+  "sourceReview": "receiver/cache-key assertions outside callback; actual bytes/retained history/no cache SQL row/no replay/privacy checked; runtime unchanged",
+  "local": "prepared typecheck/build and3Python PASS; no localPG/fresh/fullsuite",
+  "limits": "no crash/stopped-nooutput/receipt/liveness/atomicity/currenthuman/rights/sandbox/host proof; installed52 is focused not full80"
+}
