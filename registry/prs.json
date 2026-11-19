@@ -507,11 +507,10 @@
     },
     {
       "id": "worker-entry-authorization",
-      "status": "source and installed worker groups qualified; full ordinary/final-head CI/review/rules/expected merge pending",
+      "status": "accepted PR7; candidate pending notes historical",
       "baseCommit": "abb3ea8964549b1a09d2d9ce5e3040f03da86e04",
       "documentation": "docs/WORKER_AUTHORIZATION.md",
       "remaining": [
-        "full ordinary/final documentation-head CI/rules/ready/expected merge",
         "current-human/completion/whole-rights/cache/liveness/sandbox/host acceptance separate"
       ],
       "baselineSource": "a47a8e17c7dc6aad9022fd61da6c71eefb8616b6",
@@ -544,7 +543,32 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear: captured method/receiver helper reuse at worker entry with strict true and generic denial; callback/getter/denial reasons never enter failure/audit/event; optional initial absence and byte-call public messages preserved; no current human/completion/whole-rights/cache/liveness/host/fence claim"
+      "sourceReview": "clear: captured method/receiver helper reuse at worker entry with strict true and generic denial; callback/getter/denial reasons never enter failure/audit/event; optional initial absence and byte-call public messages preserved; no current human/completion/whole-rights/cache/liveness/host/fence claim",
+      "sourceCommit": "932e6f3025041f5f9e7244b18e57d87adce6a52d",
+      "mergeCommit": "9e2582861326ed6948646be49b46c4bcf9cbd797",
+      "finalCi": {
+        "ordinaryJob": 135313142345,
+        "ordinaryTests": 49,
+        "focusedJob": 135313142154,
+        "sourceTests": 21,
+        "normalFreshInstalledTests": 21,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "worker-completion-authorization",
+      "status": "incomplete WIP baseline regressions; runtime/CI pending",
+      "baseCommit": "9e2582861326ed6948646be49b46c4bcf9cbd797",
+      "documentation": "docs/WORKER_COMPLETION_AUTHORIZATION.md",
+      "remaining": [
+        "baseline/runtime/source-installed/final-head CI/review/rules/expected merge",
+        "current human/whole-rights/cache/liveness/sandbox/host acceptance separate"
+      ]
     }
   ],
   "approvedDesignSha256": {
