@@ -1,5 +1,5 @@
 {
-  "status": "implemented WIP; current source-installed/full CI pending",
+  "status": "source-installed47 qualified; full/current-head CI/review/rules/merge pending",
   "initialBaseline": {
     "commit": "dd6a434c4bb02625f1e3514da66ed3dd3543a935",
     "job": 135451270338,
@@ -16,8 +16,19 @@
     "tests/worker-cache-bytes.test.ts": "3ddf10891906f3a7003758ea87890c51309e55d371843b4b32246c179ad0c84e",
     ".github/workflows/ci.yml": "d7ba5b3dae6af818d3cf1214baf145c1ab60a08ef41401799f69ff9c69b5faf3",
     "docs/ENGINE_API.md": "2e4bc463316e8fcbb7cbccb63c65b6d2a3cabb3f30205ead1137de019d80fb48",
-    "docs/WORKER_CACHE_BYTES.md": "c761a4c86a28a7bcb4041570729751551630d7069d10b5ebfad54a67f0c82abb"
+    "docs/WORKER_CACHE_BYTES.md": "dccc5de205f3d4ea311d7a2304093caf911cb6172e4fd8fb6af40431e5f32641"
   },
   "local": "prepared type/build/registry only; no localPG/fresh/fullsuite",
-  "limits": "count-only admission; content digest, heap cap, currenthuman/rights/receipt/liveness/sandbox/host/fencing/atomicity unqualified; no cleanup/delete/retry authority"
+  "limits": "count-only admission; content digest, heap cap, currenthuman/rights/receipt/liveness/sandbox/host/fencing/atomicity unqualified; no cleanup/delete/retry authority",
+  "qualifiedRuntimeCommit": "45fdff12d96ac73ece6ac09ebfe7fdca6c125e06",
+  "focusedCi": {
+    "job": 135453219011,
+    "sourceTests": 47,
+    "normalFreshInstalledTests": 47,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  }
 }
