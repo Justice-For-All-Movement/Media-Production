@@ -13,7 +13,7 @@ for (const kind of ['negative', 'mismatch'] as const) {
   const c = ctx(); const engine = createEngine({ sql: h.sql, objects: h.objects, config: { workRoot: h.root }, ports: { useDecisions: h.port } });
   const project = await engine.createProject(c, { kind: 'video', title: 'Fictional cache byte budget', doc: {
    title: 'Fictional private clip', width: 160, height: 90, fps: 12, credits: { enabled: false },
-   scenes: [{ id: 'one', duration: 1, visual: { type: 'color', color: '#202020' } }],
+   scenes: [{ id: 'one', duration: 1, visual: { type: 'color', color: '#202020' }, captions: [{ start: 0, end: 1, text: 'Fictional private clip' }] }],
   } });
   const seed = await finish(engine, c, await engine.requestRender(c, { productionId: project.id, profile: 'preview' }));
   assert.equal(seed.state, 'done', seed.error ?? '');
