@@ -327,6 +327,30 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     }
     return { decisions, denied };
   }
+  /** Original declared project sources only; a fresh strict decision, never a cached execution permit. */
+  function captureWorkerProjectPermission(ctx: ServiceContext, refs: readonly string[]): () => Promise<void> {
+    const subjects = Object.freeze([...new Set(refs)].sort());
+    const request = Object.freeze({ subjects, action: 'reproduce' as const, purpose: ctx.purpose });
+    invariant(subjects.length <= 200 && Buffer.byteLength(JSON.stringify(request), 'utf8') <= 65536,
+      'consent_denied', 'Declared project-source permission exceeds its complete request budget');
+    if (subjects.length === 0) return async () => {}; // No declared subjects is not proof of no obligations.
+    let port: UseDecisionPort | undefined, method: UseDecisionPort['decide'] | undefined, standalone = false;
+    try {
+      port = ports.useDecisions; method = port?.decide;
+      standalone = port === undefined && config.standalone?.useDecisions === 'declared-rights';
+      invariant(port === undefined || typeof method === 'function', 'consent_denied', 'Project-source permission is unavailable');
+    } catch { throw new DomainError('consent_denied', 'Project-source permission is unavailable'); }
+    return async () => {
+      if (method === undefined) {
+        invariant(standalone, 'consent_denied', 'Project-source permission is unavailable');
+        return; // Explicit initial standalone remains declared/unverified, never a live Consent qualification.
+      }
+      let allowed = false;
+      try { allowed = (await method.call(port, ctx, request)).decision === 'allow'; }
+      catch { /* Callback diagnostics and decision getters may contain private data. */ }
+      invariant(allowed, 'consent_denied', 'Current reproduction permission for declared project sources was not granted');
+    };
+  }
   async function gateInputs(q: Sql, ctx: ServiceContext, assetIds: readonly { assetId: string; version?: number }[]): Promise<GateAsset[]> {
     const out: GateAsset[] = [];
     for (const ref of assetIds) {
@@ -438,6 +462,10 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       const project = await projectRow(sql, ctx, row.production_id as string);
       const rev = await revisionRow(sql, ctx, project.id as string, row.revision as number);
       const p = pipeline(project.kind as string); const doc = rev.doc as Doc; const profile = row.profile as RenderProfile;
+      const admitProjectSources = captureWorkerProjectPermission(ctx, [
+        ...(project.editorial_ref === null ? [] : [project.editorial_ref as string]),
+        ...(project.sources as string[]), ...(rev.sources as string[]),
+      ]);
       // Re-check use decisions immediately before doing the work: a withdrawal after the request must still stop it.
       const g = await gate(ctx, 'adapt', await gateInputs(sql, ctx, p.assetRefs(doc)), [...new Set([...(project.sources as string[]), ...(rev.sources as string[])])], profile === 'final');
       if (g.denied.length > 0) { await finishFailed(ctx, row, 'blocked', g.denied.join(' | '), g.decisions); return { state: 'blocked' }; }
@@ -504,6 +532,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       await store.put(scopeKey(ctx, 'renders', renderId, 'manifest.json'), Buffer.from(JSON.stringify(man, null, 2)));
       // Written bytes remain retained if this fresh admission denies or has an unknown outcome.
       await admitMaterializedAssets();
+      await admitProjectSources();
       // A stored output is not permission to complete; retain bytes on denial or unknown outcome.
       await authorize('production:render', renderRef(renderId));
       const qc = qcStatic(man, result.outputs);

@@ -1,0 +1,33 @@
+{
+  "status": "source and installed worker groups qualified; current full CI/readiness/merge governed by GitHub",
+  "baselineSource": "f7a4760f0f0582a69219cc705a72421cc40043a4",
+  "local": "prepared typecheck/build/registry only, not localPG/fresh/fullsuite",
+  "limits": "original declared project/revision/editorial set only, no complete current basis/recursive/currenthuman/fence; standalone declared unverified; no stopped/nooutput/cleanup/reset/delete/retry authority",
+  "sha256": {
+    "src/engine/index.ts": "433335479d61250847550fecd49d815a06209e4d97cc6800dbbaa7879102733b",
+    "tests/worker-project-permissions.test.ts": "63f72c41f981d936fc3c3153ffdc51cdd32d48f74f10e5b30efcdf4c9b649785",
+    ".github/workflows/ci.yml": "d7fe5872221b39429b47cecff1564bfd02f19a66c14fe2ea5fc44ff9801347cf",
+    "docs/ENGINE_API.md": "95893344c24823614f96aea5654a326d69de9e45c5071843e822515336ab2439",
+    "docs/WORKER_PROJECT_PERMISSIONS.md": "e0731b9375646366c1cdaa548f1b9cbf29953d99cafb45387030389e9acb1f5e"
+  },
+  "baselineJob": 135371676926,
+  "baselineResults": {
+    "tests": 29,
+    "passes": 24,
+    "failures": 5,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "qualifiedRuntimeCommit": "16a99f59b146d788c1247dce13a509b2d33e5237",
+  "focusedCi": {
+    "job": 135372165810,
+    "sourceTests": 29,
+    "normalFreshInstalledTests": 29,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear for original declared source set bounds/copy/captured methodreceiver-initial standalone/fresh strict reproduce after storage/generic blocked failure/retained effects; not complete current basis/recursive/currenthuman/fence"
+}
