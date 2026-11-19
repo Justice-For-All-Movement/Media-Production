@@ -1,0 +1,5 @@
+# Worker declared project-source reproduction
+
+Incomplete WIP regressions for fresh strict reproduce permission over the complete originally declared project/revision/editorial source set after output storage before done. Five owning-PG fictional image worker cases deny/review/unknown/remove/throw after storage retain bytes/history without completion. Source/normalfresh-installed wired; baseline/runtime/current CI pending. Capture exact request/method/receiver and initial explicit standalone after complete200subject64KiB validation; no mid-request standalone downgrade. Initial standalone remains explicitly unverified.
+
+Original set only, not complete current project/source-basis continuity, recursive dependencies/current original-human authority/truth or distributed fencing. Empty declared set does not prove absence of obligations. No stopped/nooutput or cleanup/reset/delete/retry authority. Original15/122IDsdepspinsSQLkit/contracts unchanged/privatefictional/no sends/publication/payment/paid/PAM foundationSTOP. Local prepared checks are not localPG/fresh/fullsuite qualification.

@@ -562,7 +562,7 @@
     },
     {
       "id": "worker-completion-authorization",
-      "status": "implementation and source/package qualification complete; current CI/readiness/merge status governed by GitHub; earlier WIP notes historical",
+      "status": "accepted PR8; earlier candidate notes historical",
       "baseCommit": "9e2582861326ed6948646be49b46c4bcf9cbd797",
       "documentation": "docs/WORKER_COMPLETION_AUTHORIZATION.md",
       "remaining": [
@@ -592,7 +592,32 @@
         "failures": 0,
         "cancelled": 0,
         "skips": 0
+      },
+      "sourceCommit": "58fead84abf5a43c8f5add14b1ccbc3cd2896a15",
+      "mergeCommit": "0edc26de26cbb3877a31902d326958161c5d6ca9",
+      "finalCi": {
+        "ordinaryJob": 135348054349,
+        "ordinaryTests": 52,
+        "focusedJob": 135348054009,
+        "sourceTests": 24,
+        "normalFreshInstalledTests": 24,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
+    },
+    {
+      "id": "worker-declared-project-permissions",
+      "status": "incomplete WIP baseline; runtime/CI pending",
+      "baseCommit": "0edc26de26cbb3877a31902d326958161c5d6ca9",
+      "documentation": "docs/WORKER_PROJECT_PERMISSIONS.md",
+      "remaining": [
+        "baseline/runtime/source-installed/final-head CI/review/rules/expected merge",
+        "current complete project/source basis, recursive/current-human/cache/liveness/sandbox/host acceptance separate"
+      ]
     }
   ],
   "approvedDesignSha256": {
