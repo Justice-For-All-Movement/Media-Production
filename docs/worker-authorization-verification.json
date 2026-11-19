@@ -1,5 +1,5 @@
 {
-  "status": "incomplete WIP correction; baseline/current-head qualification pending",
+  "status": "source and installed worker groups qualified; full ordinary/final-head CI/review/rules/expected merge pending",
   "baselineSource": "a47a8e17c7dc6aad9022fd61da6c71eefb8616b6",
   "local": "typecheck/build/registry passed using prepared dependencies; no localPG/fresh/full suite claim",
   "scope": "optional worker-entry authorizer only; current original-human/postpipeline-completion/whole-project/cache/liveness/sandbox/host separate; no fence or stopped/nooutput/cleanup/reset/delete/retry authority",
@@ -8,7 +8,7 @@
     "tests/worker-authorization.test.ts": "7228bdbd4974287b2d0e912c40cd27f98467ebb6c2a7b73156d9ca5ade50d78b",
     ".github/workflows/ci.yml": "c98e3c7811d5a3f8407879f87319dba0241766fbe73840f9d9f9e71e2e61e6a2",
     "docs/ENGINE_API.md": "d3a4b891370102eefaf2712b88600bcb329cf7c2ee8811932b0d60804c110196",
-    "docs/WORKER_AUTHORIZATION.md": "977ae5bd403b5ea3d1d90b1e04c545374c7d5e24511d33c319454a56d02ef5ee"
+    "docs/WORKER_AUTHORIZATION.md": "2eefcc702e4753b497a2116a75175671309897cf6f1b4e3ad420cfe5e8a19d2c"
   },
   "initialFixture": {
     "source": "5d8c92f4f9512829f2bde2422c5acbfa378d5c6e",
@@ -17,5 +17,25 @@
     "passes": 16,
     "failures": 5,
     "reason": "written fixture required absent pandoc before authorization; changed to already-required image pipeline, assertions/packages retained"
-  }
+  },
+  "baselineJob": 135311735290,
+  "baselineResults": {
+    "tests": 21,
+    "passes": 17,
+    "failures": 4,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "qualifiedRuntimeCommit": "f152f87ffcc4aa7bc6849a620fa9596219b41a8c",
+  "focusedCi": {
+    "job": 135312126360,
+    "sourceTests": 21,
+    "normalFreshInstalledTests": 21,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear: captured method/receiver helper reuse at worker entry with strict true and generic denial; callback/getter/denial reasons never enter failure/audit/event; optional initial absence and byte-call public messages preserved; no current human/completion/whole-rights/cache/liveness/host/fence claim"
 }

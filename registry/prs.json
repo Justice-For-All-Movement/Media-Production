@@ -507,11 +507,11 @@
     },
     {
       "id": "worker-entry-authorization",
-      "status": "incomplete WIP correction; baseline/current-head qualification pending",
+      "status": "source and installed worker groups qualified; full ordinary/final-head CI/review/rules/expected merge pending",
       "baseCommit": "abb3ea8964549b1a09d2d9ce5e3040f03da86e04",
       "documentation": "docs/WORKER_AUTHORIZATION.md",
       "remaining": [
-        "baseline/correction/source-installed/final-head CI/review/rules/expected merge",
+        "full ordinary/final documentation-head CI/rules/ready/expected merge",
         "current-human/completion/whole-rights/cache/liveness/sandbox/host acceptance separate"
       ],
       "baselineSource": "a47a8e17c7dc6aad9022fd61da6c71eefb8616b6",
@@ -524,7 +524,27 @@
         "passes": 16,
         "failures": 5,
         "reason": "written fixture required absent pandoc before authorization; changed to already-required image pipeline, assertions/packages retained"
-      }
+      },
+      "baselineJob": 135311735290,
+      "baselineResults": {
+        "tests": 21,
+        "passes": 17,
+        "failures": 4,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "qualifiedRuntimeCommit": "f152f87ffcc4aa7bc6849a620fa9596219b41a8c",
+      "focusedCi": {
+        "job": 135312126360,
+        "sourceTests": 21,
+        "normalFreshInstalledTests": 21,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: captured method/receiver helper reuse at worker entry with strict true and generic denial; callback/getter/denial reasons never enter failure/audit/event; optional initial absence and byte-call public messages preserved; no current human/completion/whole-rights/cache/liveness/host/fence claim"
     }
   ],
   "approvedDesignSha256": {
