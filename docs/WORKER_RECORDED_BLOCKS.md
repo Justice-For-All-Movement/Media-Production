@@ -1,0 +1,5 @@
+# Worker recorded blocking flags
+
+Incomplete WIP; baseline/runtime/CI/review pending. Four public applyUpstreamChange cases flag the current project before or after queueing for preview/final with an allowing synthetic use port. Worker must withhold source callbacks/output I/O/completion while retaining flag/history. One owning-SQL render-only fixture flags the render during final host callback; retained stored bytes must not be disclosed/completed. SQL fixture is not an administrative API or independent session contention qualification.
+
+Planned guard: recorded render/project blocked flags at entry plus current project and locked render at completion. Not authenticated event origin, current original-human/recursive rights/truth, liveness/sandbox/host or distributed permission fencing. No stopped/nooutput/cleanup/reset/delete/retry authority. Original15/122 IDs/deps/pins/SQLkit/contracts unchanged/private-fictional/no sends/publication/payment/paid/PAM foundationSTOP. Depends on MediaPR10; do not merge ahead of it.

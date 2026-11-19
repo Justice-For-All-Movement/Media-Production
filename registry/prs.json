@@ -686,6 +686,16 @@
         "skips": 0
       },
       "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim"
+    },
+    {
+      "id": "worker-recorded-blocks",
+      "status": "incomplete WIP; baseline/runtime/CI/review pending",
+      "baseCommit": "dcc10dab4195849c5f6c9bb342926adb8f5adb71",
+      "documentation": "docs/WORKER_RECORDED_BLOCKS.md",
+      "remaining": [
+        "MediaPR10 prerequisite, baseline/runtime/source-installed/current-head CI/review/rules/expected merge",
+        "current-human/event-proofing/recursive rights/cache/liveness/sandbox/host acceptance; no external permission fence"
+      ]
     }
   ],
   "approvedDesignSha256": {
