@@ -1,5 +1,5 @@
 {
-  "status": "implemented2MiB compatibility correction; fresh full/source-installed CI pending",
+  "status": "2MiB source-installed and full ordinary qualified; final-head CI/rules/merge governed by GitHub",
   "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
   "baselineJob": 135377185699,
   "baselineResults": {
@@ -14,11 +14,11 @@
   "sha256": {
     "src/engine/index.ts": "deef0f336773c50ce12dbdfa2c1f795a70378a34428f65b4235125934a13dc6d",
     "tests/worker-project-basis.test.ts": "8a3e3af8f1a6c9cf0354fc95122296db87335a55bb6824d66e2ce6fcdbe166b0",
-    ".github/workflows/ci.yml": "0db810f7bbff3b6c8d18658e6ee87b40907f45f2ee83f6681b4fd3e4744b698b",
+    ".github/workflows/ci.yml": "dbce73b4e3c5a4e37195351db31be85e4d6c603158d1382a286a0b5fd0b2e913",
     "docs/ENGINE_API.md": "f031bfd4ff7453e5ad48772ac4d277460362e39785c53f0929a7a3d464842a69",
-    "docs/WORKER_PROJECT_BASIS.md": "1d3ca0ddc69adbcd523fabf0afc0535c3f4fbd714ee687deeaa649ea3bcbbcf1"
+    "docs/WORKER_PROJECT_BASIS.md": "475dde5435b1ea86cdc5854cb6cbdffd9b4efffcd61685b1de5d8907bcd00892"
   },
-  "qualifiedRuntimeCommit": "dc4fba6b5ba642845728fd99f482491db962da75",
+  "qualifiedRuntimeCommit": "a80eb2105998d95aef68e1bebefc06a77b639ca3",
   "focusedCi": {
     "job": 135378203184,
     "sourceTests": 35,
@@ -38,5 +38,17 @@
     "cancelled": 0,
     "skips": 0,
     "reason": "provisional512KiB too small for unchanged existing long-report cancellation fixture; all existing assertions retained"
+  },
+  "qualification": {
+    "ordinaryJob": 135382557397,
+    "ordinaryTests": 63,
+    "focusedJob": 135382557868,
+    "sourceTests": 35,
+    "normalFreshInstalledTests": 35,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
   }
 }

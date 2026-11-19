@@ -657,7 +657,7 @@
     },
     {
       "id": "worker-selected-project-basis",
-      "status": "implemented2MiB compatibility correction; fresh full/source-installed CI pending",
+      "status": "2MiB source-installed and full ordinary qualified; final-head CI/rules/merge governed by GitHub",
       "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
       "documentation": "docs/WORKER_PROJECT_BASIS.md",
       "remaining": [
@@ -674,7 +674,7 @@
         "skips": 0
       },
       "verification": "docs/worker-project-basis-verification.json",
-      "qualifiedRuntimeCommit": "dc4fba6b5ba642845728fd99f482491db962da75",
+      "qualifiedRuntimeCommit": "a80eb2105998d95aef68e1bebefc06a77b639ca3",
       "focusedCi": {
         "job": 135378203184,
         "sourceTests": 35,
@@ -694,6 +694,18 @@
         "cancelled": 0,
         "skips": 0,
         "reason": "provisional512KiB too small for unchanged existing long-report cancellation fixture; all existing assertions retained"
+      },
+      "qualification": {
+        "ordinaryJob": 135382557397,
+        "ordinaryTests": 63,
+        "focusedJob": 135382557868,
+        "sourceTests": 35,
+        "normalFreshInstalledTests": 35,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
     }
   ],
