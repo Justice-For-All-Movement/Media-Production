@@ -442,6 +442,13 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       if (g.denied.length > 0) { await finishFailed(ctx, row, 'blocked', g.denied.join(' | '), g.decisions); return { state: 'blocked' }; }
       await markRender(renderId, `state='running', started_at=$2, decisions=$3::jsonb`, [ctx.now, J(g.decisions)]);
       const tools = new Map<string, string>(); const inputs = new Map<string, AssetInput>(); const assetBases = new Map<string, string>(); const store = objects();
+      const admitMaterializedAssets = async (): Promise<void> => {
+        for (const input of inputs.values()) {
+          const basis = assetBases.get(input.assetId);
+          invariant(basis !== undefined, 'consent_denied', 'Materialized asset policy basis is unavailable');
+          await assetBytePermission(ctx, input.assetId, input.version, basis);
+        }
+      };
       const result = await withWorkdir(config.workRoot, async (dir) => {
         const env: RenderEnv = {
           dir, profile, signal: controller.signal, options: row.options as Doc, title: project.title as string,
@@ -472,6 +479,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
         for (const ref of p.assetRefs(doc)) await env.asset(ref.assetId, ref.version);
         const res: PipelineResult = await p.render(doc, env);
         invariant(res.outputs.length > 0, 'tool_failed', 'The pipeline produced no output');
+        await admitMaterializedAssets();
         const outputs: OutputInfo[] = [];
         for (const o of res.outputs) {
           const bytes = await readFile(o.path); invariant(bytes.byteLength > 0, 'tool_failed', `Output ${o.name} is empty`);
@@ -493,6 +501,8 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       };
       const manifestDigest = sha256(canonical(man));
       await store.put(scopeKey(ctx, 'renders', renderId, 'manifest.json'), Buffer.from(JSON.stringify(man, null, 2)));
+      // Written bytes remain retained if this fresh admission denies or has an unknown outcome.
+      await admitMaterializedAssets();
       const qc = qcStatic(man, result.outputs);
       const done = await sql.tx(async (tx) => {
         const cur = (await tx.query(`select state from ${s}.renders where id=$1 for update`, [renderId]))[0];

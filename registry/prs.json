@@ -460,13 +460,16 @@
     },
     {
       "id": "worker-completion-asset-permission",
-      "status": "incomplete WIP baseline tests; no runtime correction",
+      "status": "incomplete WIP correction; actual baseline/corrected qualification pending",
       "baseCommit": "893a0fb8f329eb8ec139abd2c808aea0630514cb",
       "documentation": "docs/WORKER_COMPLETION_PERMISSIONS.md",
       "remaining": [
         "baseline/correction/source-installed/current-head review-CI-rules-expected merge",
         "whole-project/current-human/cache/liveness/sandbox/host acceptance remain separate"
-      ]
+      ],
+      "baselineSource": "1018c20d6520e1814a43bd33920afc9501af8561",
+      "local": "typecheck/build/original registry pass with prepared deps; no local PG/fresh/full test claim",
+      "verification": "docs/worker-completion-permission-verification.json"
     }
   ],
   "approvedDesignSha256": {
