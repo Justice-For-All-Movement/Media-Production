@@ -1,5 +1,5 @@
 {
-  "status": "incomplete WIP; baseline/runtime/source-installed/current-head CI/review pending",
+  "status": "source-installed45 and full ordinary73 qualified; final-head CI/rules/merge governed by GitHub",
   "baselineSource": "2fda25a75db0d066e4fffc23803d32d5c6870c38",
   "baselineJob": 135421946604,
   "baselineResults": {
@@ -16,8 +16,20 @@
     "tests/worker-source-storage-errors.test.ts": "8cd5676d632b9817e752ce7402bf60d66ba38759c081a1344ad451f4d5a844b1",
     ".github/workflows/ci.yml": "b7c79c3f0256801bf1a92ec5d0b79bee29293e4a6199aa05efdc13a7dd962225",
     "docs/ENGINE_API.md": "0b4b6f6646caf9043e32eec63ec8fadb98684792feee021c12b811c90d4f8071",
-    "docs/WORKER_SOURCE_STORAGE_ERRORS.md": "c7169307f60f9d877dcd2b3252da8da2151f38a64b3c2ffc92d0d20dbae8cbc8"
+    "docs/WORKER_SOURCE_STORAGE_ERRORS.md": "7f7eb9932cdaa470fbe5d62e7cb6655d020f503f29dda4c6c11eb5dae6113e2d"
   },
   "local": "prepared typecheck/build/registry only; no localPG/fresh/fullsuite",
-  "limits": "callback privacy only; currenthuman/rights/independent network contention/liveness/host/sandbox/receipt/crash/nooutput/atomicity unqualified; no cleanup/delete/retry"
+  "limits": "callback privacy only; currenthuman/rights/independent network contention/liveness/host/sandbox/receipt/crash/nooutput/atomicity unqualified; no cleanup/delete/retry",
+  "qualification": {
+    "ordinaryJob": 135422558786,
+    "ordinaryTests": 73,
+    "focusedJob": 135422558454,
+    "sourceTests": 45,
+    "normalFreshInstalledTests": 45,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  }
 }

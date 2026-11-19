@@ -792,13 +792,11 @@
     },
     {
       "id": "worker-storage-error-privacy",
-      "status": "source-installed43 qualified; incomplete pending prerequisite/current full head CI/review/rules/merge",
+      "status": "accepted PR12; prior pending/environment notes historical",
       "baseCommit": "0f7d9db7526d8aaa1332114f46c039a70b554be9",
       "documentation": "docs/WORKER_STORAGE_ERRORS.md",
       "remaining": [
-        "MediaPR11 after10, retarget only after11accepted; all current full/head CI/review/rules/expected merge",
-        "local execution environment became unavailable after source/CI checkpoint; no new local full qualification",
-        "actual crash/liveness/stopped-nooutput/receipts/atomicity/sandbox/host/currenthuman/rights unqualified; retain state, no implicit retry/delete"
+        "callback liveness/crash/receipt/atomicity/currenthuman/rights/sandbox/host acceptance remain separate"
       ],
       "baselineSource": "0f4309215465f86a54bd0d7442b53d052cf8412c",
       "baselineJob": 135387385270,
@@ -822,15 +820,30 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear: one captured put method/receiver at all3 worker write sites; generic getter-invalid-rejected failure; retained bytes/history, no implicit replay/delete; host/asset/project/flag guards preserved; no separate negative cache-write/crash/liveness/receipt/atomicity/currenthuman qualification"
+      "sourceReview": "clear: one captured put method/receiver at all3 worker write sites; generic getter-invalid-rejected failure; retained bytes/history, no implicit replay/delete; host/asset/project/flag guards preserved; no separate negative cache-write/crash/liveness/receipt/atomicity/currenthuman qualification",
+      "sourceCommit": "0b8b20f11532fba4da6af081174bd48c724dada8",
+      "mergeCommit": "10897037354638a1a9e9a694e38b1e57aa5f4a75",
+      "finalCi": {
+        "ordinaryJob": 135421554682,
+        "ordinaryTests": 71,
+        "focusedJob": 135392289398,
+        "sourceTests": 43,
+        "normalFreshInstalledTests": 43,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "6 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     },
     {
       "id": "worker-source-storage-error-privacy",
-      "status": "incomplete WIP; baseline/runtime/source-installed/current-head CI/review pending",
+      "status": "source-installed45 and full ordinary73 qualified; final-head CI/rules/merge governed by GitHub",
       "baseCommit": "0b8b20f11532fba4da6af081174bd48c724dada8",
       "documentation": "docs/WORKER_SOURCE_STORAGE_ERRORS.md",
       "remaining": [
-        "PR12 after11; baseline reproduction/runtime/installed/fullCI/review/rules/expected merge",
+        "final-head CI/review/rules/expected merge",
         "callback liveness/crash/currenthuman/rights/sandbox/host and external fencing unqualified; no cleanup/delete/retry authority"
       ],
       "baselineJob": 135421946604,
@@ -842,7 +855,19 @@
         "skips": 0
       },
       "qualifiedRuntimeCommit": "9f062770bdf3c1fa548233dba38bf5d4e1a377f8",
-      "sourceReview": "clear: lazy captured source get method/receiver, callback errors sanitized before ordinary byte validation; count/hash/current permissions/ownership unchanged; no other storage path or liveness qualification"
+      "sourceReview": "clear: lazy captured source get method/receiver, callback errors sanitized before ordinary byte validation; count/hash/current permissions/ownership unchanged; no other storage path or liveness qualification",
+      "qualification": {
+        "ordinaryJob": 135422558786,
+        "ordinaryTests": 73,
+        "focusedJob": 135422558454,
+        "sourceTests": 45,
+        "normalFreshInstalledTests": 45,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     }
   ],
   "approvedDesignSha256": {
