@@ -418,7 +418,7 @@
     },
     {
       "id": "worker-asset-materialization-permission",
-      "status": "focused source/installed qualified; full ordinary/final-head checks and merge pending",
+      "status": "accepted PR5; old candidate notes historical",
       "baseCommit": "038164a463c43030e9ecb9f73e1ca63e17680305",
       "documentation": "docs/WORKER_ASSET_PERMISSIONS.md",
       "remaining": [
@@ -441,7 +441,32 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear for pinned complete selected asset basis/current newest rights/strict reproduce before and after bytes plus every cached handoff/copied frozen context; completion/current-human/whole-rights/cache/liveness/sandbox remain separate"
+      "sourceReview": "clear for pinned complete selected asset basis/current newest rights/strict reproduce before and after bytes plus every cached handoff/copied frozen context; completion/current-human/whole-rights/cache/liveness/sandbox remain separate",
+      "sourceCommit": "077b8164fc3aa517c055aff2793c03cc291593d8",
+      "mergeCommit": "893a0fb8f329eb8ec139abd2c808aea0630514cb",
+      "finalCi": {
+        "ordinaryJob": 135227972486,
+        "ordinaryTests": 41,
+        "focusedJob": 135227972878,
+        "sourceTests": 13,
+        "normalFreshInstalledTests": 13,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "worker-completion-asset-permission",
+      "status": "incomplete WIP baseline tests; no runtime correction",
+      "baseCommit": "893a0fb8f329eb8ec139abd2c808aea0630514cb",
+      "documentation": "docs/WORKER_COMPLETION_PERMISSIONS.md",
+      "remaining": [
+        "baseline/correction/source-installed/current-head review-CI-rules-expected merge",
+        "whole-project/current-human/cache/liveness/sandbox/host acceptance remain separate"
+      ]
     }
   ],
   "approvedDesignSha256": {
