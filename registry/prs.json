@@ -460,11 +460,10 @@
     },
     {
       "id": "worker-completion-asset-permission",
-      "status": "two storage regressions source/installed qualified; third pre-storage test/full-final-head pending",
+      "status": "accepted PR6; candidate-pending notes historical",
       "baseCommit": "893a0fb8f329eb8ec139abd2c808aea0630514cb",
       "documentation": "docs/WORKER_COMPLETION_PERMISSIONS.md",
       "remaining": [
-        "baseline/correction/source-installed/current-head review-CI-rules-expected merge",
         "whole-project/current-human/cache/liveness/sandbox/host acceptance remain separate"
       ],
       "baselineSource": "1018c20d6520e1814a43bd33920afc9501af8561",
@@ -489,7 +488,63 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear: every actual materialized asset via pinned complete basis/newest rights/exact edition; strict reproduce after pipeline and after storage; retain unknown/orphan bytes; SQL wait/external later changes not fenced"
+      "sourceReview": "clear: every actual materialized asset via pinned complete basis/newest rights/exact edition; strict reproduce after pipeline and after storage; retain unknown/orphan bytes; SQL wait/external later changes not fenced",
+      "sourceCommit": "23ed043beee86e5a4c7b293ef686173a147b27f4",
+      "mergeCommit": "abb3ea8964549b1a09d2d9ce5e3040f03da86e04",
+      "finalCi": {
+        "ordinaryJob": 135254623475,
+        "ordinaryTests": 44,
+        "focusedJob": 135254623135,
+        "sourceTests": 16,
+        "normalFreshInstalledTests": 16,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
+    },
+    {
+      "id": "worker-entry-authorization",
+      "status": "source and installed worker groups qualified; full ordinary/final-head CI/review/rules/expected merge pending",
+      "baseCommit": "abb3ea8964549b1a09d2d9ce5e3040f03da86e04",
+      "documentation": "docs/WORKER_AUTHORIZATION.md",
+      "remaining": [
+        "full ordinary/final documentation-head CI/rules/ready/expected merge",
+        "current-human/completion/whole-rights/cache/liveness/sandbox/host acceptance separate"
+      ],
+      "baselineSource": "a47a8e17c7dc6aad9022fd61da6c71eefb8616b6",
+      "verification": "docs/worker-authorization-verification.json",
+      "local": "typecheck/build/registry passed using prepared dependencies; no localPG/fresh/full suite claim",
+      "initialFixture": {
+        "source": "5d8c92f4f9512829f2bde2422c5acbfa378d5c6e",
+        "job": 135311015167,
+        "tests": 21,
+        "passes": 16,
+        "failures": 5,
+        "reason": "written fixture required absent pandoc before authorization; changed to already-required image pipeline, assertions/packages retained"
+      },
+      "baselineJob": 135311735290,
+      "baselineResults": {
+        "tests": 21,
+        "passes": 17,
+        "failures": 4,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "qualifiedRuntimeCommit": "f152f87ffcc4aa7bc6849a620fa9596219b41a8c",
+      "focusedCi": {
+        "job": 135312126360,
+        "sourceTests": 21,
+        "normalFreshInstalledTests": 21,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: captured method/receiver helper reuse at worker entry with strict true and generic denial; callback/getter/denial reasons never enter failure/audit/event; optional initial absence and byte-call public messages preserved; no current human/completion/whole-rights/cache/liveness/host/fence claim"
     }
   ],
   "approvedDesignSha256": {
