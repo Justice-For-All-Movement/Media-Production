@@ -871,13 +871,27 @@
     },
     {
       "id": "worker-cache-byte-admission",
-      "status": "incomplete WIP; baseline/runtime/full CI review pending",
+      "status": "accepted PR14; staged pending notes historical",
       "baseCommit": "0e1021e7cbb4755ed1b8dec480ab7efb4be61e93",
       "documentation": "docs/WORKER_CACHE_BYTES.md",
       "remaining": [
-        "baseline/runtime/source-installed/full/current-head CI/review/rules/expected merge",
-        "cache content digest/host scope/currenthuman/rights/liveness/sandbox/live qualification remain separate"
-      ]
+        "content digest/heap cap/currenthuman/rights/receipt/liveness/sandbox/host/fencing/atomicity unqualified; no cleanup/delete/retry authority"
+      ],
+      "sourceCommit": "c9dcca76966fb48db78b91411b858d823a1cfd42",
+      "mergeCommit": "6dc228bccb8b111ae0ee7f7b8c91d2ac22897750",
+      "finalCi": {
+        "ordinaryJob": 135479970590,
+        "ordinaryTests": 75,
+        "focusedJob": 135479970277,
+        "sourceTests": 47,
+        "normalFreshInstalledTests": 47,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0,
+        "headChecks": "4 success"
+      }
     },
     {
       "id": "video-optional-subtitle-artifacts",
