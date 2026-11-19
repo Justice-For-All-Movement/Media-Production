@@ -10,10 +10,10 @@
   ],
   "sha256": {
     "src/engine/index.ts": "102fdcd5d3dc7afd50e4b37bd61dd2063039dcd51cb849ce7b95a160526a490d",
-    "tests/worker-completion-permissions.test.ts": "427cd5322abd20a90f9577e852de8e0ccd126ca028c10c7933703469213b190f",
+    "tests/worker-completion-permissions.test.ts": "8e95f5aa061251d7e58d512bdd809ad9b1d319598cdb3eeafd04f79d305a13ab",
     ".github/workflows/ci.yml": "fed2d6378352e8c6f593249936fd2b099c14c7a8fda692bd2b61f9d497894b4e",
     "docs/ENGINE_API.md": "b328620695b6f85738e6350ea0215eb38d4829da6e6fb634ce99e0afd0a6a0e7",
-    "docs/WORKER_COMPLETION_PERMISSIONS.md": "81161ef63fc9b45b1f4cdd1243da995ec62a7e8d46e3aa3646664c21cd5ea378"
+    "docs/WORKER_COMPLETION_PERMISSIONS.md": "0f4c3189ce73f6f4d95e7fa695cf5dd94a49815207d95a5eed81ea5738199e53"
   },
   "baselineJob": 135252111716,
   "baselineResults": {
@@ -34,5 +34,15 @@
     "cancelled": 0,
     "skips": 0
   },
-  "sourceReview": "clear: every actual materialized asset via pinned complete basis/newest rights/exact edition; strict reproduce after pipeline and after storage; retain unknown/orphan bytes; SQL wait/external later changes not fenced"
+  "sourceReview": "clear: every actual materialized asset via pinned complete basis/newest rights/exact edition; strict reproduce after pipeline and after storage; retain unknown/orphan bytes; SQL wait/external later changes not fenced",
+  "fixtureFollowUp": {
+    "source": "aa937ebd82554d5aca7ee17775fad7f5c6e4de28",
+    "job": 135253760707,
+    "tests": 16,
+    "passes": 15,
+    "failures": 1,
+    "cancelled": 0,
+    "skips": 0,
+    "cause": "no native original-PNG read; hook corrected to actual pipeline converted-image embedding read; runtime unchanged"
+  }
 }

@@ -58,13 +58,13 @@ test('worker rechecks asset permission after pipeline use before storing any ren
   const original = fs.readFile;
   fs.readFile = (async (...args: Parameters<typeof original>) => {
     const result = await original(...args);
-    if (String(args[0]).includes(`asset-${asset.id.slice(0, 8)}-v1-`)) { reads++; h.port.deny.add(permission); }
+    if (/[/]img-[a-f0-9]{20}[.]png$/.test(String(args[0]))) { reads++; h.port.deny.add(permission); }
     return result;
   }) as typeof original;
   syncBuiltinESMExports();
   try {
     const request = await worker.requestRender(c, { productionId: project.id }); const result = await finish(worker, c, request);
-    assert.ok(reads > 0); assert.equal(result.state, 'blocked', result.error ?? ''); assert.equal(puts, 0);
+    assert.equal(reads, 1); assert.equal(result.state, 'blocked', result.error ?? ''); assert.equal(puts, 0);
     assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
     assert.deepEqual(await h.objects.list(`${c.tenantId}/${c.projectId}/renders/${request.id}`), []);
   } finally { fs.readFile = original; syncBuiltinESMExports(); }
