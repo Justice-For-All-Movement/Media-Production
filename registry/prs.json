@@ -657,7 +657,7 @@
     },
     {
       "id": "worker-selected-project-basis",
-      "status": "implemented2MiB compatibility correction; fresh full/source-installed CI pending",
+      "status": "2MiB source-installed and full ordinary qualified; final-head CI/rules/merge governed by GitHub",
       "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
       "documentation": "docs/WORKER_PROJECT_BASIS.md",
       "remaining": [
@@ -674,7 +674,7 @@
         "skips": 0
       },
       "verification": "docs/worker-project-basis-verification.json",
-      "qualifiedRuntimeCommit": "dc4fba6b5ba642845728fd99f482491db962da75",
+      "qualifiedRuntimeCommit": "a80eb2105998d95aef68e1bebefc06a77b639ca3",
       "focusedCi": {
         "job": 135378203184,
         "sourceTests": 35,
@@ -694,11 +694,23 @@
         "cancelled": 0,
         "skips": 0,
         "reason": "provisional512KiB too small for unchanged existing long-report cancellation fixture; all existing assertions retained"
+      },
+      "qualification": {
+        "ordinaryJob": 135382557397,
+        "ordinaryTests": 63,
+        "focusedJob": 135382557868,
+        "sourceTests": 35,
+        "normalFreshInstalledTests": 35,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
     },
     {
       "id": "worker-recorded-blocks",
-      "status": "implemented correction; runtime source-installed/current-head CI pending",
+      "status": "source-installed40 qualified; stronger old-project blocking regression/full CI pending",
       "baseCommit": "dcc10dab4195849c5f6c9bb342926adb8f5adb71",
       "documentation": "docs/WORKER_RECORDED_BLOCKS.md",
       "remaining": [
@@ -714,7 +726,28 @@
         "cancelled": 0,
         "skips": 0
       },
-      "verification": "docs/worker-recorded-block-verification.json"
+      "verification": "docs/worker-recorded-block-verification.json",
+      "qualifiedRuntimeCommit": "36893b2472829b02382789733d11710046420fc3",
+      "focusedCi": {
+        "job": 135383228491,
+        "sourceTests": 40,
+        "normalFreshInstalledTests": 40,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "priorFullFailure": {
+        "job": 135383228017,
+        "tests": 68,
+        "passes": 67,
+        "failures": 1,
+        "cancelled": 0,
+        "skips": 0,
+        "reason": "old fixture expected renewed asset rights to clear retained independent project block; strengthened original-project denial and fresh explicit-project success under renewed rights; no reset/delete/history bypass"
+      },
+      "sourceReview": "clear: entry render/project recorded blocked before source callbacks; current project and render blocked under owning completion locks; retain flags/history/bytes/no outputs; owning SQL fixture not admin API or independent session/event auth proof"
     }
   ],
   "approvedDesignSha256": {
