@@ -1,5 +1,5 @@
 {
-  "status": "implemented; CI pending",
+  "status": "source and installed groups qualified; current full CI/rules/merge governed by GitHub",
   "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
   "baselineJob": 135377185699,
   "baselineResults": {
@@ -16,6 +16,18 @@
     "tests/worker-project-basis.test.ts": "51bde9e0e9d6927ee386769d2c1757d424f766f049c5795b258c1ad78e86a5f2",
     ".github/workflows/ci.yml": "dbce73b4e3c5a4e37195351db31be85e4d6c603158d1382a286a0b5fd0b2e913",
     "docs/ENGINE_API.md": "48b1543366048a073dd31aced4d114f64d82d92b38d622f01e7bfe24e79b72d5",
-    "docs/WORKER_PROJECT_BASIS.md": "b79444ad27b1e197af8db97e0f75d7611101d8667be85c704aa753448a987f74"
-  }
+    "docs/WORKER_PROJECT_BASIS.md": "611ad0d9d1c0a75ee1b45c1ab5158cb21bc9789b19425479b9540abef769d76f"
+  },
+  "qualifiedRuntimeCommit": "dc4fba6b5ba642845728fd99f482491db962da75",
+  "focusedCi": {
+    "job": 135378203184,
+    "sourceTests": 35,
+    "normalFreshInstalledTests": 35,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim"
 }

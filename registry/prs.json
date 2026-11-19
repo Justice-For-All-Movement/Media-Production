@@ -657,7 +657,7 @@
     },
     {
       "id": "worker-selected-project-basis",
-      "status": "implemented correction; runtime source-installed/current-head CI pending",
+      "status": "source and installed groups qualified; current full CI/rules/merge governed by GitHub",
       "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
       "documentation": "docs/WORKER_PROJECT_BASIS.md",
       "remaining": [
@@ -673,7 +673,19 @@
         "cancelled": 0,
         "skips": 0
       },
-      "verification": "docs/worker-project-basis-verification.json"
+      "verification": "docs/worker-project-basis-verification.json",
+      "qualifiedRuntimeCommit": "dc4fba6b5ba642845728fd99f482491db962da75",
+      "focusedCi": {
+        "job": 135378203184,
+        "sourceTests": 35,
+        "normalFreshInstalledTests": 35,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: complete DTO/selected exact edition-doc/ISO dates/budget before policy; same public project lock compare through completion SQL and audit, after external callbacks; retain effects, no external fence/current-human/independent contention claim"
     }
   ],
   "approvedDesignSha256": {
