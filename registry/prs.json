@@ -887,7 +887,8 @@
       "remaining": [
         "PR14 acceptance then retargetdefault; actual four PG/FFmpeg source-installed/fullcurrentCI/review/rules/merge",
         "provider/semantic captions/currenthuman/rights/sandbox/host/live unqualified"
-      ]
+      ],
+      "verification": "docs/video-optional-subtitle-verification.json"
     }
   ],
   "approvedDesignSha256": {
