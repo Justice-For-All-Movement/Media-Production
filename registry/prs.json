@@ -871,13 +871,15 @@
     },
     {
       "id": "worker-cache-byte-admission",
-      "status": "incomplete WIP; baseline/runtime/full CI review pending",
+      "status": "implemented; baseline/runtime/source-installed/current-head CI review pending",
       "baseCommit": "0e1021e7cbb4755ed1b8dec480ab7efb4be61e93",
       "documentation": "docs/WORKER_CACHE_BYTES.md",
       "remaining": [
         "baseline/runtime/source-installed/full/current-head CI/review/rules/expected merge",
         "cache content digest/host scope/currenthuman/rights/liveness/sandbox/live qualification remain separate"
-      ]
+      ],
+      "baselineSource": "dd6a434c4bb02625f1e3514da66ed3dd3543a935",
+      "sourceReview": "positive safe recorded count before I/O; exact retrieved count and owned copy via existing helper; miss without eviction/repair/new authority; no content digest proof"
     }
   ],
   "approvedDesignSha256": {
