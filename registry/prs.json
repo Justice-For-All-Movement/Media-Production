@@ -871,17 +871,27 @@
     },
     {
       "id": "worker-cache-byte-admission",
-      "status": "incomplete WIP; baseline/runtime/full CI review pending",
+      "status": "47 source-installed qualified; current full/head and dependency merge pending",
       "baseCommit": "0e1021e7cbb4755ed1b8dec480ab7efb4be61e93",
       "documentation": "docs/WORKER_CACHE_BYTES.md",
       "remaining": [
         "baseline/runtime/source-installed/full/current-head CI/review/rules/expected merge",
         "cache content digest/host scope/currenthuman/rights/liveness/sandbox/live qualification remain separate"
-      ]
+      ],
+      "archiveFocusedCi": {
+        "job": 135479970277,
+        "sourceTests": 47,
+        "normalFreshInstalledTests": 47,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     },
     {
       "id": "video-optional-subtitle-artifacts",
-      "status": "source-installed51 qualified; prerequisite/current full/head CI review/rules/merge pending",
+      "status": "51 source-installed qualified; current full/head and dependency merge pending",
       "baseCommit": "4fd160559e647b69c80a0f882188f244851c5011",
       "documentation": "docs/VIDEO_OPTIONAL_SUBTITLES.md",
       "remaining": [
@@ -899,11 +909,21 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "zero actual cues omit optional SRT/VTT metadata only; preserve literal captioned artifacts and video outputs/guards"
+      "sourceReview": "zero actual cues omit optional SRT/VTT metadata only; preserve literal captioned artifacts and video outputs/guards",
+      "archiveFocusedCi": {
+        "job": 135480119044,
+        "sourceTests": 51,
+        "normalFreshInstalledTests": 51,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     },
     {
       "id": "worker-cache-storage-uncertainty",
-      "status": "incomplete WIP; actual source-installed/full CI pending",
+      "status": "52 source-installed qualified; current full/documentation head and prerequisites pending",
       "baseCommit": "9bc9376adfa65ef1a7ef51142dee1600a65c8f00",
       "documentation": "docs/WORKER_CACHE_STORAGE_UNCERTAINTY.md",
       "local": "prepared typecheck/build passed; no localPG/fresh/fullsuite",
@@ -911,9 +931,17 @@
         "accept PR14/15 then retargetdefault; actual PostgreSQL/FFmpeg source-installed/full current-head CI/review/rules/expected merge",
         "synthetic acknowledgement loss only; crash/liveness/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host unqualified"
       ],
-      "verification": "docs/worker-cache-storage-uncertainty-verification.json",
-      "sourceCommit": "c4c5dbb89953b69ff16b55cfcdae88549ddba453",
-      "sourceReview": "cache writer is captured once and awaits storage before cache SQL insert; unknown acknowledgement sanitized, row not inserted, no implicit replay; runtime unchanged"
+      "qualifiedSource": "c30e3a8d100431ddda15d3ad60b71f0ce9cd3b29",
+      "focusedCi": {
+        "job": 135480865354,
+        "sourceTests": 52,
+        "normalFreshInstalledTests": 52,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     }
   ],
   "approvedDesignSha256": {
