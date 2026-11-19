@@ -1,5 +1,5 @@
 {
-  "status": "source-installed40 qualified; stronger old-project blocking regression/full CI pending",
+  "status": "source-installed40 and full ordinary68 qualified; final-head CI/rules/merge governed by GitHub",
   "baselineSource": "0e4ce0a44232cabc8a3029df419f91375fcb6313",
   "baselineJob": 135380820898,
   "baselineResults": {
@@ -16,11 +16,11 @@
     "tests/worker-recorded-blocks.test.ts": "31b344034644f053bbbf6cff9e16b701d7a2611735fbe6580944e49ddd411918",
     ".github/workflows/ci.yml": "0db810f7bbff3b6c8d18658e6ee87b40907f45f2ee83f6681b4fd3e4744b698b",
     "docs/ENGINE_API.md": "1ff780c292c53408f1e497524db3a8e994d552121041ec436103e94550859696",
-    "docs/WORKER_RECORDED_BLOCKS.md": "af00b270a331d5054abbf71dae320bc80866f85a58d74d5166d6d35fbd73d7ed",
+    "docs/WORKER_RECORDED_BLOCKS.md": "c844c229cf32a5ef96ca8cbf5a347846fc59df80d2bd09739b6b98a026cdd891",
     "tests/engine-core.test.ts": "ed430b57c8f9bfca73ed1031e766e705efbb1faee17ed011190a833f25e675b2"
   },
   "prerequisiteSource": "ab464a7eb15f8f50552a0b31dc202927729e0f2e",
-  "qualifiedRuntimeCommit": "36893b2472829b02382789733d11710046420fc3",
+  "qualifiedRuntimeCommit": "0f7d9db7526d8aaa1332114f46c039a70b554be9",
   "focusedCi": {
     "job": 135383228491,
     "sourceTests": 40,
@@ -40,5 +40,18 @@
     "skips": 0,
     "reason": "old fixture expected renewed asset rights to clear retained independent project block; strengthened original-project denial and fresh explicit-project success under renewed rights; no reset/delete/history bypass"
   },
-  "sourceReview": "clear: entry render/project recorded blocked before source callbacks; current project and render blocked under owning completion locks; retain flags/history/bytes/no outputs; owning SQL fixture not admin API or independent session/event auth proof"
+  "sourceReview": "clear: entry render/project recorded blocked before source callbacks; current project and render blocked under owning completion locks; retain flags/history/bytes/no outputs; owning SQL fixture not admin API or independent session/event auth proof",
+  "qualification": {
+    "ordinaryJob": 135385467541,
+    "ordinaryTests": 68,
+    "focusedJob": 135385445044,
+    "sourceTests": 40,
+    "normalFreshInstalledTests": 40,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "prerequisiteMerge": "053a0d3730adac49f274964e9532d74ec6c4bcb6"
 }

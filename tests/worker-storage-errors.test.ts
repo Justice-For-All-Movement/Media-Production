@@ -13,7 +13,7 @@ for (const mode of ['output-lost-ack', 'manifest-lost-ack', 'write-getter'] as c
   test(`worker sanitizes object storage ${mode} and retains uncertainty`, needsPg, () => withEngine(async h => {
     const c = ctx(); const marker = 'SYNTHETIC_PRIVATE_STORAGE_DIAGNOSTIC'; let writes = 0;
     const objects: ObjectStore = { async put(key, bytes) {
-      writes++; const ack = await h.objects.put(key, bytes);
+      writes++; assert.equal(this, objects); const ack = await h.objects.put(key, bytes);
       if (mode === 'output-lost-ack' || (mode === 'manifest-lost-ack' && key.endsWith('/manifest.json'))) throw Error(marker);
       return ack;
     }, get: h.objects.get.bind(h.objects), head: h.objects.head.bind(h.objects), list: h.objects.list.bind(h.objects),

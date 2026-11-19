@@ -657,12 +657,11 @@
     },
     {
       "id": "worker-selected-project-basis",
-      "status": "2MiB source-installed and full ordinary qualified; final-head CI/rules/merge governed by GitHub",
+      "status": "accepted PR10; earlier provisional512KiB/pending notes historical",
       "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
       "documentation": "docs/WORKER_PROJECT_BASIS.md",
       "remaining": [
-        "baseline reproduction/runtime/source-installed/current-head CI/review/rules/expected merge",
-        "actual current-human/recursive rights/cache/liveness/sandbox/host acceptance; no external permission fence"
+        "current original-human/recursive rights/independent network contention/cache/liveness/sandbox/host acceptance separate; external permission can change after checks/while SQL lock waits"
       ],
       "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
       "baselineJob": 135377185699,
@@ -706,15 +705,30 @@
         "failures": 0,
         "cancelled": 0,
         "skips": 0
+      },
+      "sourceCommit": "ab464a7eb15f8f50552a0b31dc202927729e0f2e",
+      "mergeCommit": "053a0d3730adac49f274964e9532d74ec6c4bcb6",
+      "finalCi": {
+        "ordinaryJob": 135384671597,
+        "ordinaryTests": 63,
+        "focusedJob": 135384692185,
+        "sourceTests": 35,
+        "normalFreshInstalledTests": 35,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
     },
     {
       "id": "worker-recorded-blocks",
-      "status": "source-installed40 qualified; stronger old-project blocking regression/full CI pending",
+      "status": "source-installed40 and full ordinary68 qualified; final-head CI/rules/merge governed by GitHub",
       "baseCommit": "dcc10dab4195849c5f6c9bb342926adb8f5adb71",
       "documentation": "docs/WORKER_RECORDED_BLOCKS.md",
       "remaining": [
-        "MediaPR10 prerequisite, baseline/runtime/source-installed/current-head CI/review/rules/expected merge",
+        "final-head CI/review/rules/expected merge",
         "current-human/event-proofing/recursive rights/cache/liveness/sandbox/host acceptance; no external permission fence"
       ],
       "baselineSource": "0e4ce0a44232cabc8a3029df419f91375fcb6313",
@@ -727,7 +741,7 @@
         "skips": 0
       },
       "verification": "docs/worker-recorded-block-verification.json",
-      "qualifiedRuntimeCommit": "36893b2472829b02382789733d11710046420fc3",
+      "qualifiedRuntimeCommit": "0f7d9db7526d8aaa1332114f46c039a70b554be9",
       "focusedCi": {
         "job": 135383228491,
         "sourceTests": 40,
@@ -747,17 +761,41 @@
         "skips": 0,
         "reason": "old fixture expected renewed asset rights to clear retained independent project block; strengthened original-project denial and fresh explicit-project success under renewed rights; no reset/delete/history bypass"
       },
-      "sourceReview": "clear: entry render/project recorded blocked before source callbacks; current project and render blocked under owning completion locks; retain flags/history/bytes/no outputs; owning SQL fixture not admin API or independent session/event auth proof"
+      "sourceReview": "clear: entry render/project recorded blocked before source callbacks; current project and render blocked under owning completion locks; retain flags/history/bytes/no outputs; owning SQL fixture not admin API or independent session/event auth proof",
+      "qualification": {
+        "ordinaryJob": 135385467541,
+        "ordinaryTests": 68,
+        "focusedJob": 135385445044,
+        "sourceTests": 40,
+        "normalFreshInstalledTests": 40,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "prerequisiteMerge": "053a0d3730adac49f274964e9532d74ec6c4bcb6"
     },
     {
       "id": "worker-storage-error-privacy",
-      "status": "incomplete WIP; baseline/runtime/CI/review pending",
+      "status": "implemented correction; runtime/current-head CI/review pending",
       "baseCommit": "0f7d9db7526d8aaa1332114f46c039a70b554be9",
       "documentation": "docs/WORKER_STORAGE_ERRORS.md",
       "remaining": [
         "MediaPR11 after10; baseline/runtime/source-installed/fullcurrentCI/review/rules/expected merge",
         "real crash/liveness/stopped-nooutput/receipts/atomicity/sandbox/host/currenthuman/rights unqualified; retain state, no implicit retry/delete"
-      ]
+      ],
+      "baselineSource": "0f4309215465f86a54bd0d7442b53d052cf8412c",
+      "baselineJob": 135387385270,
+      "baselineResults": {
+        "tests": 43,
+        "passes": 40,
+        "failures": 3,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-storage-error-verification.json",
+      "prerequisiteSource": "034427b48d43db4a5846501749667c8bd856d152"
     }
   ],
   "approvedDesignSha256": {

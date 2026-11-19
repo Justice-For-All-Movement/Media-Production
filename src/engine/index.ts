@@ -438,6 +438,19 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     return basis;
   }
 
+  /** A storage callback may write then reject. Retain state and sanitize diagnostics; never infer rollback. */
+  function captureWorkerWriter(store: ObjectStore): (key: string, bytes: Uint8Array) => Promise<void> {
+    const unknown = () => new DomainError('storage_unknown', 'Render storage outcome is unknown');
+    let put: ObjectStore['put'];
+    try { put = store.put; if (typeof put !== 'function') throw unknown(); }
+    catch { throw unknown(); }
+    const selected = put;
+    return async (key, bytes) => {
+      try { await selected.call(store, key, bytes); }
+      catch { throw unknown(); }
+    };
+  }
+
   // ── render worker ──
   async function markRender(id: string, set: string, params: unknown[]): Promise<void> { await sql.query(`update ${s}.renders set ${set} where id=$1`, [id, ...params]); }
   async function finishFailed(ctx: ServiceContext, row: kit.Row, state: 'failed' | 'blocked' | 'cancelled', error: string, decisions?: DecisionRecord[]): Promise<void> {
@@ -480,7 +493,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       const g = await gate(ctx, 'adapt', await gateInputs(sql, ctx, p.assetRefs(doc)), [...new Set([...(project.sources as string[]), ...(rev.sources as string[])])], profile === 'final');
       if (g.denied.length > 0) { await finishFailed(ctx, row, 'blocked', g.denied.join(' | '), g.decisions); return { state: 'blocked' }; }
       await markRender(renderId, `state='running', started_at=$2, decisions=$3::jsonb`, [ctx.now, J(g.decisions)]);
-      const tools = new Map<string, string>(); const inputs = new Map<string, AssetInput>(); const assetBases = new Map<string, string>(); const store = objects();
+      const tools = new Map<string, string>(); const inputs = new Map<string, AssetInput>(); const assetBases = new Map<string, string>(); const store = objects(); const write = captureWorkerWriter(store);
       const admitMaterializedAssets = async (): Promise<void> => {
         for (const input of inputs.values()) {
           const basis = assetBases.get(input.assetId);
@@ -512,7 +525,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
           progress(fraction, st) { const f = Math.min(0.99, Math.max(0, fraction)); if (f !== progress || st !== stage) { progress = f; stage = st.slice(0, 120); dirty = true; } },
           async tool(...names) { for (const t of await requireTools(names)) tools.set(t.name, t.version); },
           async cacheGet(hash) { const c = (await sql.query<{ object_key: string }>(`select object_key from ${s}.render_cache where tenant_id=$1 and project_id=$2 and hash=$3`, [ctx.tenantId, ctx.projectId, hash]))[0]; if (c === undefined) return null; try { return await store.get(c.object_key); } catch { return null; } },
-          async cachePut(hash, bytes) { const key = scopeKey(ctx, 'cache', hash); await store.put(key, bytes); await sql.query(`insert into ${s}.render_cache (tenant_id, project_id, hash, object_key, size, at) values ($1,$2,$3,$4,$5,now()) on conflict do nothing`, [ctx.tenantId, ctx.projectId, hash, key, bytes.byteLength]); },
+          async cachePut(hash, bytes) { const key = scopeKey(ctx, 'cache', hash); await write(key, bytes); await sql.query(`insert into ${s}.render_cache (tenant_id, project_id, hash, object_key, size, at) values ($1,$2,$3,$4,$5,now()) on conflict do nothing`, [ctx.tenantId, ctx.projectId, hash, key, bytes.byteLength]); },
           credits() { return [...inputs.values()].map((i) => creditLine(i)); },
         };
         for (const ref of p.assetRefs(doc)) await env.asset(ref.assetId, ref.version);
@@ -522,7 +535,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
         const outputs: OutputInfo[] = [];
         for (const o of res.outputs) {
           const bytes = await readFile(o.path); invariant(bytes.byteLength > 0, 'tool_failed', `Output ${o.name} is empty`);
-          const name = safeName(o.name); await store.put(scopeKey(ctx, 'renders', renderId, name), bytes);
+          const name = safeName(o.name); await write(scopeKey(ctx, 'renders', renderId, name), bytes);
           outputs.push({ name, mediaType: o.mediaType, size: bytes.byteLength, sha256: sha256(bytes), role: o.role, info: await probeFile(o.path, o.mediaType) });
         }
         return { res, outputs };
@@ -539,7 +552,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
         outputs: result.outputs as unknown as Json, ...(result.res.details === undefined ? {} : { details: result.res.details }),
       };
       const manifestDigest = sha256(canonical(man));
-      await store.put(scopeKey(ctx, 'renders', renderId, 'manifest.json'), Buffer.from(JSON.stringify(man, null, 2)));
+      await write(scopeKey(ctx, 'renders', renderId, 'manifest.json'), Buffer.from(JSON.stringify(man, null, 2)));
       // Written bytes remain retained if this fresh admission denies or has an unknown outcome.
       await admitMaterializedAssets();
       await admitProjectSources();

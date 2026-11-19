@@ -1,0 +1,21 @@
+{
+  "status": "implemented correction; runtime/current-head CI/review pending",
+  "baselineSource": "0f4309215465f86a54bd0d7442b53d052cf8412c",
+  "baselineJob": 135387385270,
+  "baselineResults": {
+    "tests": 43,
+    "passes": 40,
+    "failures": 3,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "local": "prepared typecheck/build/registry; no localPG/fresh/fullsuite",
+  "limits": "synthetic private storage diagnostics; actual lost ACK fixture not crash/liveness/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host proof; no implicit retry/delete; negative cache-write case not separately qualified",
+  "sha256": {
+    "src/engine/index.ts": "4d2c17492b6e72cca79969f3d9213ef0cdf5e3fa074df89327dbac5d6ab57995",
+    "tests/worker-storage-errors.test.ts": "4af13f79d38b17c31ea66d679facca681a61b317211e10209e12f132ab5460f3",
+    ".github/workflows/ci.yml": "6fd0f043a126af1104a2fa79afbe1d44fc9fcb8d4945ba883e9506c41d3d4a15",
+    "docs/ENGINE_API.md": "786bb9b898fbc477e1906ce5e6e1b9a2a0ce653f0316ed8f0ff2500d080aa55b",
+    "docs/WORKER_STORAGE_ERRORS.md": "452c4d14b9e2aad902eb3a3b8bcdb503624d69ac658e1bea3cb094461138fb1c"
+  }
+}
