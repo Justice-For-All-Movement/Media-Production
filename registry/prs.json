@@ -611,13 +611,15 @@
     },
     {
       "id": "worker-declared-project-permissions",
-      "status": "incomplete WIP baseline; runtime/CI pending",
+      "status": "incomplete WIP correction; baseline/source-installed/current-head qualification pending",
       "baseCommit": "0edc26de26cbb3877a31902d326958161c5d6ca9",
       "documentation": "docs/WORKER_PROJECT_PERMISSIONS.md",
       "remaining": [
         "baseline/runtime/source-installed/final-head CI/review/rules/expected merge",
         "current complete project/source basis, recursive/current-human/cache/liveness/sandbox/host acceptance separate"
-      ]
+      ],
+      "baselineSource": "f7a4760f0f0582a69219cc705a72421cc40043a4",
+      "verification": "docs/worker-project-permission-verification.json"
     }
   ],
   "approvedDesignSha256": {
