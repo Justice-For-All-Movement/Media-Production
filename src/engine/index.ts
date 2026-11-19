@@ -504,6 +504,8 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       await store.put(scopeKey(ctx, 'renders', renderId, 'manifest.json'), Buffer.from(JSON.stringify(man, null, 2)));
       // Written bytes remain retained if this fresh admission denies or has an unknown outcome.
       await admitMaterializedAssets();
+      // A stored output is not permission to complete; retain bytes on denial or unknown outcome.
+      await authorize('production:render', renderRef(renderId));
       const qc = qcStatic(man, result.outputs);
       const done = await sql.tx(async (tx) => {
         const cur = (await tx.query(`select state from ${s}.renders where id=$1 for update`, [renderId]))[0];
