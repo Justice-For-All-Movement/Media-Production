@@ -1,0 +1,14 @@
+{
+  "status": "incomplete WIP correction; baseline/source-installed/current-head qualification pending",
+  "baselineSource": "c37903d82a5736aa3878e1cc0155ebf3b7294659",
+  "local": "typecheck/build/registry passed/prepared deps only/no localPG-fresh-fullsuite",
+  "limits": "optional HOST sequential only; actual human/whole-rights/cache/liveness/sandbox-host separate; no fence/stoppedproof/cleanup/reset/delete/retry authority",
+  "sha256": {
+    "src/engine/index.ts": "9b8a82e9fe883934f21bdf3255a977c0f6563b1bdb6925b1edf16717fe0b5914",
+    "tests/worker-completion-authorization.test.ts": "ace0b528021e24a79340a1c6109aae97f3f08b7b3e08c3c0fb06925f94cec819",
+    "tests/worker-authorization.test.ts": "a9df2ef13c37f6363c8f12d95ec68b59aca76008ceb58e3834babf4d56455df6",
+    ".github/workflows/ci.yml": "ecf5c5911185aca3e4bfe3bbdac386f408521ee6a6e897880ce94830addbbe1a",
+    "docs/ENGINE_API.md": "9d4e7403bb9b957515661ed3d0cc5a204ba0993e835126f126331e351af51b26",
+    "docs/WORKER_COMPLETION_AUTHORIZATION.md": "5e06016c9ca78937580baadea450bf0f63159a72bbcd9cb54abc3b93b95ae797"
+  }
+}

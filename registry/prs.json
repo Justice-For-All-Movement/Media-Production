@@ -562,13 +562,15 @@
     },
     {
       "id": "worker-completion-authorization",
-      "status": "incomplete WIP baseline regressions; runtime/CI pending",
+      "status": "incomplete WIP correction; baseline/source-installed/current-head qualification pending",
       "baseCommit": "9e2582861326ed6948646be49b46c4bcf9cbd797",
       "documentation": "docs/WORKER_COMPLETION_AUTHORIZATION.md",
       "remaining": [
         "baseline/runtime/source-installed/final-head CI/review/rules/expected merge",
         "current human/whole-rights/cache/liveness/sandbox/host acceptance separate"
-      ]
+      ],
+      "baselineSource": "c37903d82a5736aa3878e1cc0155ebf3b7294659",
+      "verification": "docs/worker-completion-authorization-verification.json"
     }
   ],
   "approvedDesignSha256": {

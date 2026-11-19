@@ -35,7 +35,7 @@ for (const mode of ['truthy', 'false', 'throw', 'getter', 'allow'] as const) {
     const request = await engine.requestRender(c, { productionId: project.id, profile: 'preview' });
     armed = true;
     const result = await finish(engine, c, request);
-    assert.equal(calls, 1, 'one fresh worker-entry authorization with the captured receiver');
+    assert.equal(calls, mode === 'allow' ? 2 : 1, 'literal allow is rechecked before completion; initial denial never reaches storage');
     if (mode === 'allow') {
       assert.equal(result.state, 'done', result.error ?? ''); assert.ok(puts > 0); assert.ok(result.outputs.length > 0);
     } else {
