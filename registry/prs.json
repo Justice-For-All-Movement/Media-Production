@@ -775,6 +775,40 @@
         "skips": 0
       },
       "prerequisiteMerge": "053a0d3730adac49f274964e9532d74ec6c4bcb6"
+    },
+    {
+      "id": "worker-storage-error-privacy",
+      "status": "source-installed43 qualified; incomplete pending prerequisite/current full head CI/review/rules/merge",
+      "baseCommit": "0f7d9db7526d8aaa1332114f46c039a70b554be9",
+      "documentation": "docs/WORKER_STORAGE_ERRORS.md",
+      "remaining": [
+        "MediaPR11 after10, retarget only after11accepted; all current full/head CI/review/rules/expected merge",
+        "local execution environment became unavailable after source/CI checkpoint; no new local full qualification",
+        "actual crash/liveness/stopped-nooutput/receipts/atomicity/sandbox/host/currenthuman/rights unqualified; retain state, no implicit retry/delete"
+      ],
+      "baselineSource": "0f4309215465f86a54bd0d7442b53d052cf8412c",
+      "baselineJob": 135387385270,
+      "baselineResults": {
+        "tests": 43,
+        "passes": 40,
+        "failures": 3,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-storage-error-verification.json",
+      "prerequisiteSource": "034427b48d43db4a5846501749667c8bd856d152",
+      "qualifiedRuntimeCommit": "5c573b6475fd687cffd202e1036c50e9b02a4139",
+      "focusedCi": {
+        "job": 135389565243,
+        "sourceTests": 43,
+        "normalFreshInstalledTests": 43,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "clear: one captured put method/receiver at all3 worker write sites; generic getter-invalid-rejected failure; retained bytes/history, no implicit replay/delete; host/asset/project/flag guards preserved; no separate negative cache-write/crash/liveness/receipt/atomicity/currenthuman qualification"
     }
   ],
   "approvedDesignSha256": {
