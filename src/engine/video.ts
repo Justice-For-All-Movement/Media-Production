@@ -238,11 +238,13 @@ async function render(doc: Doc, env: RenderEnv): Promise<PipelineResult> {
   const name = preview ? `${base}.preview.mp4` : `${base}.mp4`; const mp4 = join(env.dir, name);
   await ffmpeg([...segs.flatMap((s) => ['-i', s.path]), '-i', audioPath, '-filter_complex', parts.join(';'), '-map', '[vout]', '-map', `${segs.length}:a`, ...x264, '-pix_fmt', 'yuv420p', '-r', String(fps), '-c:a', 'aac', '-b:a', preview ? '96k' : '160k', '-t', total.toFixed(3), '-movflags', '+faststart', '-metadata', `title=${str(doc.title)}`, mp4],
     { cwd: env.dir, signal: env.signal, totalSeconds: total, onProgress: (x) => env.progress(0.7 + x * (preview ? 0.28 : 0.15), 'encode H.264') });
-  const outputs: RenderOutput[] = [{ name, path: mp4, mediaType: 'video/mp4', role: preview ? 'preview' : 'primary' }, { name: `${base}.srt`, path: join(env.dir, 'captions.srt'), mediaType: 'text/plain', role: 'sidecar' }];
+  const outputs: RenderOutput[] = [{ name, path: mp4, mediaType: 'video/mp4', role: preview ? 'preview' : 'primary' }];
+  // Zero cues means no subtitle sidecar; do not fail the whole video on an empty SRT.
+  if (cues.length > 0) outputs.push({ name: `${base}.srt`, path: join(env.dir, 'captions.srt'), mediaType: 'text/plain', role: 'sidecar' });
   const timeline = segs.map((s) => ({ id: s.id, kind: s.kind, start: Math.round(s.start * 1000) / 1000, duration: s.duration, transition: s.transition, cached: s.cached }));
   const params = { width: W, height: H, fps, durationSeconds: Math.round(total * 1000) / 1000, captions: { cues: cues.length, burnedIn: burn }, segmentCache: { hits, total: segs.length } };
   if (!preview) {
-    outputs.push({ name: `${base}.vtt`, path: join(env.dir, 'captions.vtt'), mediaType: 'text/plain', role: 'sidecar' });
+    if (cues.length > 0) outputs.push({ name: `${base}.vtt`, path: join(env.dir, 'captions.vtt'), mediaType: 'text/plain', role: 'sidecar' });
     const webm = join(env.dir, `${base}.webm`);
     await ffmpeg(['-i', mp4, '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', '34', '-deadline', 'good', '-cpu-used', '5', '-row-mt', '1', '-c:a', 'libopus', '-b:a', '112k', webm], { signal: env.signal, totalSeconds: total, onProgress: (x) => env.progress(0.85 + x * 0.12, 'encode WebM') });
     outputs.push({ name: `${base}.webm`, path: webm, mediaType: 'video/webm', role: 'primary' });
