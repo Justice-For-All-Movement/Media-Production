@@ -562,12 +562,11 @@
     },
     {
       "id": "worker-completion-authorization",
-      "status": "incomplete WIP correction; baseline/source-installed/current-head qualification pending",
+      "status": "implementation and source/package qualification complete; current CI/readiness/merge status governed by GitHub; earlier WIP notes historical",
       "baseCommit": "9e2582861326ed6948646be49b46c4bcf9cbd797",
       "documentation": "docs/WORKER_COMPLETION_AUTHORIZATION.md",
       "remaining": [
-        "baseline/runtime/source-installed/final-head CI/review/rules/expected merge",
-        "current human/whole-rights/cache/liveness/sandbox/host acceptance separate"
+        "current human/whole-rights/cache/liveness/sandbox/host acceptance separate; no external SQL fence or stopped proof"
       ],
       "baselineSource": "c37903d82a5736aa3878e1cc0155ebf3b7294659",
       "verification": "docs/worker-completion-authorization-verification.json",
@@ -579,7 +578,21 @@
         "cancelled": 0,
         "skips": 0
       },
-      "sourceReview": "clear: same captured optional method/receiver freshly checked after output storage and asset permission, before done SQL; retain bytes/job history/strict true/sanitized failure; no current-human/whole-rights/post-lock-fence/liveness claim"
+      "sourceReview": "clear: same captured optional method/receiver freshly checked after output storage and asset permission, before done SQL; retain bytes/job history/strict true/sanitized failure; no current-human/whole-rights/post-lock-fence/liveness claim",
+      "qualifiedSource": "b84df9787df7d581c5fc10638db61712cea9416d",
+      "qualification": {
+        "ordinaryJob": 135328283933,
+        "ordinaryTests": 52,
+        "focusedJob": 135328283420,
+        "sourceTests": 24,
+        "normalFreshInstalledTests": 24,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      }
     }
   ],
   "approvedDesignSha256": {
