@@ -1,18 +1,24 @@
 {
-  "status": "incomplete WIP; actual current runtime/source-installed/full CI review pending",
-  "sourceCommit": "1763ef25f09ce836955baf3edd781dee09097fb3",
-  "priorObservedFailure": {
-    "job": 135451270338,
-    "qualification": "PR14 original caption-free fixture failed empty SRT on accepted13, before cache assertions; not cache-count reproduction"
+  "status": "source-installed51 qualified; prerequisite/current full/head CI review/rules/merge pending",
+  "qualifiedRuntimeCommit": "1763ef25f09ce836955baf3edd781dee09097fb3",
+  "focusedCi": {
+    "job": 135456773414,
+    "sourceTests": 51,
+    "normalFreshInstalledTests": 51,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
   },
-  "sourceReview": "omit optional SRT/VTT only for zero actual cues; do not invent captions; retain video outputs and original guards",
+  "sourceReview": "zero actual cues omit optional SRT/VTT metadata only; preserve literal captioned artifacts and video outputs/guards",
   "sha256": {
     "src/engine/video.ts": "802bf5f3e715c837b91b50b620c8062206cee1b9bb4c93333513c156f3ffeba0",
     "tests/video-subtitle-presence.test.ts": "eb2845730a1ed2f7526e0f1c8bf1b0c394fe964047abd22dae0420af5b42a881",
     ".github/workflows/ci.yml": "ea5d1c77ea8a25b649196cc1e32eb0f752a81cb4861128cff990f736402aa48a",
     "docs/ENGINE_API.md": "8ee68fc69ce3f52894b22a132033f9bb71a806cbd6588f8f340e5df76777045d",
-    "docs/VIDEO_OPTIONAL_SUBTITLES.md": "1022b7f7d9f03962e47a41215f97d82fe8020ae650aacb9048d76b20bebebe82"
+    "docs/VIDEO_OPTIONAL_SUBTITLES.md": "f28a8490cad7e050f3110d6dcd5d7ae47f425f41498419a5a963f2af4b92c004"
   },
-  "local": "prepared typecheck/build only; no localPG/fresh/fullsuite",
-  "limits": "no semantic caption/currenthuman/rights/provider/sandbox/host/live qualification; no send/publication/paid/PAM operations"
+  "local": "prepared typecheck/build only, no localPG/fullsuite/fresh/live",
+  "limits": "no semantic caption/currenthuman/rights/receipt/sandbox/host/liveness or publication qualification"
 }

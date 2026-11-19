@@ -881,14 +881,25 @@
     },
     {
       "id": "video-optional-subtitle-artifacts",
-      "status": "incomplete WIP; source-installed/full current CI/review pending",
+      "status": "source-installed51 qualified; prerequisite/current full/head CI review/rules/merge pending",
       "baseCommit": "4fd160559e647b69c80a0f882188f244851c5011",
       "documentation": "docs/VIDEO_OPTIONAL_SUBTITLES.md",
       "remaining": [
         "PR14 acceptance then retargetdefault; actual four PG/FFmpeg source-installed/fullcurrentCI/review/rules/merge",
         "provider/semantic captions/currenthuman/rights/sandbox/host/live unqualified"
       ],
-      "verification": "docs/video-optional-subtitle-verification.json"
+      "qualifiedRuntimeCommit": "1763ef25f09ce836955baf3edd781dee09097fb3",
+      "focusedCi": {
+        "job": 135456773414,
+        "sourceTests": 51,
+        "normalFreshInstalledTests": 51,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "sourceReview": "zero actual cues omit optional SRT/VTT metadata only; preserve literal captioned artifacts and video outputs/guards"
     }
   ],
   "approvedDesignSha256": {
