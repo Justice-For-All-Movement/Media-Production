@@ -948,7 +948,8 @@
       "remaining": [
         "actual PostgreSQL/FFmpeg source-installed/full current-head CI/review/rules/expected merge",
         "cache content identity/liveness/crash/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host unqualified; no retry/cleanup authority"
-      ]
+      ],
+      "verification": "docs/worker-cache-read-failure-verification.json"
     }
   ],
   "approvedDesignSha256": {
