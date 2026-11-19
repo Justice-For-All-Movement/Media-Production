@@ -748,6 +748,16 @@
         "reason": "old fixture expected renewed asset rights to clear retained independent project block; strengthened original-project denial and fresh explicit-project success under renewed rights; no reset/delete/history bypass"
       },
       "sourceReview": "clear: entry render/project recorded blocked before source callbacks; current project and render blocked under owning completion locks; retain flags/history/bytes/no outputs; owning SQL fixture not admin API or independent session/event auth proof"
+    },
+    {
+      "id": "worker-storage-error-privacy",
+      "status": "incomplete WIP; baseline/runtime/CI/review pending",
+      "baseCommit": "0f7d9db7526d8aaa1332114f46c039a70b554be9",
+      "documentation": "docs/WORKER_STORAGE_ERRORS.md",
+      "remaining": [
+        "MediaPR11 after10; baseline/runtime/source-installed/fullcurrentCI/review/rules/expected merge",
+        "real crash/liveness/stopped-nooutput/receipts/atomicity/sandbox/host/currenthuman/rights unqualified; retain state, no implicit retry/delete"
+      ]
     }
   ],
   "approvedDesignSha256": {
