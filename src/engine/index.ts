@@ -538,7 +538,18 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
           },
           progress(fraction, st) { const f = Math.min(0.99, Math.max(0, fraction)); if (f !== progress || st !== stage) { progress = f; stage = st.slice(0, 120); dirty = true; } },
           async tool(...names) { for (const t of await requireTools(names)) tools.set(t.name, t.version); },
-          async cacheGet(hash) { const c = (await sql.query<{ object_key: string }>(`select object_key from ${s}.render_cache where tenant_id=$1 and project_id=$2 and hash=$3`, [ctx.tenantId, ctx.projectId, hash]))[0]; if (c === undefined) return null; try { return await store.get(c.object_key); } catch { return null; } },
+          async cacheGet(hash) {
+            const cached = (await sql.query<{ object_key: string; size: string }>(
+              `select object_key, size from ${s}.render_cache where tenant_id=$1 and project_id=$2 and hash=$3`,
+              [ctx.tenantId, ctx.projectId, hash]))[0];
+            if (cached === undefined) return null;
+            const size = Number(cached.size);
+            if (!Number.isSafeInteger(size) || size <= 0) return null;
+            // A cache miss does not erase its retained row or confer another execution permit.
+            // Count validation and independent byte ownership do not prove cached content identity.
+            try { return await ownedBytes(cached.object_key, size, store); }
+            catch { return null; }
+          },
           async cachePut(hash, bytes) { const key = scopeKey(ctx, 'cache', hash); await write(key, bytes); await sql.query(`insert into ${s}.render_cache (tenant_id, project_id, hash, object_key, size, at) values ($1,$2,$3,$4,$5,now()) on conflict do nothing`, [ctx.tenantId, ctx.projectId, hash, key, bytes.byteLength]); },
           credits() { return [...inputs.values()].map((i) => creditLine(i)); },
         };

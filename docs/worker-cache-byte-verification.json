@@ -1,0 +1,42 @@
+{
+  "status": "source-installed47 qualified; full/current-head CI/review/rules/merge pending",
+  "initialBaseline": {
+    "commit": "dd6a434c4bb02625f1e3514da66ed3dd3543a935",
+    "job": 135451270338,
+    "tests": 47,
+    "passes": 45,
+    "failures": 2,
+    "cancelled": 0,
+    "skips": 0,
+    "qualification": "empty caption SRT fixture; NOT count-admission reproduction"
+  },
+  "sourceReview": "positive safe count before I/O, exact count and owned copy via existing helper; miss without row eviction/repair/new permit; no content hash qualification",
+  "sha256": {
+    "src/engine/index.ts": "d906d04965dbaa9658aa13f1e32c86da3f5b4e0bb7349c1f96c68c950df58244",
+    "tests/worker-cache-bytes.test.ts": "3ddf10891906f3a7003758ea87890c51309e55d371843b4b32246c179ad0c84e",
+    ".github/workflows/ci.yml": "02e88e3457032e546d3e622f6d55a8ff404b04aac89f471711b5d833ce1e50a6",
+    "docs/ENGINE_API.md": "2e4bc463316e8fcbb7cbccb63c65b6d2a3cabb3f30205ead1137de019d80fb48",
+    "docs/WORKER_CACHE_BYTES.md": "eaed7009324529e62adeabbd3aad2de670efb39cc89402e2405a8e6a3f133454"
+  },
+  "local": "prepared type/build/registry only; no localPG/fresh/fullsuite",
+  "limits": "count-only admission; content digest, heap cap, currenthuman/rights/receipt/liveness/sandbox/host/fencing/atomicity unqualified; no cleanup/delete/retry authority",
+  "qualifiedRuntimeCommit": "45fdff12d96ac73ece6ac09ebfe7fdca6c125e06",
+  "focusedCi": {
+    "job": 135453219011,
+    "sourceTests": 47,
+    "normalFreshInstalledTests": 47,
+    "actualE11Source": 1,
+    "actualE11Installed": 1,
+    "failures": 0,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "sha256Ref": "f83a8e72262b04da9c48d228248a45ab735eb3a9",
+  "archiveCi": {
+    "cancelledJob": 135456179189,
+    "reason": "slow regional HTTP Ubuntu downloads, not a test failure/pass",
+    "change": "reuse existing archive-layout test/canonical HTTPS helper; retain ALL packages/tests/timeouts",
+    "localPythonTests": 3,
+    "currentHeadCi": "pending"
+  }
+}
