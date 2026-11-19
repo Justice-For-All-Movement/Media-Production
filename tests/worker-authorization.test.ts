@@ -28,10 +28,11 @@ for (const mode of ['truthy', 'false', 'throw', 'getter', 'allow'] as const) {
       list: h.objects.list.bind(h.objects), delete: h.objects.delete.bind(h.objects),
     };
     const engine = createEngine({ sql: h.sql, objects, config: { workRoot: h.root }, ports: { authorization: selected, useDecisions: h.port } });
-    const project = await engine.createProject(c, { kind: 'written', title: 'Fictional private worker entry', doc: {
-      title: 'Fictional private draft', chapters: [{ id: 'chapter', title: 'Private', blocks: [{ id: 'paragraph', type: 'paragraph', basis: 'unknown_acknowledged', text: 'A fictional private draft for testing.' }] }],
+    const project = await engine.createProject(c, { kind: 'image', title: 'Fictional private worker entry', doc: {
+      title: 'Fictional private draft', canvas: { width: 320, height: 180, background: '#ffffff' }, export: { formats: ['png'] },
+      layers: [{ id: 'private', type: 'text', text: 'Fictional private draft', x: 10, y: 20, width: 300, size: 16 }],
     } });
-    const request = await engine.requestRender(c, { productionId: project.id, profile: 'preview', options: { formats: ['html'] } });
+    const request = await engine.requestRender(c, { productionId: project.id, profile: 'preview' });
     armed = true;
     const result = await finish(engine, c, request);
     assert.equal(calls, 1, 'one fresh worker-entry authorization with the captured receiver');
