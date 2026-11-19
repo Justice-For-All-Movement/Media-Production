@@ -15,10 +15,18 @@
   "sha256": {
     "src/engine/video.ts": "802bf5f3e715c837b91b50b620c8062206cee1b9bb4c93333513c156f3ffeba0",
     "tests/video-subtitle-presence.test.ts": "eb2845730a1ed2f7526e0f1c8bf1b0c394fe964047abd22dae0420af5b42a881",
-    ".github/workflows/ci.yml": "ea5d1c77ea8a25b649196cc1e32eb0f752a81cb4861128cff990f736402aa48a",
+    ".github/workflows/ci.yml": "5f0a8dfd4376cdd50f729e515c07b500a2e7aa03dd463065ed74ebd154cb23ea",
     "docs/ENGINE_API.md": "8ee68fc69ce3f52894b22a132033f9bb71a806cbd6588f8f340e5df76777045d",
-    "docs/VIDEO_OPTIONAL_SUBTITLES.md": "f28a8490cad7e050f3110d6dcd5d7ae47f425f41498419a5a963f2af4b92c004"
+    "docs/VIDEO_OPTIONAL_SUBTITLES.md": "d553c354ff8964801792e7a57f3262ae1de2ff21359deb1bce1de3788e1bd71b"
   },
   "local": "prepared typecheck/build only, no localPG/fullsuite/fresh/live",
-  "limits": "no semantic caption/currenthuman/rights/receipt/sandbox/host/liveness or publication qualification"
+  "limits": "no semantic caption/currenthuman/rights/receipt/sandbox/host/liveness or publication qualification",
+  "sha256Ref": "46376143bc2ce0f43a3926bdf5daec138d269ebe",
+  "archiveCi": {
+    "cancelledJob": 135456179189,
+    "reason": "slow regional HTTP Ubuntu downloads, not a test failure/pass",
+    "change": "reuse existing archive-layout test/canonical HTTPS helper; retain ALL packages/tests/timeouts",
+    "localPythonTests": 3,
+    "currentHeadCi": "pending"
+  }
 }

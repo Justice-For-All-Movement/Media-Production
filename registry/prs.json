@@ -905,11 +905,10 @@
     },
     {
       "id": "video-optional-subtitle-artifacts",
-      "status": "51 source-installed qualified; current full/head and dependency merge pending",
+      "status": "accepted PR15; prior pending notes historical",
       "baseCommit": "4fd160559e647b69c80a0f882188f244851c5011",
       "documentation": "docs/VIDEO_OPTIONAL_SUBTITLES.md",
       "remaining": [
-        "PR14 acceptance then retargetdefault; actual four PG/FFmpeg source-installed/fullcurrentCI/review/rules/merge",
         "provider/semantic captions/currenthuman/rights/sandbox/host/live unqualified"
       ],
       "qualifiedRuntimeCommit": "1763ef25f09ce836955baf3edd781dee09097fb3",
@@ -933,17 +932,32 @@
         "failures": 0,
         "cancelled": 0,
         "skips": 0
+      },
+      "sourceCommit": "9e80c7cbe17706f0482b0cdacbefa83c07e7fdc4",
+      "mergeCommit": "3971623cc466e49a99543f71836ba7503872cc5b",
+      "finalCi": {
+        "ordinaryJob": 135483706485,
+        "ordinaryTests": 79,
+        "focusedJob": 135483706103,
+        "sourceTests": 51,
+        "normalFreshInstalledTests": 51,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
     },
     {
       "id": "worker-cache-storage-uncertainty",
-      "status": "52 source-installed qualified; current full/documentation head and prerequisites pending",
+      "status": "80 ordinary/52 source-installed on ac5758 qualified; reconciliation-head CI pending",
       "baseCommit": "9bc9376adfa65ef1a7ef51142dee1600a65c8f00",
       "documentation": "docs/WORKER_CACHE_STORAGE_UNCERTAINTY.md",
       "local": "prepared typecheck/build passed; no localPG/fresh/fullsuite",
       "remaining": [
-        "accept PR14/15 then retargetdefault; actual PostgreSQL/FFmpeg source-installed/full current-head CI/review/rules/expected merge",
-        "synthetic acknowledgement loss only; crash/liveness/stopped-nooutput/receipt/atomicity/currenthuman/rights/sandbox/host unqualified"
+        "fresh reconciled current-head CI/review/rules/expected merge",
+        "synthetic ACK loss only; no crash/stopped-nooutput/receipt/liveness/atomicity/currenthuman/rights/sandbox/host proof"
       ],
       "qualifiedSource": "c30e3a8d100431ddda15d3ad60b71f0ce9cd3b29",
       "focusedCi": {
@@ -952,6 +966,20 @@
         "normalFreshInstalledTests": 52,
         "actualE11Source": 1,
         "actualE11Installed": 1,
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "reconciliationQualification": {
+        "source": "ac5758d3b352ad4ee54b87a4ca3097b0345708ec",
+        "ordinaryJob": 135484178517,
+        "ordinaryTests": 80,
+        "focusedJob": 135484177868,
+        "sourceTests": 52,
+        "normalFreshInstalledTests": 52,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
         "failures": 0,
         "cancelled": 0,
         "skips": 0
