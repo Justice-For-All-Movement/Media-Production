@@ -839,7 +839,7 @@
     },
     {
       "id": "worker-source-storage-error-privacy",
-      "status": "source-installed45 and full ordinary73 qualified; final-head CI/rules/merge governed by GitHub",
+      "status": "accepted PR13; GitHub merge0e1021e7cbb4755ed1b8dec480ab7efb4be61e93 governs staged pending notes",
       "baseCommit": "0b8b20f11532fba4da6af081174bd48c724dada8",
       "documentation": "docs/WORKER_SOURCE_STORAGE_ERRORS.md",
       "remaining": [
@@ -868,6 +868,16 @@
         "cancelled": 0,
         "skips": 0
       }
+    },
+    {
+      "id": "worker-cache-byte-admission",
+      "status": "incomplete WIP; baseline/runtime/full CI review pending",
+      "baseCommit": "0e1021e7cbb4755ed1b8dec480ab7efb4be61e93",
+      "documentation": "docs/WORKER_CACHE_BYTES.md",
+      "remaining": [
+        "baseline/runtime/source-installed/full/current-head CI/review/rules/expected merge",
+        "cache content digest/host scope/currenthuman/rights/liveness/sandbox/live qualification remain separate"
+      ]
     }
   ],
   "approvedDesignSha256": {
