@@ -65,7 +65,7 @@ test('worker rejects an oversized complete project basis before source callbacks
   const engine = createEngine({ sql: h.sql, objects, config: { workRoot: h.root }, ports: { useDecisions: h.port } });
   const project = await engine.createProject(c, { kind: 'image', title: 'Fictional complete-basis budget', sources: ['E07:claim:fictional-original@1'], doc: {
     title: 'Fictional large metadata', canvas: { width: 320, height: 180, background: '#ffffff' }, export: { formats: ['png'] }, layers: [],
-    generated: [{ group: 'fixture', generator: 'fixture', params: { padding: 'x'.repeat(512 * 1024) } }],
+    generated: [{ group: 'fixture', generator: 'fixture', params: { padding: 'x'.repeat(2 * 1024 * 1024) } }],
   } });
   const request = await engine.requestRender(c, { productionId: project.id, profile: 'preview' });
   h.port.calls.length = 0;

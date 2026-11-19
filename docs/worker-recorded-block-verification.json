@@ -12,10 +12,11 @@
   "local": "prepared typecheck/build/registry only; no localPG/fresh/full-suite",
   "limits": "recorded own-engine flags, not authenticated event origin/currenthuman/source truth/recursive rights/cache/liveness/sandbox/host/external fence/stoppedproof; no cleanup/reset/delete/retry authority",
   "sha256": {
-    "src/engine/index.ts": "2ec535a2734e60e91429b9e72b7d4595bc17d829f084e973866a68fac41bcd72",
+    "src/engine/index.ts": "bab54ef4ba87c7d3936b429840a0fc2d0c64296d830854bfad7d9c8b54e8c255",
     "tests/worker-recorded-blocks.test.ts": "31b344034644f053bbbf6cff9e16b701d7a2611735fbe6580944e49ddd411918",
     ".github/workflows/ci.yml": "0db810f7bbff3b6c8d18658e6ee87b40907f45f2ee83f6681b4fd3e4744b698b",
-    "docs/ENGINE_API.md": "1748ca7076f00fe3f132fdb0dcbcbaa1e809b0e49574976d3d3086ac8ce71eb2",
-    "docs/WORKER_RECORDED_BLOCKS.md": "32d4c088d30a33242ab66644f4f084e28920c0f0a3b5d15cce2c98698f4256c3"
-  }
+    "docs/ENGINE_API.md": "1ff780c292c53408f1e497524db3a8e994d552121041ec436103e94550859696",
+    "docs/WORKER_RECORDED_BLOCKS.md": "b6d838a6134c405dfba12dc40cf2c83e4906640812ca645804582e73b39ca1e2"
+  },
+  "prerequisiteSource": "a80eb2105998d95aef68e1bebefc06a77b639ca3"
 }
