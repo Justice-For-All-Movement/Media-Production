@@ -422,7 +422,7 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
     if (typeof row.reservation === 'string' && ports.budget !== undefined) { try { await ports.budget.release(ctx, row.reservation, state); } catch { /* reservation expiry is the budget engine's concern */ } }
   }
   async function renderJob(job: Job): Promise<Json> {
-    const ctx: ServiceContext = { ...job.ctx, now: new Date().toISOString() };
+    const ctx = byteContext({ ...job.ctx, now: new Date().toISOString() });
     const renderId = (job.payload as { renderId: string }).renderId;
     const row = (await sql.query(`select * from ${s}.renders where id=$1 and tenant_id=$2 and project_id=$3`, [renderId, ctx.tenantId, ctx.projectId]))[0];
     if (row === undefined || !['queued', 'running'].includes(row.state as string)) return { skipped: true };
@@ -441,17 +441,23 @@ export function createEngine(deps: EngineDeps): ProductionEngine {
       const g = await gate(ctx, 'adapt', await gateInputs(sql, ctx, p.assetRefs(doc)), [...new Set([...(project.sources as string[]), ...(rev.sources as string[])])], profile === 'final');
       if (g.denied.length > 0) { await finishFailed(ctx, row, 'blocked', g.denied.join(' | '), g.decisions); return { state: 'blocked' }; }
       await markRender(renderId, `state='running', started_at=$2, decisions=$3::jsonb`, [ctx.now, J(g.decisions)]);
-      const tools = new Map<string, string>(); const inputs = new Map<string, AssetInput>(); const store = objects();
+      const tools = new Map<string, string>(); const inputs = new Map<string, AssetInput>(); const assetBases = new Map<string, string>(); const store = objects();
       const result = await withWorkdir(config.workRoot, async (dir) => {
         const env: RenderEnv = {
           dir, profile, signal: controller.signal, options: row.options as Doc, title: project.title as string,
           async asset(assetId, version) {
             const a = await loadAsset(sql, ctx, assetId); const v = a.versions.find((x) => x.version === (version ?? a.headVersion));
             if (v === undefined) throw new DomainError('invalid_input', `Asset ${assetId} has no version ${String(version)}`);
+            // A pre-render adapt decision is not authority to materialize or reuse bytes later.
+            // Pin the complete asset basis across all handoffs, including cached files.
+            const basis = assetBases.get(a.id) ?? canonical(a);
+            assetBases.set(a.id, basis);
+            await assetBytePermission(ctx, a.id, v.version, basis);
             const hit = inputs.get(v.ref); if (hit !== undefined) return hit;
             const key = (await sql.query<{ object_key: string }>(`select object_key from ${s}.asset_versions where asset_id=$1 and version=$2`, [a.id, v.version]))[0]?.object_key as string;
             const bytes = await ownedBytes(key, v.size, store);
             invariant(sha256(bytes) === v.sha256, 'integrity_failed', `Stored bytes of asset ${a.name} do not match their recorded digest`);
+            await assetBytePermission(ctx, a.id, v.version, basis);
             const path = join(dir, `asset-${a.id.slice(0, 8)}-v${v.version}-${v.filename}`); await writeFile(path, bytes);
             const head = a.versions[a.versions.length - 1] as AssetVersion;
             const input: AssetInput = { ref: v.ref, assetId: a.id, version: v.version, name: a.name, filename: v.filename, mediaType: v.mediaType, sha256: v.sha256, size: v.size, mediaInfo: v.mediaInfo, rights: head.rights, provenance: v.provenance, sources: v.sources, approval: a.approval, path };

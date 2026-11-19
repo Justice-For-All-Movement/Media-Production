@@ -81,8 +81,10 @@ test('consent gate: deny blocks renders and exports with reasons; decisions are 
     await assert.rejects(engine.getRenderManifest(c, blocked.id), fails('invalid_state'));
     assert.deepEqual(port.calls[0], { subjects: [asset.versions[0]!.ref, PERM, 'E05:evidence_version:ev-ledger@1'], action: 'adapt' });   // every asset and source is asked about
     assert.deepEqual(port.calls[1], { subjects: ['E07:claim:c-ledger@2'], action: 'adapt' });
-    port.deny.clear(); port.review.add(PERM);                                                  // "review": previews may proceed, finals may not
-    assert.equal((await finish(engine, c, await engine.requestRender(c, { productionId: p.id, profile: 'preview' }))).state, 'done');
+    port.deny.clear(); port.review.add(PERM); // Adapt review may queue a preview, but review is not permission to materialize asset bytes.
+    const reviewedPreview = await finish(engine, c, await engine.requestRender(c, { productionId: p.id, profile: 'preview' }));
+    assert.equal(reviewedPreview.state, 'blocked'); assert.deepEqual(reviewedPreview.outputs, []);
+    assert.equal(reviewedPreview.manifestDigest, null);
     assert.match((await engine.requestRender(c, { productionId: p.id })).error!, /needs rights review/);
     port.review.clear();
     const queued = await engine.requestRender(c, { productionId: p.id });
