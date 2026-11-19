@@ -839,7 +839,7 @@
     },
     {
       "id": "worker-source-storage-error-privacy",
-      "status": "accepted PR13; GitHub merge0e1021e7cbb4755ed1b8dec480ab7efb4be61e93 governs staged pending notes",
+      "status": "accepted PR13; historical pending notes superseded",
       "baseCommit": "0b8b20f11532fba4da6af081174bd48c724dada8",
       "documentation": "docs/WORKER_SOURCE_STORAGE_ERRORS.md",
       "remaining": [
@@ -867,6 +867,21 @@
         "failures": 0,
         "cancelled": 0,
         "skips": 0
+      },
+      "sourceCommit": "ce85528586edd27329ce99ebe228ae672da51efa",
+      "mergeCommit": "0e1021e7cbb4755ed1b8dec480ab7efb4be61e93",
+      "finalCi": {
+        "ordinaryJob": 135425299696,
+        "ordinaryTests": 73,
+        "focusedJob": 135425299207,
+        "sourceTests": 45,
+        "normalFreshInstalledTests": 45,
+        "actualE11Source": 1,
+        "actualE11Installed": 1,
+        "headChecks": "4 success",
+        "failures": 0,
+        "cancelled": 0,
+        "skips": 0
       }
     },
     {
@@ -878,15 +893,7 @@
         "baseline/runtime/source-installed/full/current-head CI/review/rules/expected merge",
         "cache content digest/host scope/currenthuman/rights/liveness/sandbox/live qualification remain separate"
       ],
-      "initialBaseline": {
-        "job": 135451270338,
-        "tests": 47,
-        "passes": 45,
-        "failures": 2,
-        "cancelled": 0,
-        "skips": 0,
-        "qualification": "fixture empty SRT before seed control; NOT count bug reproduction; caption correction retains assertions"
-      }
+      "verification": "docs/worker-cache-byte-verification.json"
     }
   ],
   "approvedDesignSha256": {
