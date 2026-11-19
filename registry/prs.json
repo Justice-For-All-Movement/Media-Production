@@ -657,13 +657,23 @@
     },
     {
       "id": "worker-selected-project-basis",
-      "status": "incomplete WIP; baseline/runtime/CI/review pending",
+      "status": "implemented correction; runtime source-installed/current-head CI pending",
       "baseCommit": "53cf94dd0f6286c489bffc3c38e9e98dcc34e70f",
       "documentation": "docs/WORKER_PROJECT_BASIS.md",
       "remaining": [
         "baseline reproduction/runtime/source-installed/current-head CI/review/rules/expected merge",
         "actual current-human/recursive rights/cache/liveness/sandbox/host acceptance; no external permission fence"
-      ]
+      ],
+      "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
+      "baselineJob": 135377185699,
+      "baselineResults": {
+        "tests": 34,
+        "passes": 30,
+        "failures": 4,
+        "cancelled": 0,
+        "skips": 0
+      },
+      "verification": "docs/worker-project-basis-verification.json"
     }
   ],
   "approvedDesignSha256": {

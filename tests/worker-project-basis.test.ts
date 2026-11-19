@@ -35,6 +35,7 @@ for (const mode of ['sources-at-put', 'sources-at-final-host', 'editorial-at-fin
     } });
     const project = await engine.createProject(c, { kind: 'image', title: 'Fictional project continuity', sources: ['E07:claim:fictional-original@1'], doc });
     productionId = project.id;
+    const selectedDoc = (await engine.getRevision(c, productionId, 1)).doc;
     const request = await engine.requestRender(c, { productionId, profile: 'preview' });
     const result = await finish(engine, c, request);
     assert.equal(calls, 2); assert.ok(puts > 0); assert.equal(changed, mode !== 'unchanged');
@@ -47,7 +48,7 @@ for (const mode of ['sources-at-put', 'sources-at-final-host', 'editorial-at-fin
     if (mode !== 'unchanged') {
       assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
       await assert.rejects(engine.getRenderManifest(c, request.id));
-      assert.deepEqual((await engine.getRevision(c, productionId, 1)).doc, doc);
+      assert.deepEqual((await engine.getRevision(c, productionId, 1)).doc, selectedDoc);
       const current = await engine.getProject(c, productionId);
       if (mode.startsWith('sources')) assert.deepEqual(current.sources, [added]);
       if (mode.startsWith('editorial')) assert.equal(current.editorialRef, added);
@@ -55,3 +56,22 @@ for (const mode of ['sources-at-put', 'sources-at-final-host', 'editorial-at-fin
     } else { assert.ok(result.outputs.length > 0); assert.ok(result.manifestDigest); }
   }));
 }
+
+test('worker rejects an oversized complete project basis before source callbacks or storage', needsPg, () => withEngine(async h => {
+  const c = ctx(); let puts = 0;
+  const objects: ObjectStore = { async put(key, bytes) { puts++; return h.objects.put(key, bytes); },
+    get: h.objects.get.bind(h.objects), head: h.objects.head.bind(h.objects), list: h.objects.list.bind(h.objects),
+    delete: async () => { throw Error('worker must not delete retained state'); } };
+  const engine = createEngine({ sql: h.sql, objects, config: { workRoot: h.root }, ports: { useDecisions: h.port } });
+  const project = await engine.createProject(c, { kind: 'image', title: 'Fictional complete-basis budget', sources: ['E07:claim:fictional-original@1'], doc: {
+    title: 'Fictional large metadata', canvas: { width: 320, height: 180, background: '#ffffff' }, export: { formats: ['png'] }, layers: [],
+    generated: [{ group: 'fixture', generator: 'fixture', params: { padding: 'x'.repeat(512 * 1024) } }],
+  } });
+  const request = await engine.requestRender(c, { productionId: project.id, profile: 'preview' });
+  h.port.calls.length = 0;
+  const result = await finish(engine, c, request);
+  assert.equal(result.state, 'blocked'); assert.equal(puts, 0); assert.deepEqual(h.port.calls, []);
+  assert.deepEqual(result.outputs, []); assert.equal(result.manifestDigest, null);
+  assert.equal((await engine.listRevisions(c, project.id)).length, 1);
+  assert.equal((await engine.listRenders(c, { productionId: project.id })).length, 1);
+}));

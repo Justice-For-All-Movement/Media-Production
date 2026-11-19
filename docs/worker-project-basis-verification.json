@@ -1,0 +1,21 @@
+{
+  "status": "implemented; CI pending",
+  "baselineSource": "632026af3903d3773fc1603d836017fa0fb33969",
+  "baselineJob": 135377185699,
+  "baselineResults": {
+    "tests": 34,
+    "passes": 30,
+    "failures": 4,
+    "cancelled": 0,
+    "skips": 0
+  },
+  "local": "prepared typecheck/build/registry only; no localPG/fresh installation/full-suite claim",
+  "limits": "own project-writer lock and complete captured basis only; external authority after checks/while awaiting SQL/currenthuman/recursive rights/cache/liveness/sandbox/host separate; no stopped/nooutput/cleanup/reset/delete/retry proof",
+  "sha256": {
+    "src/engine/index.ts": "2356ab1a06775c73f6244419bb8f5fd799c48d2c480df535e1828fc6e54dc025",
+    "tests/worker-project-basis.test.ts": "51bde9e0e9d6927ee386769d2c1757d424f766f049c5795b258c1ad78e86a5f2",
+    ".github/workflows/ci.yml": "dbce73b4e3c5a4e37195351db31be85e4d6c603158d1382a286a0b5fd0b2e913",
+    "docs/ENGINE_API.md": "48b1543366048a073dd31aced4d114f64d82d92b38d622f01e7bfe24e79b72d5",
+    "docs/WORKER_PROJECT_BASIS.md": "b79444ad27b1e197af8db97e0f75d7611101d8667be85c704aa753448a987f74"
+  }
+}
